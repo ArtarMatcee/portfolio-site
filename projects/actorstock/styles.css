@@ -132,6 +132,7 @@ a { color: inherit; }
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 700;
+  text-transform: uppercase;
   color: var(--as-primary);
   margin: 0;
 }
