@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCV Widget — UX / UI case study</title>
+<meta name="description" content="A design case study of the MCV widget: four iOS and iPadOS home screen widgets — Assignment Reminder, Class Schedule, Announcements and Quick Action — across every widget size, both appearances and their empty states.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="../../assets/css/shell.css">
+<script>document.documentElement.classList.add('pf-js');</script>
+<link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>
+  /* Nothing reveals or switches without JS, so show everything at rest. */
+  .anim, .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .anno__pin { opacity: 1 !important; transform: scale(1) !important; }
+  .story__stage { position: static !important; }
+  .story__views { display: grid !important; grid-auto-flow: row !important; gap: 20px; }
+  .story__view { grid-area: auto !important; opacity: 1 !important; visibility: visible !important; transform: none !important; }
+  .story__step { opacity: 1 !important; }
+  .controls { display: none !important; }
+  .explorer__fallback { display: block !important; }
+</style></noscript>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗓️</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- =============================== 1. HERO =============================== -->
+<!-- ===================== SHARED SITE HEADER ===================== -->
+<header class="pf-header">
+  <div class="pf-header__inner">
+    <a class="pf-brand" href="../../">Artar's Portfolio</a>
+
+    <nav aria-label="Main">
+      <ul class="pf-nav">
+        <li><a href="../../#work" aria-current="page">Work</a></li>
+        <li><a href="../../#about">About</a></li>
+        <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="pf-menubtn" type="button" data-pf-menu-button aria-expanded="false" aria-controls="pf-menu">
+      <span class="pf-menubtn__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+  </div>
+</header>
+
+<div class="pf-menu" id="pf-menu" data-pf-menu hidden>
+  <nav aria-label="Main, mobile">
+    <ul>
+      <li><a href="../../#work" aria-current="page">Work</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ================ LOCAL CASE-STUDY SECTION MENU ================ -->
+<nav class="pf-sectionnav" data-pf-sectionnav aria-label="Sections in this case study">
+  <div class="pf-sectionnav__inner">
+    <a class="pf-sectionnav__back" href="../../#work" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H4M7.5 11.5 4 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="pf-sectionnav__back-label">Back to work</span>
+    </a>
+    <span class="pf-sectionnav__rule" aria-hidden="true"></span>
+    <ul class="pf-sectionnav__list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#showcase">Showcase</a></li>
+        <li><a href="#variants">Variants</a></li>
+        <li><a href="#in-context">In context</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__inner hero--stacked">
+    <div class="hero__copy">
+      <p class="eyebrow anim" data-anim="1">UX / UI case study</p>
+      <h1 class="hero__title anim" data-anim="2">MCV Widget</h1>
+      <p class="lede hero__lede anim" data-anim="3">
+        A set of home screen widgets for <strong>MCV</strong>, drawn against Apple’s widget
+        templates for iPhone and iPad. Four of them — <strong>Assignment Reminder</strong>,
+        <strong>Class Schedule</strong>, <strong>Announcements</strong> and
+        <strong>Quick Action</strong> — put what a student needs right now on the home screen,
+        so the answer is already there before MCV is opened.
+      </p>
+      <div class="hero__actions anim" data-anim="4">
+        <a class="btn btn--primary" href="#overview">
+          Explore the design
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="https://www.figma.com/design/xYBYIZT9zgsz46PiQN07CM/MCV-widget?node-id=119-4178" target="_blank" rel="noopener">
+          View Figma design
+        </a>
+      </div>
+    </div>
+
+    <figure class="hero__shot anim" data-anim="3">
+      <div class="ipad ipad--hero">
+        <div class="ipad__screen">
+          <div class="ipad__bar" aria-hidden="true">
+            <span>Mon 25 Mar<b>9:41</b></span>
+            <span>
+              <svg viewBox="0 0 20 14" aria-hidden="true"><path d="M10 12.4 7.6 9.9a3.4 3.4 0 0 1 4.8 0zM5.4 7.7 3.6 5.9a9.1 9.1 0 0 1 12.8 0l-1.8 1.8a6.5 6.5 0 0 0-9.2 0zM1.4 3.7 0 2.3a14.1 14.1 0 0 1 20 0l-1.4 1.4a12.1 12.1 0 0 0-17.2 0z"/></svg>
+              <svg viewBox="0 0 28 14" aria-hidden="true"><rect x=".6" y=".6" width="23" height="12.8" rx="4" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2"/><rect x="2.6" y="2.6" width="16" height="8.8" rx="2.4"/><path d="M25.4 4.6v4.8a2.6 2.6 0 0 0 0-4.8z" opacity=".55"/></svg>
+            </span>
+          </div>
+
+          <div class="ipad__home">
+            <!-- tiles are placed at their real share of a 1194 x 834 pt screen -->
+            <div class="ipad__tile" style="left:9.8%;top:14.4%;width:52.6%"
+                 data-caption="Assignment Reminder · Extra Large · iPad · dark">
+              <div class="widget">
+                <img src="assets/img/ar-ipad-xl-dark-1256.webp"
+                     srcset="assets/img/ar-ipad-xl-dark-628.webp 628w, assets/img/ar-ipad-xl-dark-1256.webp 1256w, assets/img/ar-ipad-xl-dark.webp 1884w"
+                     sizes="(max-width: 899px) 52vw, 540px"
+                     width="1256" height="600" fetchpriority="high"
+                     alt="Assignment Reminder at Extra Large on the home screen: a “This Week / Assignments” heading, a ring gauge reading 5, and two columns of days — Monday 25 Mar, Tuesday 26 Mar, Wednesday 27 Mar — each listing assignments with their course underneath and a deadline time in amber.">
+              </div>
+              <p class="ipad__label">MCV</p>
+            </div>
+
+            <div class="ipad__tile" style="left:65.1%;top:14.4%;width:25.1%"
+                 data-caption="Class Schedule · Large · iPad · dark">
+              <div class="widget">
+                <img src="assets/img/cs-ipad-large-dark.webp"
+                     sizes="(max-width: 899px) 25vw, 260px"
+                     width="600" height="600" fetchpriority="high"
+                     alt="Class Schedule at Large on the home screen: “Next class 11:00” over an 11:00–12:30 block, then an “Up next” list of four more classes with their rooms and times.">
+              </div>
+              <p class="ipad__label">MCV</p>
+            </div>
+
+            <div class="ipad__tile" style="left:9.8%;top:62%;width:25.1%"
+                 data-caption="Announcements · Medium · iPad · dark">
+              <div class="widget">
+                <img src="assets/img/an-ipad-medium-dark.webp"
+                     sizes="(max-width: 899px) 25vw, 260px"
+                     width="600" height="272" loading="lazy" decoding="async"
+                     alt="Announcements at Medium on the home screen: a “Lastest Announcements” heading and three posts, each with its course underneath and a date in amber.">
+              </div>
+              <p class="ipad__label">MCV</p>
+            </div>
+
+            <div class="ipad__tile" style="left:37.6%;top:62%;width:25.1%"
+                 data-caption="Quick Action · Medium · version 1 · dark">
+              <div class="widget">
+                <img src="assets/img/qa-iphone-v1-dark.webp"
+                     sizes="(max-width: 899px) 25vw, 260px"
+                     width="676" height="316" loading="lazy" decoding="async"
+                     alt="Quick Action at Medium on the home screen: four tiles labelled Notifications, Assignments, My courses and To do list.">
+              </div>
+              <p class="ipad__label">MCV</p>
+            </div>
+          </div>
+
+          <div class="ipad__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <figcaption class="hero__caption">
+        All four widgets on one iPad home screen, at their real sizes — Extra Large is
+        628&nbsp;×&nbsp;300&nbsp;pt, a little over half the width of an 11-inch iPad in landscape.
+        <span class="hero__caption-aside">Each widget is the Figma export; the iPad, its
+        wallpaper and the <em>MCV</em> labels were built for this page.</span>
+      </figcaption>
+
+
+      <p style="text-align:center">
+        <button type="button" class="zoom-hint"
+                data-zoom="assets/img/ar-ipad-xl-dark.webp"
+                data-zoom-alt="The Assignment Reminder widget at Extra Large on iPad, enlarged."
+                data-zoom-caption="Assignment Reminder · Extra Large · iPad · dark — 628 × 300 pt">
+          Enlarge the widget
+        </button>
+      </p>
+    </figure>
+
+    <dl class="hero__meta anim" data-anim="5">
+      <div><dt>Surface</dt><dd>iOS and iPadOS home screen, plus the lock screen</dd></div>
+      <div><dt>Widgets</dt><dd>Four, each drawn in dark and light</dd></div>
+      <div><dt>Sizes</dt><dd>Small, Medium, Large, Extra&nbsp;Large</dd></div>
+    </dl>
+  </div>
+
+  <div class="wrap">
+    <p class="hero__note anim" data-anim="6">
+      Every course name, date, time and count in these screens is sample content from the Figma
+      file. This page is a presentation of the design — none of it is wired to live data.
+    </p>
+  </div>
+</header>
+
+<!-- =============================== SUB NAV =============================== -->
+<main id="main">
+
+<!-- ============================ 2. OVERVIEW ============================= -->
+<section class="band band--light" id="overview">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Design overview</p>
+      <h2>Personal, informational, contextual</h2>
+      <p class="lede">
+        The file opens with three words a widget has to earn before it takes space on a home
+        screen. Everything that follows is measured against them: the widget shows this
+        student’s own work, it answers rather than asks, and what it shows depends on the
+        moment it is looked at.
+      </p>
+    </div>
+
+    <ul class="pillars">
+      <li class="pillar reveal">
+        <span class="pillar__tag">Personal</span>
+        <h3>This student’s week</h3>
+        <p>Named courses, real deadlines, the room the next class is in — not a shared feed.</p>
+      </li>
+      <li class="pillar reveal" data-delay="1">
+        <span class="pillar__tag">Informational</span>
+        <h3>An answer, at a glance</h3>
+        <p>A row is a title, a course and a time. Nothing has to be tapped to be read.</p>
+      </li>
+      <li class="pillar reveal" data-delay="2">
+        <span class="pillar__tag">Contextual</span>
+        <h3>True right now</h3>
+        <p>Today’s deadlines, the next class, the newest announcement — and when there is
+           nothing left, the widget says so.</p>
+      </li>
+    </ul>
+
+    <div class="sec-head reveal" style="margin-top:96px">
+      <h2>Why each widget exists</h2>
+      <p class="lede">
+        The file records three problems with reaching MCV through the web, and what the widget
+        does about each one.
+      </p>
+    </div>
+
+    <ol class="pillars">
+      <li class="pillar reveal">
+        <span class="pillar__tag">Problem 01</span>
+        <h3>Reminders that will not clear</h3>
+        <p>On the web, work due inside seven days stays on the reminder list — it only goes
+           away once submit is pressed.</p>
+        <p style="margin-top:12px"><strong>In the widget:</strong> assignments are ordered
+           by the nearest deadline and counted, so the day is easier to plan. Hand one in and
+           it leaves the widget — clearing something off a list is meant to feel good.</p>
+      </li>
+      <li class="pillar reveal" data-delay="1">
+        <span class="pillar__tag">Problem 02</span>
+        <h3>Announcements that go unseen</h3>
+        <p>Important notices get missed — a cancelled class, for instance.</p>
+        <p style="margin-top:12px"><strong>In the widget:</strong> announcements sit where
+           they are read the moment the phone is picked up, without opening the web.</p>
+      </li>
+      <li class="pillar reveal" data-delay="2">
+        <span class="pillar__tag">Problem 03</span>
+        <h3>Features buried behind a login</h3>
+        <p>Reaching a feature means opening the web and signing in, and some of them sit
+           several screens deep.</p>
+        <p style="margin-top:12px"><strong>In the widget:</strong> the destinations that get
+           used most are on the home screen, one tap from anywhere.</p>
+      </li>
+    </ol>
+
+    <div class="sec-head reveal" style="margin-top:96px;margin-bottom:0">
+      <h2>The four widgets</h2>
+    </div>
+
+    <ul class="roster">
+      <li class="roster__item reveal">
+        <div class="roster__shot">
+          <div class="widget">
+            <img src="assets/img/ar-ipad-medium-dark.webp" width="600" height="272" loading="lazy" decoding="async"
+                 alt="Assignment Reminder at Medium on iPad: “Mon 25, Due”, a ring gauge reading 3, and three assignments with course names and times.">
+          </div>
+        </div>
+        <h3>Assignment Reminder</h3>
+        <p>Work still to hand in, nearest deadline first, with a ring that reads how much of
+           the day is already cleared.</p>
+        <p class="roster__meta">Small · Medium · Large on both devices — plus Extra Large on iPad</p>
+      </li>
+      <li class="roster__item reveal" data-delay="1">
+        <div class="roster__shot">
+          <div class="widget">
+            <img src="assets/img/cs-ipad-medium-dark.webp" width="600" height="272" loading="lazy" decoding="async"
+                 alt="Class Schedule at Medium on iPad: “Next class 11:00” with an 11:00–12:30 block, and an “Up next” list of three more classes with rooms and times.">
+          </div>
+        </div>
+        <h3>Class Schedule</h3>
+        <p>The next class with its start and end time, its course and its room — then the
+           rest of the day.</p>
+        <p class="roster__meta">Small · Medium · Large on both devices — plus Extra Large on iPad</p>
+      </li>
+      <li class="roster__item reveal" data-delay="2">
+        <div class="roster__shot">
+          <div class="widget">
+            <img src="assets/img/an-ipad-medium-dark.webp" width="600" height="272" loading="lazy" decoding="async"
+                 alt="Announcements at Medium on iPad: a “Lastest Announcements” heading and three posts, each with a course name underneath and a date in amber.">
+          </div>
+        </div>
+        <h3>Announcements</h3>
+        <p>The newest posts, each with its course, its subject and the day it went up.</p>
+        <p class="roster__meta">Small · Medium · Large on both devices — plus Extra Large on iPad</p>
+      </li>
+      <li class="roster__item reveal" data-delay="3">
+        <div class="roster__shot">
+          <div class="widget">
+            <img src="assets/img/qa-iphone-v1-dark.webp" width="676" height="316" loading="lazy" decoding="async"
+                 alt="Quick Action at Medium: four tiles labelled Notifications, Assignments, My courses and To do list, two of them filled blue and two outlined.">
+          </div>
+        </div>
+        <h3>Quick Action</h3>
+        <p>Four destinations that get used most — Notifications, Assignments, My courses and
+           To do list — straight from the home screen.</p>
+        <p class="roster__meta">Medium only, in two versions</p>
+      </li>
+    </ul>
+
+    <div class="system">
+      <dl class="spec reveal">
+        <dt>Typeface</dt>
+        <dd>SF Compact Rounded, for both the English and the Thai text.</dd>
+        <dt>Icons</dt>
+        <dd>Apple SF Symbols throughout — <code>calendar</code>, <code>calendar.badge.clock</code>,
+            <code>megaphone.fill</code>, <code>bell.fill</code>, <code>book.pages.fill</code>,
+            <code>graduationcap.fill</code>, <code>checklist</code>, <code>studentdesk</code>,
+            <code>clock.fill</code>, <code>doc.text.magnifyingglass</code> — chosen so they can
+            be animated.</dd>
+      </dl>
+      <dl class="spec reveal" data-delay="1">
+        <dt>Surface</dt>
+        <dd>A navy gradient in dark, plain white in light. Small uses its own gradient;
+            Medium, Large and Extra Large share a second one.</dd>
+        <dd class="swatches" style="margin-top:14px">
+          <span class="swatch"><i style="background:linear-gradient(180deg,#0f172a 0%,#071d5a 79.19%);border-color:transparent"></i>Dark</span>
+          <span class="swatch"><i style="background:#fff"></i>Light</span>
+          <span class="swatch"><i style="background:#1b9afb;border-color:transparent"></i>#1B9AFB</span>
+          <span class="swatch"><i style="background:#ffa70f;border-color:transparent"></i>#FFA70F</span>
+          <span class="swatch"><i style="background:#94a3b8;border-color:transparent"></i>#94A3B8</span>
+        </dd>
+      </dl>
+      <dl class="spec reveal" data-delay="2">
+        <dt>Sizes drawn</dt>
+        <dd>
+          <span class="sizes">
+            <span style="width:34px;height:34px">S</span>
+            <span style="width:75px;height:34px">M</span>
+            <span style="width:75px;height:75px">L</span>
+            <span style="width:157px;height:75px">XL</span>
+          </span>
+        </dd>
+        <dt>Point sizes</dt>
+        <dd>iPad 136 · 300&nbsp;×&nbsp;136 · 300 · 628&nbsp;×&nbsp;300.
+            iPhone 158 · 338&nbsp;×&nbsp;158 · 338&nbsp;×&nbsp;354.
+            Every one keeps Apple’s 21&nbsp;pt corner radius.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== 3. SHOWCASE ============================== -->
+<section class="band band--dark" id="showcase">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Main design showcase</p>
+      <h2>Three widgets, close up</h2>
+      <p class="lede">
+        The three information widgets, each at Extra Large on iPad — the size with the most
+        room and the most decisions in it. Numbered pins mark the element each note is about.
+      </p>
+    </div>
+
+    <!-- ---------------------- 3.1 Assignment Reminder -------------------- -->
+    <article class="story" id="assignment-reminder">
+      <header class="story__head reveal">
+        <p class="eyebrow">01 — Assignment Reminder</p>
+        <h3>Everything still to hand in, ordered by how soon it is due</h3>
+        <p>
+          At Small and Medium the widget is today’s list. At Large and Extra Large it opens
+          out into the whole week, Monday to Sunday, and each row becomes its own tap target.
+        </p>
+      </header>
+
+      <div class="story__body">
+        <div class="story__stage">
+          <div class="story__views">
+            <div class="story__view is-current">
+              <div class="anno">
+                <div class="widget">
+                  <img src="assets/img/ar-ipad-xl-dark-1256.webp"
+                       srcset="assets/img/ar-ipad-xl-dark-628.webp 628w, assets/img/ar-ipad-xl-dark-1256.webp 1256w"
+                       sizes="min(628px, 46vw)" width="1256" height="600" loading="lazy" decoding="async"
+                       alt="Assignment Reminder at Extra Large on iPad, dark.">
+                </div>
+                <span class="anno__pin" data-pin="1" data-stem="left" style="left:32%;top:15%">1</span>
+                <span class="anno__pin" data-pin="2" data-stem="right" style="left:42%;top:8%">2</span>
+                <span class="anno__pin" data-pin="3" data-stem="left" style="left:28%;top:29%">3</span>
+                <span class="anno__pin" data-pin="4" data-stem="left" style="left:74%;top:8%">4</span>
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-ar-gauge-644.webp" srcset="assets/img/d-ar-gauge-644.webp 644w, assets/img/d-ar-gauge.webp 966w"
+                     sizes="min(560px, 46vw)" width="966" height="210" loading="lazy" decoding="async"
+                     alt="Detail: the “This Week / Assignments” heading beside a blue ring gauge reading 5.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-ar-day-648.webp" srcset="assets/img/d-ar-day-648.webp 648w, assets/img/d-ar-day.webp 972w"
+                     sizes="min(560px, 46vw)" width="972" height="384" loading="lazy" decoding="async"
+                     alt="Detail: a day header reading “Monday, 25 Mar” above three assignment rows separated by hairlines, each with its course beneath and a deadline time in amber.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-ar-column-580.webp" srcset="assets/img/d-ar-column-580.webp 580w, assets/img/d-ar-column.webp 870w"
+                     sizes="min(440px, 40vw)" width="870" height="576" loading="lazy" decoding="async"
+                     alt="Detail: the second column of the Extra Large widget, carrying Tuesday 26 Mar and Wednesday 27 Mar.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-ar-empty-680.webp" srcset="assets/img/d-ar-empty-680.webp 680w, assets/img/d-ar-empty.webp 1020w"
+                     sizes="min(560px, 46vw)" width="1020" height="330" loading="lazy" decoding="async"
+                     alt="Detail: the empty state — a document icon above the words “Nothing due today” and “Go touch some grass”.">
+              </div>
+            </div>
+          </div>
+          <figcaption data-stage-caption></figcaption>
+          <p style="text-align:center">
+            <button type="button" class="zoom-hint"
+                    data-zoom="assets/img/ar-ipad-xl-dark.webp"
+                    data-zoom-alt="Assignment Reminder at Extra Large on iPad, dark, enlarged."
+                    data-zoom-caption="Assignment Reminder · Extra Large · iPad · dark — 628 × 300 pt">
+              Enlarge the widget
+            </button>
+          </p>
+        </div>
+
+        <ol class="story__steps">
+          <li class="story__step reveal" data-view="0" data-marker="1"
+              data-caption="Assignment Reminder · Extra Large · iPad · dark">
+            <h4><span class="story__num">1</span> The week, not the day</h4>
+            <p>
+              Small and Medium are headed with the date and the word <em>Due</em>. From Large
+              up the heading changes to <strong>This Week / Assignments</strong>, and the
+              content changes with it: Monday to Sunday instead of today only. Tapping a row
+              opens that assignment; on the smaller sizes, tapping the widget opens
+              All&nbsp;Assignments.
+            </p>
+            <figure class="step-aside">
+              <div class="plate">
+                <img src="assets/img/d-ar-small.webp" width="360" height="198" loading="lazy" decoding="async"
+                     alt="Detail from the Small widget: “Mon 25” with the word “Due” and a clock glyph beneath it, a ring gauge reading 3, and the first assignment — OO Design, 12:00.">
+              </div>
+              <figcaption>Small — the date, the word <em>Due</em>, and the same gauge.</figcaption>
+            </figure>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/ar-ipad-xl-dark-628.webp" width="628" height="300" loading="lazy" decoding="async"
+                     alt="Assignment Reminder at Extra Large on iPad, dark.">
+              </div>
+              <figcaption>Extra Large · iPad · dark</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="1" data-marker="2"
+              data-caption="The count sits in a ring, not in a label">
+            <h4><span class="story__num">2</span> A gauge instead of a number</h4>
+            <p>
+              The count of work still outstanding sits inside a ring. The ring is filled to
+              the ratio between everything due and what is left, so how much has already been
+              handed in can be read without a second label ever being written.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-ar-gauge-644.webp" width="644" height="140" loading="lazy" decoding="async"
+                     alt="Detail: the “This Week / Assignments” heading beside a blue ring gauge reading 5.">
+              </div>
+              <figcaption>Heading and gauge</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="2" data-marker="3"
+              data-caption="Day header, then rows ordered by deadline">
+            <h4><span class="story__num">3</span> Sorted by the next deadline</h4>
+            <p>
+              Days are headed with an SF&nbsp;Symbols calendar glyph and an amber weekday.
+              Inside a day, rows run earliest deadline first — so with one assignment due at
+              12:00 and another at 23:59, the noon one sits on top. Each row is the title,
+              the course underneath in slate, and the deadline in amber.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-ar-day-648.webp" width="648" height="256" loading="lazy" decoding="async"
+                     alt="Detail: a day header reading “Monday, 25 Mar” above three assignment rows.">
+              </div>
+              <figcaption>One day, three rows</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="3" data-marker="4"
+              data-caption="Extra Large spends its width on a second column">
+            <h4><span class="story__num">4</span> Two columns, one week</h4>
+            <p>
+              Extra Large is twice as wide as Large but no taller. Rather than stretch the
+              rows, the week is split: the first day runs down the left, the next days pick
+              up in a second column. Large fits five assignments across two days; Extra Large
+              fits ten across three, and nothing shrank to do it.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-ar-column-580.webp" width="580" height="384" loading="lazy" decoding="async"
+                     alt="Detail: the second column carrying Tuesday 26 Mar and Wednesday 27 Mar.">
+              </div>
+              <figcaption>The second column</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="4"
+              data-caption="Empty state — “Nothing due today”">
+            <h4><span class="story__num">5</span> Nothing due today</h4>
+            <p>
+              Hand the last thing in and the list does not sit empty — the widget swaps to a
+              state of its own: an icon, <strong>“Nothing due today”</strong>, and the line
+              <strong>“Go touch some grass”</strong>. Every size has one, in both appearances.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-ar-empty-680.webp" width="680" height="220" loading="lazy" decoding="async"
+                     alt="Detail: the empty state — “Nothing due today” and “Go touch some grass”.">
+              </div>
+              <figcaption>Empty state</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ------------------------ 3.2 Class Schedule ----------------------- -->
+    <article class="story" id="class-schedule">
+      <header class="story__head reveal">
+        <p class="eyebrow">02 — Class Schedule</p>
+        <h3>Where to be next, and how long there is until then</h3>
+        <p>
+          The small sizes answer one question — what is next, when does it start and finish,
+          which room. Extra Large answers a different one: what does the next three days
+          actually look like.
+        </p>
+      </header>
+
+      <div class="story__body">
+        <div class="story__stage">
+          <div class="story__views">
+            <div class="story__view is-current">
+              <div class="anno">
+                <div class="widget">
+                  <img src="assets/img/cs-ipad-xl-dark-1256.webp"
+                       srcset="assets/img/cs-ipad-xl-dark-628.webp 628w, assets/img/cs-ipad-xl-dark-1256.webp 1256w"
+                       sizes="min(628px, 46vw)" width="1256" height="600" loading="lazy" decoding="async"
+                       alt="Class Schedule at Extra Large on iPad, dark: a “Class Schedule” heading and three day columns — today across a double hour rail, then Tuesday and Wednesday — with class blocks placed against the hours.">
+                </div>
+                <span class="anno__pin" data-pin="1" data-stem="left" style="left:24%;top:12%">1</span>
+                <span class="anno__pin" data-pin="2" data-stem="left" style="left:9%;top:27%">2</span>
+                <span class="anno__pin" data-pin="3" data-stem="none" style="left:23%;top:49%">3</span>
+                <span class="anno__pin" data-pin="4" data-stem="left" style="left:67%;top:8%">4</span>
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-cs-rail-596.webp" srcset="assets/img/d-cs-rail-596.webp 596w, assets/img/d-cs-rail.webp 894w"
+                     sizes="min(440px, 40vw)" width="894" height="852" loading="lazy" decoding="async"
+                     alt="Detail: the first day of the Extra Large widget — the “Class Schedule” heading over two hour columns running 00 to 14, with two class blocks sitting between 02 and 04.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-cs-day-628.webp" srcset="assets/img/d-cs-day-628.webp 628w, assets/img/d-cs-day.webp 942w"
+                     sizes="min(440px, 40vw)" width="942" height="852" loading="lazy" decoding="async"
+                     alt="Detail: the Tuesday and Wednesday columns, each an hour rail from 09 to 16 with class blocks whose height matches their length.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/cs-ipad-medium-dark.webp" width="600" height="272" loading="lazy" decoding="async"
+                     alt="Class Schedule at Medium on iPad: “Next class 11:00” with an 11:00–12:30 block, and an “Up next” list of three classes.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-cs-empty-680.webp" srcset="assets/img/d-cs-empty-680.webp 680w, assets/img/d-cs-empty.webp 1020w"
+                     sizes="min(560px, 46vw)" width="1020" height="330" loading="lazy" decoding="async"
+                     alt="Detail: the empty state — a desk icon above “No more classes today” and “Remember to pace yourself”.">
+              </div>
+            </div>
+          </div>
+          <figcaption data-stage-caption></figcaption>
+          <p style="text-align:center">
+            <button type="button" class="zoom-hint"
+                    data-zoom="assets/img/cs-ipad-xl-dark.webp"
+                    data-zoom-alt="Class Schedule at Extra Large on iPad, dark, enlarged."
+                    data-zoom-caption="Class Schedule · Extra Large · iPad · dark — 628 × 300 pt">
+              Enlarge the widget
+            </button>
+          </p>
+        </div>
+
+        <ol class="story__steps">
+          <li class="story__step reveal" data-view="0" data-marker="1 4"
+              data-caption="Class Schedule · Extra Large · iPad · dark">
+            <h4><span class="story__num">1</span> Three days at a glance</h4>
+            <p>
+              Extra Large is the only size that leaves the list behind. It is headed simply
+              <strong>Class Schedule</strong> under a <code>calendar.badge.clock</code> glyph,
+              and gives the next three days a column each.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/cs-ipad-xl-dark-628.webp" width="628" height="300" loading="lazy" decoding="async"
+                     alt="Class Schedule at Extra Large on iPad, dark.">
+              </div>
+              <figcaption>Extra Large · iPad · dark</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="1" data-marker="2"
+              data-caption="The current day gets a double rail, 00 through 14">
+            <h4><span class="story__num">2</span> An hour rail, not a list</h4>
+            <p>
+              Each day is an hour scale with a hairline per hour, and classes are blocks
+              placed against it. The current day is given two rails side by side
+              so its whole day fits,
+              which also makes it the widest column — the one the eye lands on first.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-cs-rail-596.webp" width="596" height="568" loading="lazy" decoding="async"
+                     alt="Detail: today’s double hour rail with two class blocks.">
+              </div>
+              <figcaption>The current day, across two rails</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="2" data-marker="3"
+              data-caption="Tuesday and Wednesday, 09 to 16">
+            <h4><span class="story__num">3</span> Length you can see</h4>
+            <p>
+              A block is as tall as the class is long and carries a coloured bar down its left
+              edge, so a two-hour class and a one-hour class are told apart before either
+              label is read. Gaps in the day read as gaps.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-cs-day-628.webp" width="628" height="568" loading="lazy" decoding="async"
+                     alt="Detail: the Tuesday and Wednesday hour rails with class blocks.">
+              </div>
+              <figcaption>The two following days</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="3"
+              data-caption="Smaller sizes lead with the next class">
+            <h4><span class="story__num">4</span> Next class first</h4>
+            <p>
+              Small, Medium and Large keep the list. They lead with
+              <strong>Next class</strong> and its start time set large, then the block itself —
+              11:00–12:30, the course, the room — and Medium and Large add
+              <strong>Up next</strong> underneath for the rest of the day. Tapping opens that
+              course in MCV.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/cs-ipad-medium-dark.webp" width="600" height="272" loading="lazy" decoding="async"
+                     alt="Class Schedule at Medium on iPad.">
+              </div>
+              <figcaption>Medium · iPad · dark</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="4"
+              data-caption="Empty state — “No more classes today”">
+            <h4><span class="story__num">5</span> No more classes today</h4>
+            <p>
+              The day runs out and the widget swaps to <strong>“No more classes today”</strong>
+              with the line <strong>“Remember to pace yourself”</strong>, under a
+              <code>studentdesk</code> glyph.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-cs-empty-680.webp" width="680" height="220" loading="lazy" decoding="async"
+                     alt="Detail: the empty state — “No more classes today”.">
+              </div>
+              <figcaption>Empty state</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ------------------------- 3.3 Announcements ----------------------- -->
+    <article class="story" id="announcements">
+      <header class="story__head reveal">
+        <p class="eyebrow">03 — Announcements</p>
+        <h3>The newest post, then as many more as the size allows</h3>
+        <p>
+          One layout, scaled by how much room there is: the latest announcement on Small, and
+          fourteen of them on Extra Large — with the newest always at the top.
+        </p>
+      </header>
+
+      <div class="story__body">
+        <div class="story__stage">
+          <div class="story__views">
+            <div class="story__view is-current">
+              <div class="anno">
+                <div class="widget">
+                  <img src="assets/img/an-ipad-xl-dark-1256.webp"
+                       srcset="assets/img/an-ipad-xl-dark-628.webp 628w, assets/img/an-ipad-xl-dark-1256.webp 1256w"
+                       sizes="min(628px, 46vw)" width="1256" height="600" loading="lazy" decoding="async"
+                       alt="Announcements at Extra Large on iPad, dark: a “Lastest Announcements” heading, one lead post set larger, and two columns of further posts each with a course name and a date.">
+                </div>
+                <span class="anno__pin" data-pin="1" data-stem="left" style="left:45%;top:13%">1</span>
+                <span class="anno__pin" data-pin="2" data-stem="left" style="left:30%;top:30%">2</span>
+                <span class="anno__pin" data-pin="3" data-stem="left" style="left:17%;top:72%">3</span>
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-an-lead-624.webp" srcset="assets/img/d-an-lead-624.webp 624w, assets/img/d-an-lead.webp 936w"
+                     sizes="min(560px, 46vw)" width="936" height="312" loading="lazy" decoding="async"
+                     alt="Detail: the megaphone glyph, the “Lastest Announcements” heading, and the lead post with its course underneath and a date in amber.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-an-list-608.webp" srcset="assets/img/d-an-list-608.webp 608w, assets/img/d-an-list.webp 912w"
+                     sizes="min(440px, 40vw)" width="912" height="852" loading="lazy" decoding="async"
+                     alt="Detail: eight announcement rows stacked with hairlines between them, each a subject, a course and a date.">
+              </div>
+            </div>
+            <div class="story__view">
+              <div class="plate">
+                <img src="assets/img/d-an-empty-680.webp" srcset="assets/img/d-an-empty-680.webp 680w, assets/img/d-an-empty.webp 1020w"
+                     sizes="min(560px, 46vw)" width="1020" height="330" loading="lazy" decoding="async"
+                     alt="Detail: the empty state — a megaphone icon above “No more announcements” and “Cherish your downtime”.">
+              </div>
+            </div>
+          </div>
+          <figcaption data-stage-caption></figcaption>
+          <p style="text-align:center">
+            <button type="button" class="zoom-hint"
+                    data-zoom="assets/img/an-ipad-xl-dark.webp"
+                    data-zoom-alt="Announcements at Extra Large on iPad, dark, enlarged."
+                    data-zoom-caption="Announcements · Extra Large · iPad · dark — 628 × 300 pt">
+              Enlarge the widget
+            </button>
+          </p>
+        </div>
+
+        <ol class="story__steps">
+          <li class="story__step reveal" data-view="0" data-marker="1"
+              data-caption="Announcements · Extra Large · iPad · dark">
+            <h4><span class="story__num">1</span> One heading, one megaphone</h4>
+            <p>
+              Every size carries the same heading — a <code>megaphone.fill</code> glyph, the
+              small word above, and <strong>Announcements</strong> set in blue beneath it. It
+              is the one fixed thing across seven different layouts.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/an-ipad-xl-dark-628.webp" width="628" height="300" loading="lazy" decoding="async"
+                     alt="Announcements at Extra Large on iPad, dark.">
+              </div>
+              <figcaption>Extra Large · iPad · dark</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="1" data-marker="2"
+              data-caption="Subject, course, date — in that order">
+            <h4><span class="story__num">2</span> One post, three facts</h4>
+            <p>
+              A post is its subject in white, the course it came from in slate underneath, and
+              the date it went up in amber on the right. The newest one is set a size larger
+              and given the width of the heading, so it reads as the lead rather than as row&nbsp;one.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-an-lead-624.webp" width="624" height="208" loading="lazy" decoding="async"
+                     alt="Detail: the heading and the lead post.">
+              </div>
+              <figcaption>Heading and lead post</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="2" data-marker="3"
+              data-caption="Density is the only thing that changes with size">
+            <h4><span class="story__num">3</span> Density is the variable</h4>
+            <p>
+              Nothing about a row changes between sizes — only how many fit. Small shows the
+              latest one; iPad Medium three, Large six, Extra Large fourteen; iPhone Medium
+              four and Large seven. Each row is its own tap target and opens that announcement
+              in MCV.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-an-list-608.webp" width="608" height="568" loading="lazy" decoding="async"
+                     alt="Detail: eight announcement rows stacked.">
+              </div>
+              <figcaption>The list at Extra Large</figcaption>
+            </figure>
+          </li>
+
+          <li class="story__step reveal" data-view="3"
+              data-caption="Empty state — “No more announcements”">
+            <h4><span class="story__num">4</span> No more announcements</h4>
+            <p>
+              Read them all and the widget says so: <strong>“No more announcements”</strong>,
+              with the line <strong>“Cherish your downtime”</strong>. All three information
+              widgets end the same way — a quiet line rather than a blank card.
+            </p>
+            <figure class="story__inline">
+              <div class="plate">
+                <img src="assets/img/d-an-empty-680.webp" width="680" height="220" loading="lazy" decoding="async"
+                     alt="Detail: the empty state — “No more announcements”.">
+              </div>
+              <figcaption>Empty state</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ----------------------- 3.4 the three empty states ---------------- -->
+    <div class="sec-head reveal" style="margin-top:110px;margin-bottom:28px">
+      <h2>Three ways of saying “you are done”</h2>
+      <p class="lede">
+        An empty widget is still a widget. Each one pairs a line of fact with a line of
+        encouragement, under the same glyph it uses when it has something to show.
+      </p>
+    </div>
+    <div class="strip">
+      <figure class="detail reveal">
+        <button type="button" class="detail__shot"
+                data-zoom="assets/img/d-ar-empty.webp"
+                data-zoom-alt="Assignment Reminder empty state, enlarged."
+                data-zoom-caption="Assignment Reminder · empty state">
+          <img src="assets/img/d-ar-empty-680.webp" width="680" height="220" loading="lazy" decoding="async"
+               alt="Assignment Reminder empty state: “Nothing due today” and “Go touch some grass”.">
+        </button>
+        <figcaption><b>Assignment Reminder</b>“Nothing due today” · “Go touch some grass”</figcaption>
+      </figure>
+      <figure class="detail reveal" data-delay="1">
+        <button type="button" class="detail__shot"
+                data-zoom="assets/img/d-cs-empty.webp"
+                data-zoom-alt="Class Schedule empty state, enlarged."
+                data-zoom-caption="Class Schedule · empty state">
+          <img src="assets/img/d-cs-empty-680.webp" width="680" height="220" loading="lazy" decoding="async"
+               alt="Class Schedule empty state: “No more classes today” and “Remember to pace yourself”.">
+        </button>
+        <figcaption><b>Class Schedule</b>“No more classes today” · “Remember to pace yourself”</figcaption>
+      </figure>
+      <figure class="detail reveal" data-delay="2">
+        <button type="button" class="detail__shot"
+                data-zoom="assets/img/d-an-empty.webp"
+                data-zoom-alt="Announcements empty state, enlarged."
+                data-zoom-caption="Announcements · empty state">
+          <img src="assets/img/d-an-empty-680.webp" width="680" height="220" loading="lazy" decoding="async"
+               alt="Announcements empty state: “No more announcements” and “Cherish your downtime”.">
+        </button>
+        <figcaption><b>Announcements</b>“No more announcements” · “Cherish your downtime”</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== 4. VARIANTS ============================== -->
+<section class="band band--tint" id="variants">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Variants and states</p>
+      <h2>Every size, both appearances, both states</h2>
+      <p class="lede">
+        Each widget is drawn at every size its device supports, in dark and light, with
+        content and without. Switch between them — each one is the export from the frame it
+        was drawn in, at its true proportions.
+      </p>
+    </div>
+
+    <div class="explorer reveal" data-explorer data-mode="dark">
+      <div class="controls">
+        <div class="ctl">
+          <span class="ctl__label" id="ctl-widget">Widget</span>
+          <div class="segs" role="group" aria-labelledby="ctl-widget" data-group="widget">
+            <button type="button" class="seg" data-value="ar" aria-pressed="true">Assignment Reminder</button>
+            <button type="button" class="seg" data-value="cs" aria-pressed="false">Class Schedule</button>
+            <button type="button" class="seg" data-value="an" aria-pressed="false">Announcements</button>
+            <button type="button" class="seg" data-value="qa" aria-pressed="false">Quick Action</button>
+          </div>
+        </div>
+        <div class="ctl" data-row="device">
+          <span class="ctl__label" id="ctl-device">Device</span>
+          <div class="segs" role="group" aria-labelledby="ctl-device" data-group="device"></div>
+        </div>
+        <div class="ctl">
+          <span class="ctl__label" id="ctl-size">Size</span>
+          <div class="segs" role="group" aria-labelledby="ctl-size" data-group="size"></div>
+        </div>
+        <div class="ctl">
+          <span class="ctl__label" id="ctl-state">State</span>
+          <div class="segs" role="group" aria-labelledby="ctl-state" data-group="state"></div>
+        </div>
+        <div class="ctl">
+          <span class="ctl__label" id="ctl-mode">Appearance</span>
+          <div class="segs" role="group" aria-labelledby="ctl-mode">
+            <button type="button" class="seg" data-mode-btn="dark" aria-pressed="true">Dark</button>
+            <button type="button" class="seg" data-mode-btn="light" aria-pressed="false">Light</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="explorer__fallback" style="display:none">
+        The switcher needs JavaScript. Every variant is still in the
+        <a href="https://www.figma.com/design/xYBYIZT9zgsz46PiQN07CM/MCV-widget?node-id=119-4178" target="_blank" rel="noopener">Figma file</a>,
+        and the widget below is one of them.
+      </p>
+
+      <div class="explorer__stage">
+        <div class="explorer__frame">
+          <div class="widget" data-explorer-box style="max-width:628px;aspect-ratio:628 / 300">
+            <img data-explorer-img src="assets/img/ar-ipad-xl-dark-1256.webp" width="1256" height="600"
+                 loading="lazy" decoding="async"
+                 alt="Assignment Reminder · Extra Large · iPad · dark — exported from the Figma file.">
+          </div>
+        </div>
+        <div>
+          <p class="explorer__note" data-explorer-note>
+            <b>Assignment Reminder · Extra Large · iPad · dark</b>The week again, laid out
+            across two columns. Tapping an assignment opens that assignment.
+          </p>
+          <p class="explorer__dims" data-explorer-dims>628 × 300 pt · 21 pt corner radius</p>
+          <button type="button" class="zoom-hint" data-explorer-zoom
+                  data-zoom="assets/img/ar-ipad-xl-dark.webp"
+                  data-zoom-alt="Assignment Reminder at Extra Large on iPad, dark, enlarged."
+                  data-zoom-caption="Assignment Reminder · Extra Large · iPad · dark">
+            Enlarge this variant
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== 5. IN CONTEXT ============================= -->
+<section class="band band--dark" id="in-context">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">In context</p>
+      <h2>On the device it was drawn for</h2>
+      <p class="lede">
+        The Figma file carries its own iPhone lock screen composition. The iPad shell below it
+        is not from the file — it was built for this page so the Extra Large widget can be
+        seen at something close to its real size.
+      </p>
+    </div>
+
+    <div class="context">
+      <div class="context__row reveal">
+        <div class="context__copy">
+          <span class="tagline tagline--source">From the Figma file</span>
+          <h3>Lock screen</h3>
+          <p>
+            Two of the widgets were also drawn for the lock screen, as rectangular widgets
+            under the clock — white type straight onto the wallpaper, no card behind it.
+            Assignment Reminder lists the three assignments closest to their deadline;
+            Class Schedule gives the time, the course and the room of the class that is coming.
+          </p>
+          <p class="context__note">
+            Lock Screen frames, with the rectangular widgets placed over them exactly as they
+            sit on the Figma canvas.
+          </p>
+        </div>
+        <div class="phones">
+          <figure class="phone">
+            <button type="button" class="phone__shot"
+                    data-zoom="assets/img/lock-ar.webp"
+                    data-zoom-alt="The Assignment Reminder lock screen widget, enlarged."
+                    data-zoom-caption="Lock Screen · Assignment Reminder — “Today”, then OO Design, Architecting, ML Application">
+              <img src="assets/img/lock-ar-524.webp" srcset="assets/img/lock-ar-524.webp 524w, assets/img/lock-ar.webp 786w"
+                   sizes="(max-width: 899px) 44vw, 262px" width="524" height="1136" loading="lazy" decoding="async"
+                   alt="An iPhone lock screen showing Monday, June 6 and 9:41, with a widget beneath reading “Today” and bulleting OO Design, Architecting and ML Application.">
+            </button>
+            <figcaption>Assignment Reminder — the three nearest deadlines</figcaption>
+          </figure>
+          <figure class="phone">
+            <button type="button" class="phone__shot"
+                    data-zoom="assets/img/lock-cs.webp"
+                    data-zoom-alt="The Class Schedule lock screen widget, enlarged."
+                    data-zoom-caption="Lock Screen · Class Schedule — 11:30–12:30, Design Review, Conference Room">
+              <img src="assets/img/lock-cs-524.webp" srcset="assets/img/lock-cs-524.webp 524w, assets/img/lock-cs.webp 786w"
+                   sizes="(max-width: 899px) 44vw, 262px" width="524" height="1136" loading="lazy" decoding="async"
+                   alt="An iPhone lock screen with a widget beneath the clock reading 11:30–12:30, Design Review, Conference Room.">
+            </button>
+            <figcaption>Class Schedule — the class that is coming</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="context__row context__row--flip reveal">
+        <div class="context__copy">
+          <span class="tagline tagline--made">Presentation mockup</span>
+          <h3>iPad home screen</h3>
+          <p>
+            Extra Large is 628&nbsp;×&nbsp;300&nbsp;pt — a little over half the width of an
+            11-inch iPad in landscape, and four of the six columns its home screen grid is
+            built from. That is the room the three-day timetable needs. The widget here is the
+            Figma export at its true share of the screen; the shell, the wallpaper and the
+            <em>MCV</em> label under it were made for this page and are not part of the
+            original design.
+          </p>
+          <p class="context__note">
+            The <em>MCV</em> caption mirrors Apple’s widget-name label, which the iPhone
+            template in the file draws but the iPad template does not.
+          </p>
+        </div>
+        <figure>
+          <div class="ipad">
+            <div class="ipad__screen">
+              <div class="ipad__bar" aria-hidden="true">
+                <span>Mon 25 Mar<b>9:41</b></span>
+                <span>
+                  <svg viewBox="0 0 20 14" aria-hidden="true"><path d="M10 12.4 7.6 9.9a3.4 3.4 0 0 1 4.8 0zM5.4 7.7 3.6 5.9a9.1 9.1 0 0 1 12.8 0l-1.8 1.8a6.5 6.5 0 0 0-9.2 0zM1.4 3.7 0 2.3a14.1 14.1 0 0 1 20 0l-1.4 1.4a12.1 12.1 0 0 0-17.2 0z"/></svg>
+                  <svg viewBox="0 0 28 14" aria-hidden="true"><rect x=".6" y=".6" width="23" height="12.8" rx="4" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="1.2"/><rect x="2.6" y="2.6" width="16" height="8.8" rx="2.4"/><path d="M25.4 4.6v4.8a2.6 2.6 0 0 0 0-4.8z" opacity=".55"/></svg>
+                </span>
+              </div>
+
+              <div class="ipad__home">
+                <div class="ipad__tile" style="left:9.8%;top:14.4%;width:52.6%"
+                     data-caption="Class Schedule · Extra Large · iPad · dark">
+                  <div class="widget">
+                    <img src="assets/img/cs-ipad-xl-dark-1256.webp"
+                         srcset="assets/img/cs-ipad-xl-dark-628.webp 628w, assets/img/cs-ipad-xl-dark-1256.webp 1256w"
+                         sizes="(max-width: 899px) 48vw, 300px"
+                         width="1256" height="600" loading="lazy" decoding="async"
+                         alt="The Class Schedule widget at Extra Large, shown on a mocked-up iPad home screen: three day columns on an hour rail.">
+                  </div>
+                  <p class="ipad__label">MCV</p>
+                </div>
+              </div>
+
+              <div class="ipad__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 6. CONTACT ============================== -->
+</main>
+
+<section class="site-foot">
+  <div class="wrap">
+    <p>
+      MCV Widget — a presentation of the design as it stands in Figma. Widget images are
+      exports from that file; the iPad shell in “In context” was made for this page. No
+      research, testing or outcome claims appear here, because the source file does not
+      contain any.
+    </p>
+  </div>
+</section>
+
+<!-- ============================ LIGHTBOX ================================ -->
+
+<!-- ===================== EXPLORE MORE WORK ===================== -->
+<section class="pf-related" aria-labelledby="pf-related-title">
+  <div class="pf-wrap">
+    <div class="pf-related__head pf-reveal">
+      <h2 class="pf-related__title" id="pf-related-title">Explore more work</h2>
+      <a class="pf-related__all" href="../../#work">All work</a>
+    </div>
+    <ul class="pf-cardgrid pf-cardgrid--3">
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../assessment-platform/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--assessment-platform pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:2%;top:41%;width:10cqw;transform:rotate(-9deg)" viewBox="0 0 44 44" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="40" height="40" rx="9" fill="#E6FAFF" fill-opacity=".35" stroke="#E6FAFF" stroke-opacity=".75" stroke-width="3"/><path d="M12 22.5 19.5 30 32 15" stroke="#22C55E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="" style="right:2%;top:38%;width:11cqw;transform:rotate(7deg)" viewBox="0 0 52 50" width="52" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="30" width="9" height="18" rx="2.5" fill="#E6FAFF" fill-opacity=".55"/><rect x="15" y="18" width="9" height="30" rx="2.5" fill="#E6FAFF" fill-opacity=".8"/><rect x="28" y="24" width="9" height="24" rx="2.5" fill="#FFA70F" fill-opacity=".9"/><rect x="41" y="8" width="9" height="40" rx="2.5" fill="#E6FAFF" fill-opacity=".65"/></svg><svg class="" style="left:2%;bottom:9%;width:12cqw;transform:rotate(8deg)" viewBox="0 0 64 28" width="64" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="25" rx="7" fill="#E6FAFF" fill-opacity=".9"/><path d="M14 10.5h6m-6 5h10" stroke="#1B9AFB" stroke-width="3" stroke-linecap="round"/><rect x="34" y="9" width="16" height="8" rx="4" fill="#1B9AFB" fill-opacity=".8"/></svg><svg class="" style="right:2%;bottom:10%;width:11cqw;transform:rotate(-7deg)" viewBox="0 0 56 44" width="56" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="52" height="40" rx="7" fill="none" stroke="#E6FAFF" stroke-opacity=".6" stroke-width="2.6"/><rect x="10" y="11" width="34" height="4" rx="2" fill="#E6FAFF" fill-opacity=".8"/><circle cx="13" cy="25" r="3.5" fill="#22C55E" fill-opacity=".9"/><rect x="21" y="23" width="23" height="4" rx="2" fill="#E6FAFF" fill-opacity=".5"/><circle cx="13" cy="34" r="3.5" fill="#E6FAFF" fill-opacity=".45"/><rect x="21" y="32" width="16" height="4" rx="2" fill="#E6FAFF" fill-opacity=".5"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">MyCourse<em>Ville</em></p>
+                  <p class="pf-cover__tag">Making assessment management clearer for instructors.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__browser pf-cover__tilt-c"><span></span><span></span><span></span><img src="../assessment-platform/assets/img/v2-dashboard-960.webp" width="960" height="737" loading="lazy" decoding="async" alt="The Version 2 dashboard of the MyCourseVille Assessment Platform"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">MyCourseVille — Assessment Platform for Instructors</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Instructor experience</li>
+                <li>Desktop web</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../actorstock/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--actorstock pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:1.5%;top:44%;width:15cqw;transform:rotate(-8deg)" viewBox="0 0 94 23" width="94" height="23" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="52" height="20" rx="10" fill="#FFF2F1" fill-opacity=".5" stroke="#FFDFDC" stroke-opacity=".8" stroke-width="2"/><rect x="58" y="1" width="34" height="20" rx="10" fill="#07C1B6" fill-opacity=".85"/></svg><svg class="" style="right:1.5%;top:40%;width:13cqw;transform:rotate(9deg)" viewBox="0 0 64 48" width="64" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="45" rx="7" fill="#FFF2F1" fill-opacity=".45" stroke="#282E45" stroke-opacity=".35" stroke-width="3"/><circle cx="16" cy="17" r="7" fill="#282E45" fill-opacity=".4"/><rect x="28" y="12" width="26" height="4" rx="2" fill="#282E45" fill-opacity=".35"/><rect x="28" y="20" width="18" height="4" rx="2" fill="#282E45" fill-opacity=".22"/><rect x="9" y="32" width="45" height="6" rx="3" fill="#07C1B6" fill-opacity=".8"/></svg><svg class="" style="left:2%;bottom:8%;width:13cqw;transform:rotate(7deg)" viewBox="0 0 72 32" width="72" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="68" height="28" rx="6" fill="none" stroke="#FFF2F1" stroke-opacity=".75" stroke-width="3" stroke-dasharray="8 6"/><rect x="10" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".85"/><rect x="23" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".6"/><rect x="36" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".85"/><rect x="49" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".6"/></svg><svg class="" style="right:2%;bottom:10%;width:11cqw;transform:rotate(-10deg)" viewBox="0 0 58 26" width="58" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="56" height="24" rx="12" fill="#282E45" fill-opacity=".5"/><path d="M14 7h6a5 5 0 0 1 0 10h-6m0-5h9m-9-5v11" stroke="#FFF2F1" stroke-opacity=".9" stroke-width="2.2" stroke-linecap="round"/><rect x="34" y="10" width="14" height="5" rx="2.5" fill="#FFF2F1" fill-opacity=".7"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">Actor<em>Stock</em></p>
+                  <p class="pf-cover__tag">A Thai casting marketplace.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__phone pf-cover__phone--back pf-cover__tilt-l"><img src="../actorstock/assets/screens/home.webp" width="440" height="9436" loading="lazy" decoding="async" alt="The ActorStock home screen"></div><div class="pf-cover__phone pf-cover__phone--lead pf-cover__tilt-r"><img src="../actorstock/assets/screens/job-search.webp" width="464" height="2414" loading="lazy" decoding="async" alt="The ActorStock job search screen"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">ActorStock</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Mobile</li>
+                <li>Thai-language product</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../englishx/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--englishx pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:1.5%;top:42%;width:12cqw;transform:rotate(-9deg)" viewBox="0 0 64 48" width="64" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 2h52a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H26l-12 10V34H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4Z" fill="#FFF3F4" fill-opacity=".4" stroke="#FFF3F4" stroke-opacity=".8" stroke-width="2.5"/><circle cx="20" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".9"/><circle cx="32" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".7"/><circle cx="44" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".5"/></svg><svg class="" style="right:1.5%;top:38%;width:11cqw;transform:rotate(8deg)" viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="26" cy="26" r="21" stroke="#FFF3F4" stroke-opacity=".28" stroke-width="6"/><path d="M26 5a21 21 0 0 1 18.2 31.5" stroke="#FEA5D5" stroke-width="6" stroke-linecap="round"/><path d="M26 17c3 4 6 6 6 10a6 6 0 0 1-12 0c0-3 3-4 6-10Z" fill="#FFF3F4" fill-opacity=".85"/></svg><svg class="" style="left:2%;bottom:8%;width:11cqw;transform:rotate(7deg)" viewBox="0 0 56 50" width="56" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M28 2 52 20l-9 28H13L4 20 28 2Z" stroke="#FFF3F4" stroke-opacity=".45" stroke-width="2.4"/><path d="M28 13 42 23l-5 16H19l-5-16L28 13Z" fill="#9098D9" fill-opacity=".55" stroke="#FFF3F4" stroke-opacity=".7" stroke-width="2"/></svg><svg class="" style="right:2.5%;bottom:10%;width:9cqw;transform:rotate(-8deg)" viewBox="0 0 44 50" width="44" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="2" width="16" height="28" rx="8" fill="#20BFB6" fill-opacity=".8"/><path d="M6 24a16 16 0 0 0 32 0" stroke="#FFF3F4" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/><path d="M22 40v6" stroke="#FFF3F4" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">English<em>X</em></p>
+                  <p class="pf-cover__tag">An AI-assisted English learning platform for the desktop browser.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__browser pf-cover__tilt-c"><span></span><span></span><span></span><img src="../englishx/assets/img/dashboard-1120.webp" width="1120" height="796" loading="lazy" decoding="async" alt="The EnglishX learning dashboard"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">EnglishX</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Web app</li>
+                <li>EdTech</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SHARED SITE FOOTER ===================== -->
+<footer class="pf-footer" id="contact">
+  <div class="pf-wrap">
+    <div class="pf-footer__grid">
+      <div>
+        <p class="pf-footer__brand">Artar's Portfolio</p>
+        <p class="pf-footer__name">Matcee Artapiyatham</p>
+      </div>
+
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" download="Matcee-Artapiyatham-Resume-UXUI.pdf">Download resume (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:matcee.artapiyatham@gmail.com">matcee.artapiyatham@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/matcee-artapiyatham-a617a625a" target="_blank" rel="noopener">linkedin.com/in/matcee-artapiyatham-a617a625a</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pf-footer__bottom">
+      <p>UX/UI portfolio — case study presentations of the design work.</p>
+      <p>&copy; 2026 Matcee Artapiyatham</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/shell.js" defer></script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged preview" hidden>
+  <button type="button" class="lightbox__close">Close</button>
+  <div class="lightbox__inner">
+    <div class="lightbox__scroll" tabindex="0" aria-label="Enlarged widget, scroll to pan">
+      <img alt="">
+    </div>
+    <p class="lightbox__cap"></p>
+    <p class="lightbox__hint">Scroll to pan across the widget</p>
+  </div>
+</div>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

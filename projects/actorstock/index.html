@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ActorStock Casting Case Study</title>
+<meta name="description" content="A UX/UI case study of ActorStock, a Thai mobile casting marketplace — attribute search, verified talent profiles and invitation codes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+Thai:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../assets/css/shell.css">
+<script>document.documentElement.classList.add('pf-js');</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== SHARED SITE HEADER ===================== -->
+<header class="pf-header">
+  <div class="pf-header__inner">
+    <a class="pf-brand" href="../../">Artar's Portfolio</a>
+
+    <nav aria-label="Main">
+      <ul class="pf-nav">
+        <li><a href="../../#work" aria-current="page">Work</a></li>
+        <li><a href="../../#about">About</a></li>
+        <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="pf-menubtn" type="button" data-pf-menu-button aria-expanded="false" aria-controls="pf-menu">
+      <span class="pf-menubtn__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+  </div>
+</header>
+
+<div class="pf-menu" id="pf-menu" data-pf-menu hidden>
+  <nav aria-label="Main, mobile">
+    <ul>
+      <li><a href="../../#work" aria-current="page">Work</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ================ LOCAL CASE-STUDY SECTION MENU ================ -->
+<nav class="pf-sectionnav" data-pf-sectionnav aria-label="Sections in this case study">
+  <div class="pf-sectionnav__inner">
+    <a class="pf-sectionnav__back" href="../../#work" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H4M7.5 11.5 4 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="pf-sectionnav__back-label">Back to work</span>
+    </a>
+    <span class="pf-sectionnav__rule" aria-hidden="true"></span>
+    <ul class="pf-sectionnav__list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#landing">Home &amp; plans</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#system">Design system</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ 1. HERO ============ -->
+<section class="band hero band--paper" id="top">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="eyebrow">UX/UI case study — mobile</p>
+      <h1 class="hero__title">Actor<em>Stock</em></h1>
+      <p class="hero__lede">
+        A Thai casting marketplace. Production companies search for performers by the
+        attributes a role is actually written in — build, skin tone, languages, stunt and
+        dance skills — then invite the ones they want by private code.
+      </p>
+      <ul class="hero__facts">
+        <li class="fact">32 mobile screens</li>
+        <li class="fact">Two account types</li>
+        <li class="fact">Thai-language product</li>
+      </ul>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#overview">Explore the project <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#journey">See the journey</a>
+      </div>
+    </div>
+
+    <div class="compo">
+      <button class="shot compo__side compo__side--l" type="button"
+              data-src="assets/screens/search.webp" data-title="Talent search — ค้นหานักแสดง">
+        <span class="phone"><span class="phone__screen">
+          <img src="assets/screens/search.webp" width="464" height="2147" fetchpriority="high"
+               alt="ActorStock talent search screen with attribute filter chips in Thai.">
+          <span class="phone__island"></span>
+        </span></span>
+        <span class="shot__hint">Enlarge</span>
+      </button>
+
+      <button class="shot" type="button"
+              data-src="assets/screens/results.webp" data-title="Search results — 100 Profiles">
+        <span class="phone"><span class="phone__screen">
+          <img src="assets/screens/results.webp" width="464" height="1517" fetchpriority="high"
+               alt="ActorStock search results listing performer cards with profile scores.">
+          <span class="phone__island"></span>
+        </span></span>
+        <span class="shot__hint">Enlarge</span>
+      </button>
+
+      <button class="shot compo__side compo__side--r" type="button"
+              data-src="assets/screens/profile.webp" data-title="Talent profile — โปรไฟล์นักแสดง">
+        <span class="phone"><span class="phone__screen">
+          <img src="assets/screens/profile.webp" width="464" height="1686" fetchpriority="high"
+               alt="ActorStock performer profile showing follower counts, measurements and a photo gallery.">
+          <span class="phone__island"></span>
+        </span></span>
+        <span class="shot__hint">Enlarge</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. OVERVIEW ============ -->
+<section class="band band--alt" id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Project overview</p>
+      <h2>One product, <em>two sides</em> of a casting call</h2>
+      <p>
+        Casting companies need to find people by physical and skill attributes; performers need
+        somewhere to publish those attributes and be found. ActorStock puts both in one mobile
+        product. Everything on this page is taken from the design file itself.
+      </p>
+    </div>
+
+    <div class="ov-grid">
+      <article class="ov">
+        <h3>The product</h3>
+        <p>A mobile casting marketplace built around a structured talent profile — measurements,
+           appearance, languages, special skills and credits — that both sides read from.</p>
+      </article>
+
+      <article class="ov">
+        <h3>Who it is for</h3>
+        <p>Registration asks for a category before anything else:
+           <span class="th">ศิลปินนักแสดง</span> (performers) or
+           <span class="th">แคสติ้งจัดหางาน</span> (casting &amp; recruitment).
+           That single choice decides every screen that follows.</p>
+      </article>
+
+      <article class="ov">
+        <h3>What the design covers</h3>
+        <ul>
+          <li>Registration, PDPA consent, profile creation</li>
+          <li>Attribute search, shortlists, invitation codes</li>
+          <li>Job posting and applicant tracking</li>
+          <li>Job search, job detail and applications</li>
+          <li>Actor Study video lessons</li>
+          <li>Subscription plans and checkout</li>
+        </ul>
+      </article>
+
+      <article class="ov">
+        <h3>Platform</h3>
+        <p>Mobile, 440&nbsp;pt wide. One Figma page — <span class="th">Mobile</span> — divided into
+           <span class="th">Mobile/Casting</span> (13 screens) and <span class="th">Mobile/Actor</span>
+           (19 screens, including a nested profile set).</p>
+      </article>
+
+      <article class="ov ov--wide">
+        <h3>My role</h3>
+        <p>UI/UX design and prototyping — a redesign of the existing ActorStock website.
+           Every screen on this page comes from that redesign.</p>
+      </article>
+    </div>
+
+    <p class="note">
+      The design file records screens, not process — so research findings and measured results are
+      left to the Reflection section rather than guessed at here. Twenty-three of the thirty-two screens are
+      reproduced on this page.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 3. MAIN USER JOURNEY ============ -->
+<section class="band band--ink" id="journey">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Main user journey</p>
+      <h2>From a casting brief to an <em>invited performer</em></h2>
+      <p>
+        The longest complete path in the file runs across both account types: a casting company
+        narrows the whole roster down to one person, and hands them a code that turns into an account.
+      </p>
+    </div>
+
+    <div class="journey">
+      <div class="journey__stage">
+        <button class="shot" type="button" id="stageShot" data-title="Sign in — เข้าสู่ระบบ"
+                data-src="assets/screens/login.webp">
+          <span class="phone"><span class="phone__screen">
+            <img class="is-active" data-step="1" src="assets/screens/login.webp" width="438" height="900" loading="lazy" decoding="async" alt="ActorStock sign-in screen.">
+            <img data-step="2" src="assets/screens/search.webp" width="464" height="2147" loading="lazy" decoding="async" alt="Talent search screen with attribute filters.">
+            <img data-step="3" src="assets/screens/results.webp" width="464" height="1517" loading="lazy" decoding="async" alt="Search results with performer cards.">
+            <img data-step="4" src="assets/screens/profile.webp" width="464" height="1686" loading="lazy" decoding="async" alt="Full performer profile.">
+            <img data-step="5" src="assets/screens/shortlist.webp" width="464" height="1575" loading="lazy" decoding="async" alt="Saved profiles shortlist.">
+            <img data-step="6" src="assets/screens/invite-create.webp" width="464" height="1522" loading="lazy" decoding="async" alt="Create invitation code screen.">
+            <img data-step="7" src="assets/screens/invite-activate.webp" width="464" height="1012" loading="lazy" decoding="async" alt="Activate invitation code screen.">
+            <span class="phone__island"></span>
+          </span></span>
+          <span class="shot__hint">Enlarge</span>
+        </button>
+      </div>
+
+      <ol class="steps">
+        <li class="step is-active" data-step="1">
+          <p class="step__num">01</p>
+          <h3>One door for both sides</h3>
+          <p>A single email-and-password form serves performers and casting companies. Nothing on it
+             asks which you are — the category picked at registration already decided that.</p>
+          <div class="step__tags"><span class="chip chip--ghost th">เข้าสู่ระบบ</span><span class="chip chip--ghost th">ยังไม่มีบัญชี? ลงทะเบียน</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/login.webp" data-title="Sign in — เข้าสู่ระบบ">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/login.webp" width="438" height="900" loading="lazy" decoding="async" alt="ActorStock sign-in screen.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="step" data-step="2">
+          <p class="step__num">02</p>
+          <h3>Describe the role, not a name</h3>
+          <p>Talent search opens on a collapsible panel carrying ten attribute groups and three
+             numeric ranges. Selections are multi-select chips, so "Thai or Chinese, slim or
+             average build, speaks English" is a single query.</p>
+          <div class="step__tags"><span class="chip chip--ghost th">ค้นหานักแสดง</span><span class="chip chip--ghost th">ค้นหาโปรไฟล์</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/search.webp" data-title="Talent search — ค้นหานักแสดง">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/search.webp" width="464" height="2147" loading="lazy" decoding="async" alt="Talent search screen with attribute filter chips.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="step" data-step="3">
+          <p class="step__num">03</p>
+          <h3>Judge the list before opening anything</h3>
+          <p>Results are counted and sortable. Each card carries the four facts a casting call
+             screens on — gender, age, height, build — plus the work types that performer accepts,
+             and a profile-completeness score.</p>
+          <div class="step__tags"><span class="chip chip--ghost">100 Profiles</span><span class="chip chip--ghost th">10/10 คะแนนโปรไฟล์</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/results.webp" data-title="Search results — 100 Profiles">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/results.webp" width="464" height="1517" loading="lazy" decoding="async" alt="Search results with performer cards and profile scores.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="step" data-step="4">
+          <p class="step__num">04</p>
+          <h3>The profile answers the brief line by line</h3>
+          <p>Social reach sits above the fold, then identity and measurements, then appearance and
+             special skills in two columns, then the photo gallery. The screen offers exactly one
+             action.</p>
+          <div class="step__tags"><span class="chip chip--ghost th">โปรไฟล์นักแสดง</span><span class="chip chip--ghost th">สนใจโปรไฟล์นี้</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/profile.webp" data-title="Talent profile — โปรไฟล์นักแสดง">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/profile.webp" width="464" height="1686" loading="lazy" decoding="async" alt="Full performer profile with reach, measurements and gallery.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="step" data-step="5">
+          <p class="step__num">05</p>
+          <h3>Keep the ones worth a call</h3>
+          <p>Saved profiles collect in a shortlist that swaps the search card for a booking card:
+             applicant ID, name in Thai and English, and the date an invitation was sent.</p>
+          <div class="step__tags"><span class="chip chip--ghost th">รายการโปรไฟล์ที่สนใจ</span><span class="chip chip--ghost">ACS-75909</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/shortlist.webp" data-title="Shortlist — รายการโปรไฟล์ที่สนใจ">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/shortlist.webp" width="464" height="1575" loading="lazy" decoding="async" alt="Shortlist of saved performer profiles with applicant IDs.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="step" data-step="6">
+          <p class="step__num">06</p>
+          <h3>Invite by code, not by link</h3>
+          <p>The company generates a code, binds it to one guest email and watches its status. The
+             list below the form is the audit trail: every code sent, whether it has been used, and
+             a control to revoke it.</p>
+          <div class="step__tags"><span class="chip chip--ghost th">สร้างรหัสเทียบเชิญ</span><span class="chip chip--ghost">ACVIP-6092</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/invite-create.webp" data-title="Create invitation code — สร้างรหัสเทียบเชิญ">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/invite-create.webp" width="464" height="1522" loading="lazy" decoding="async" alt="Create invitation code form with a list of codes already sent.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+
+        <li class="step" data-step="7">
+          <p class="step__num">07</p>
+          <h3>The performer's whole sign-up is one field</h3>
+          <p>On the other side the code is the entire form. Paste it, activate, and the account
+             exists — the invitation has already carried the email address across.</p>
+          <div class="step__tags"><span class="chip chip--ghost th">Activate รหัสเทียบเชิญ</span><span class="chip chip--ghost th">โอกาสที่ใช่รอคุณอยู่</span></div>
+          <div class="step__phone">
+            <button class="shot" type="button" data-src="assets/screens/invite-activate.webp" data-title="Activate invitation code">
+              <span class="phone"><span class="phone__screen">
+                <img src="assets/screens/invite-activate.webp" width="464" height="1012" loading="lazy" decoding="async" alt="Activate invitation code screen with a single code field.">
+                <span class="phone__island"></span>
+              </span></span>
+              <span class="shot__hint">Tap to enlarge</span>
+            </button>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 4. HOME & PLANS ============ -->
+<section class="band band--alt" id="landing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Home &amp; plans</p>
+      <h2>How the product <em>sells itself</em></h2>
+      <p>
+        Three screens carry acquisition: the home page a performer lands on, the plan table it
+        funnels into, and the checkout that closes it.
+      </p>
+    </div>
+
+    <div class="landing-part">
+      <div class="feature">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/home.webp" data-title="Home page — Mobile/Actor/Home">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/home.webp" width="440" height="9436" loading="lazy" decoding="async" alt="ActorStock home page, a long marketing scroll from a casting-call hero to a sponsor logo wall.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Tap to enlarge</span>
+            <span class="shot__cap">Mobile/Actor/Home — 440 × 9,436 pt</span>
+          </button>
+        </div>
+        <div>
+          <h3>A home page doing the work of a whole marketing site</h3>
+          <p class="feature__lede">
+            Ten phone-screens of scroll that open on a casting call and close on a wall of sponsor
+            logos. It asks for the sign-up twice and no more: Register Now at the top, a newsletter
+            field at the very bottom.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>Proof arrives before the pitch</h4>
+                <p>Directly under the hero sit the YouTube and TikTok cards — 1.5M+ subscribers and
+                   800K+ followers, each with a Follow action. The audience is evidenced before
+                   anything is claimed about it.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>Live jobs, not pictures of jobs</h4>
+                <p><span class="th">100 Jobs has been announced</span> leads a rail of real postings
+                   with shoot date, location and budget, each with its own Apply Now. The marketing
+                   page is also the product.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>Price is the twelfth block, not the first</h4>
+                <p>Plans &amp; Offers only appears after the value propositions, the audience
+                   segments and Actor Study — once the page has earned the question.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="stackmap">
+        <li><b>NOW CASTING</b><span>Hero — "The opportunity to work alongside professionals in the entertainment industry" + Register Now</span></li>
+        <li><b>Social proof</b><span>YouTube 1.5M+ subscribers and TikTok 800K+ followers, each with a Follow action</span></li>
+        <li><b>Top Talent Picks</b><span>Featured content categories — acting, casting calls, workshops</span></li>
+        <li><b>Content rail</b><span>Daily Vlog, Podcast, Story Teller, Music — Watch Now!</span></li>
+        <li><b>100 Jobs has been announced</b><span>Live job cards with shoot date, location and budget, plus View All Jobs</span></li>
+        <li><b>Recommended job</b><span>Explore suggested job searches curated to the performer</span></li>
+        <li><b>Top opening jobs</b><span class="th">#1 แม่ครัว · #2 เลขา · #3 ป้าข้างบ้าน · #4 เพื่อนที่ฟิสเนส · #5 ตัวประกอบ</span></li>
+        <li><b>What is ActorStock?</b><span>The plain-language pitch — "the most jobs, the best tools, and expert advice"</span></li>
+        <li><b>Three value propositions</b><span>Access to opportunities · Career development · Auto recommendation system</span></li>
+        <li><b>Audience segments</b><span>FOR ACTOR / FOR ACTRESS / FOR CONTENT CREATOR</span></li>
+        <li><b>Talent Insights</b><span>Actor Study lessons with a Try for Free! entry point</span></li>
+        <li><b>Plans &amp; Offers</b><span>The three subscription tiers, inline — the same table as the Package screen</span></li>
+        <li><b>Trust and capture</b><span>Featured brands, client stories, Let's Talk, and a newsletter sign-up</span></li>
+      </ol>
+    </div>
+
+    <div class="landing-part">
+      <div class="feature feature--wide">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/package.webp" data-title="Plans — Mobile/Package">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/package.webp" width="440" height="1494" loading="lazy" decoding="async" alt="ActorStock package screen with three subscription tiers on a navy band.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Mobile/Package</span>
+          </button>
+          <button class="shot" type="button" data-src="assets/screens/select-plan.webp" data-title="Checkout — Mobile/Select Plan">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/select-plan.webp" width="464" height="2227" loading="lazy" decoding="async" alt="ActorStock checkout screen with plan selection, coupon, payment methods and order summary.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Mobile/Select Plan</span>
+          </button>
+        </div>
+        <div>
+          <h3>Two numbered steps that never leave the screen</h3>
+          <p class="feature__lede">
+            The checkout counts <span class="th">Select a Plan</span> as step one and
+            <span class="th">Complete Your Purchase</span> as step two — then puts both on the same
+            2,227&nbsp;pt scroll. No wizard, no page between choosing a tier and paying for it.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>The tiers are a carousel, not a wall</h4>
+                <p>FREE, TALENT PRO at ฿99 and TALENT PREMIUM at ฿199 scroll horizontally on a navy
+                   band, so a 440&nbsp;pt screen never has to shrink three feature lists to fit.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>The discount is asked for before the card</h4>
+                <p>The coupon field sits above payment, so the number in the summary is the number
+                   actually charged — no correction after the card details are in.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>Local payment, and a summary that stays</h4>
+                <p>Credit Card, Mobile Banking and PromptPay, with a summary repeating the plan, its
+                   included benefits and the renewal date beside the total.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="flow">
+        <li class="flow__item">
+          <span class="flow__tag">Step 1</span>
+          <h4>Pick the tier</h4>
+          <p>Two cards with their own Select button and a one-line reason to choose it. Premium
+             carries the Recommended flag.</p>
+          <div class="flow__chips">
+            <span class="chip">TALENT PRO · 99</span>
+            <span class="chip chip--on">TALENT PREMIUM · 199</span>
+          </div>
+        </li>
+        <li class="flow__item">
+          <span class="flow__tag">Step 2</span>
+          <h4>Choose how it renews</h4>
+          <p>Recurring or one-off, decided under the plan rather than buried at the payment step.</p>
+          <div class="flow__chips">
+            <span class="chip chip--on th">ตามระยะเวลาที่กำหนด</span>
+            <span class="chip th">ครั้งเดียว</span>
+          </div>
+        </li>
+        <li class="flow__item">
+          <span class="flow__tag">Step 3</span>
+          <h4>Apply a coupon</h4>
+          <p>A discount field before payment, so the summary shows the real price.</p>
+          <div class="flow__chips">
+            <span class="chip">NewCustomer2025</span>
+            <span class="chip chip--on">−20&nbsp;$</span>
+          </div>
+        </li>
+        <li class="flow__item">
+          <span class="flow__tag">Step 4</span>
+          <h4>Pay, with the summary in view</h4>
+          <p>Three local payment routes, then the plan, its benefits and the renewal date beside the
+             total.</p>
+          <div class="flow__chips">
+            <span class="chip chip--on">Credit Card</span>
+            <span class="chip">Mobile Banking</span>
+            <span class="chip">PromptPay</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. FEATURE DEEP DIVES ============ -->
+<section class="band band--paper" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Feature deep dives</p>
+      <h2>Four decisions that <em>carry the product</em></h2>
+      <p>Each of these earns its screen space: they are what a casting company is paying for, and
+         what a performer is optimising their profile against.</p>
+    </div>
+
+    <div class="tablist" role="tablist" aria-label="Feature deep dives">
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"><span class="tab__n">01</span> Attribute search</button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><span class="tab__n">02</span> Scannable results</button>
+      <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><span class="tab__n">03</span> The talent profile</button>
+      <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1"><span class="tab__n">04</span> Invitation codes</button>
+      <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1"><span class="tab__n">05</span> Finding work</button>
+      <button class="tab" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1"><span class="tab__n">06</span> Posting work</button>
+    </div>
+
+    <!-- panel 1 -->
+    <div class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+      <div class="feature">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/search.webp" data-title="Talent search — ค้นหานักแสดง">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/search.webp" width="464" height="2147" loading="lazy" decoding="async" alt="Talent search filter panel with ten chip groups and three range sliders.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Tap to enlarge</span>
+            <span class="shot__cap">Mobile/Casting — ค้นหานักแสดง</span>
+          </button>
+        </div>
+        <div>
+          <h3>Search in the language a casting brief is written in</h3>
+          <p class="feature__lede">
+            A brief never says "user ID 75909". It says twin sisters, 12–18, Thai, slim, who can
+            speak English on camera. The filter panel is a direct translation of that sentence.
+          </p>
+
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>Ten attribute groups, all multi-select</h4>
+                <p>Ethnicity, gender, skin tone, hair, build, distinguishing features, language,
+                   style, special skills and accepted work. Chips fill coral when active, so the
+                   query stays readable as it grows.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>Three ranges for the things that are numbers</h4>
+                <p>Age 0–50 years, height 140–200&nbsp;cm, weight 40–100&nbsp;kg, each a dual-handle
+                   slider with its current span printed above it.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>One commit, one escape</h4>
+                <p>Nothing re-queries mid-edit. <span class="th">Filter</span> and
+                   <span class="th">Reset</span> close the panel, so a long brief is built in
+                   peace and applied once.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="chipgroup" style="margin-top:34px;gap:18px;">
+            <h4>The taxonomy, as it appears in the file</h4>
+            <div class="chipgroup">
+              <h4 class="th" style="font-size:.76rem;color:var(--text-muted);font-weight:500;">เชื้อชาติ · ethnicity</h4>
+              <div class="chipset">
+                <span class="chip chip--on th">ไทย</span><span class="chip th">จีน</span><span class="chip th">เวียดนาม</span><span class="chip th">อื่น ๆ</span>
+              </div>
+            </div>
+            <div class="chipgroup">
+              <h4 class="th" style="font-size:.76rem;color:var(--text-muted);font-weight:500;">รูปร่าง · build</h4>
+              <div class="chipset">
+                <span class="chip chip--on th">ผอม</span><span class="chip th">สมส่วน</span><span class="chip th">อวบ</span><span class="chip th">อื่น ๆ</span>
+              </div>
+            </div>
+            <div class="chipgroup">
+              <h4 class="th" style="font-size:.76rem;color:var(--text-muted);font-weight:500;">ลักษณะพิเศษ · distinguishing features</h4>
+              <div class="chipset">
+                <span class="chip chip--on th">ดัดฟัน</span><span class="chip th">มีรอยสัก</span><span class="chip th">ลักยิ้ม</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- panel 2 -->
+    <div class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
+      <div class="feature">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/results.webp" data-title="Search results — 100 Profiles">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/results.webp" width="464" height="1517" loading="lazy" decoding="async" alt="Result cards showing portrait, vital statistics, accepted work and a profile score.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Tap to enlarge</span>
+            <span class="shot__cap">Mobile/Casting — filtered results</span>
+          </button>
+        </div>
+        <div>
+          <h3>A result card you can reject without opening it</h3>
+          <p class="feature__lede">
+            Casting is mostly elimination. The card is built so that the decision to keep looking
+            costs one glance, not one tap and a back button.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>The count is the feedback</h4>
+                <p><span class="th">100 Profiles</span> sits at the top of the list with a
+                   <span class="th">Newest</span> sort beside it — the filter panel's only
+                   confirmation that it did something.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>Four facts, in the same place every time</h4>
+                <p>Gender, age and height on one line; build on the next; accepted work types on the
+                   third. Identical geometry across every card makes the column scannable vertically.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>Profile completeness is public</h4>
+                <p>A <span class="th">10/10 คะแนนโปรไฟล์</span> badge on the card tells the casting
+                   side how much to trust the data — and gives the performer a visible reason to
+                   finish their profile.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- panel 3 -->
+    <div class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0" hidden>
+      <div class="feature">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/profile.webp" data-title="Talent profile — โปรไฟล์นักแสดง">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/profile.webp" width="464" height="1686" loading="lazy" decoding="async" alt="Performer profile with social reach, identity card, appearance and skills columns and a photo gallery.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Tap to enlarge</span>
+            <span class="shot__cap">Mobile/Casting — โปรไฟล์นักแสดง</span>
+          </button>
+        </div>
+        <div>
+          <h3>Reach, facts, skills, faces — in that order</h3>
+          <p class="feature__lede">
+            The profile is stacked in the order a casting decision is actually made, and it ends in
+            a single button rather than a menu.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>Audience before appearance</h4>
+                <p>Instagram, TikTok and Facebook follower counts occupy the first band of the
+                   screen. For brand and influencer work that number is the casting criterion.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>Appearance and ability are separated</h4>
+                <p><span class="th">ลักษณะ</span> holds ethnicity, languages, skin, hair and build;
+                   <span class="th">ความสามารถพิเศษ</span> holds martial arts, dance, singing. Two
+                   columns, so a brief can be checked against each without re-reading prose.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>One action, and a QR code to leave with</h4>
+                <p>The only control is <span class="th">สนใจโปรไฟล์นี้</span> — add to shortlist. A
+                   QR code in the identity card carries the profile out of the app and into a
+                   production meeting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- panel 4 -->
+    <div class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
+      <div class="feature feature--wide">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/invite-create.webp" data-title="Create invitation code — สร้างรหัสเทียบเชิญ">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/invite-create.webp" width="464" height="1522" loading="lazy" decoding="async" alt="Invitation code form above a list of codes already sent, each with a status.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Company side</span>
+          </button>
+          <button class="shot" type="button" data-src="assets/screens/invite-activate.webp" data-title="Activate invitation code">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/invite-activate.webp" width="464" height="1012" loading="lazy" decoding="async" alt="Activate invitation code screen with one field and an Activate button.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Performer side</span>
+          </button>
+        </div>
+        <div>
+          <h3>A private door into a public marketplace</h3>
+          <p class="feature__lede">
+            Agencies bring their own talent. The invitation code lets a company seed the platform
+            with people it already represents, without opening a back channel.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>One code, one email, one use</h4>
+                <p>A generated code such as <span class="th">ACVIP-6092</span> is bound to a guest
+                   email address at creation, and carries a status from the moment it exists.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>The sent list is the audit trail</h4>
+                <p>Below the form, every issued code shows its recipient and whether it is still
+                   <span class="th">ยังไม่ได้ใช้งาน</span> — unused — with a control to delete it.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>Arrival costs one field</h4>
+                <p>The invited performer never sees a registration form. The code screen is the
+                   sign-up, which is what makes the handoff worth building.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- panel 5 -->
+    <div class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0" hidden>
+      <div class="feature feature--wide">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/job-search.webp" data-title="Job search — Mobile/Job Search">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/job-search.webp" width="464" height="2414" loading="lazy" decoding="async" alt="ActorStock job search screen with budget and province filters and job cards.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Search and filter</span>
+          </button>
+          <button class="shot" type="button" data-src="assets/screens/job-detail.webp" data-title="Job detail — Mobile/Job Search/Detail">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/job-detail.webp" width="464" height="2010" loading="lazy" decoding="async" alt="ActorStock job detail screen with the full Thai casting brief and an Apply Now button.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">The full brief</span>
+          </button>
+        </div>
+        <div>
+          <h3>The performer's side filters on money and travel</h3>
+          <p class="feature__lede">
+            The same two-screen pattern as the casting side — search, then detail — but the facets
+            change completely, because what varies between roles is not what varies between people.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>Two filters, not twenty</h4>
+                <p>Budget range and province. A performer decides on fee and how far they will
+                   travel; the twenty attribute facets belong to whoever is casting them.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>Top Opening Jobs skips the search</h4>
+                <p>A coral card of the five most-posted roles — <span class="th">#1 แม่ครัว</span>
+                   through <span class="th">#5 ตัวประกอบ</span> — sits above the filters, so the
+                   common case is one tap rather than a query.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>The brief is the page</h4>
+                <p>Job detail carries the real casting call in full — eligibility, what to submit,
+                   per-file size limits — with Apply Now pinned above it and related roles below.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- panel 6 -->
+    <div class="panel" id="panel-6" role="tabpanel" aria-labelledby="tab-6" tabindex="0" hidden>
+      <div class="feature feature--wide">
+        <div class="feature__shots">
+          <button class="shot" type="button" data-src="assets/screens/post-job.webp" data-title="Post a job — Mobile/Casting/Annouce Job">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/post-job.webp" width="464" height="1533" loading="lazy" decoding="async" alt="ActorStock job posting form with fields for title, agency, brief, location, date, budget and headcount.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Post a role</span>
+          </button>
+          <button class="shot" type="button" data-src="assets/screens/my-jobs.webp" data-title="Posted jobs — Mobile/Casting/Job">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/my-jobs.webp" width="464" height="1541" loading="lazy" decoding="async" alt="ActorStock posted-jobs list showing application counts and status for each role.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Watch it fill</span>
+          </button>
+        </div>
+        <div>
+          <h3>Posting a role, then watching it fill</h3>
+          <p class="feature__lede">
+            The other half of the casting account: put a role out, then track it without opening it.
+          </p>
+          <div class="annots">
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">1</span>
+              <div>
+                <h4>One form, eight fields</h4>
+                <p>Title, agency, brief, location, shoot date, budget, headcount and an image upload.
+                   Save (<span class="th">บันทึกงาน</span>) and clear
+                   (<span class="th">ล้างฟอร์ม</span>) are told apart by colour, not position.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">2</span>
+              <div>
+                <h4>The count is the status</h4>
+                <p>Each posted role shows <span class="th">จำนวนที่สมัคร</span> as 3/99 —
+                   applications against the cap — so a role that is not filling is visible from the
+                   list.</p>
+              </div>
+            </div>
+            <div class="annot">
+              <span class="annot__n" aria-hidden="true">3</span>
+              <div>
+                <h4>Everything else is on the card</h4>
+                <p>Active status, <span class="th">ดูรายชื่อผู้สมัคร</span> to open the applicant
+                   list, and a shareable job link — no detail screen needed to manage a posting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="library-head">
+      <h3>The rest of the file</h3>
+      <p>Screens that carry the product without carrying an argument — open sign-up, the profile
+         editor, the lesson library, and the shell both account types share.</p>
+    </div>
+    <div class="library">
+      <button class="shot" type="button" data-src="assets/screens/verified.webp" data-title="Verified profile — ยืนยันโดย ActorStock">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/verified.webp" width="464" height="1609" loading="lazy" decoding="async" alt="ActorStock verified performer profile with attribute chips and credits.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Verified profile</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/applied.webp" data-title="Performer home — รายการงานที่สมัคร">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/applied.webp" width="464" height="2235" loading="lazy" decoding="async" alt="ActorStock performer home screen listing the jobs they have applied to.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Applied jobs</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/edit-profile.webp" data-title="Profile editor — Mobile/Edit Profile">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/edit-profile.webp" width="464" height="3239" loading="lazy" decoding="async" alt="ActorStock profile editor with the full attribute set and credits table.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Profile editor</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/actor-study.webp" data-title="Actor Study — Mobile/Actor Study">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/actor-study.webp" width="464" height="3461" loading="lazy" decoding="async" alt="ActorStock Actor Study lesson library.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Actor Study</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/casting-home.webp" data-title="Company profile — Mobile/Casting/Profile/Home">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/casting-home.webp" width="464" height="956" loading="lazy" decoding="async" alt="ActorStock casting company profile with follower count and shortlist entry.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Company profile</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/sidemenu.webp" data-title="Side menu — Mobile/Casting/Profile/SideMenu">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/sidemenu.webp" width="440" height="956" loading="lazy" decoding="async" alt="ActorStock side navigation menu.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Side menu</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/register.webp" data-title="Registration — ลงทะเบียน">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/register.webp" width="464" height="1239" loading="lazy" decoding="async" alt="ActorStock registration form with a performer or casting company category choice.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Registration</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/pdpa.webp" data-title="PDPA consent — เงื่อนไขการให้บริการ PDPA">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/pdpa.webp" width="464" height="1190" loading="lazy" decoding="async" alt="ActorStock PDPA terms of service screen with an accept button.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">PDPA consent</span>
+          </button>
+      <button class="shot" type="button" data-src="assets/screens/create-profile.webp" data-title="Create profile — กำหนดประเภทโปรไฟล์">
+            <span class="phone"><span class="phone__screen">
+              <img src="assets/screens/create-profile.webp" width="464" height="1085" loading="lazy" decoding="async" alt="ActorStock create profile screen showing an assigned applicant number.">
+              <span class="phone__island"></span>
+            </span></span>
+            <span class="shot__hint">Enlarge</span>
+            <span class="shot__cap">Create profile</span>
+          </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. DESIGN SYSTEM ============ -->
+<section class="band band--alt" id="system">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Design system</p>
+      <h2><em>Coral, teal, navy</em> and one pill radius</h2>
+      <p>Every value below is read from the ActorStock file's own Figma variables — the names are
+         the token names as they are defined there.</p>
+    </div>
+
+    <div class="ds-grid">
+      <div class="ds-block">
+        <h3>Colour</h3>
+        <div class="swatches" id="swatches"></div>
+      </div>
+
+      <div class="ds-block">
+        <h3>Typography</h3>
+        <div class="type-sample">
+          <div>
+            <p class="ts-meta">DM Sans SemiBold · 24px · heading</p>
+            <p class="ts-24">Welcome to <span style="color:var(--as-primary)">ActorStock</span>!</p>
+          </div>
+          <div>
+            <p class="ts-meta">DM Sans SemiBold · 16px · field label</p>
+            <p class="ts-16">Email</p>
+          </div>
+          <div>
+            <p class="ts-meta">DM Sans Medium · 14px · placeholder #94A3B8</p>
+            <p class="ts-14" style="color:var(--as-placeholder)">Password</p>
+          </div>
+          <div>
+            <p class="ts-meta">DM Sans Regular · 14px · body #707070</p>
+            <p class="ts-14 th">มีผู้ติดตามแล้ว 10000 คน</p>
+          </div>
+        </div>
+        <div class="spec">
+          <div class="spec__row"><span class="spec__label">Family</span><span class="spec__val">DM Sans — Regular, Medium, SemiBold, Bold</span></div>
+          <div class="spec__row"><span class="spec__label">Optical size</span><span class="spec__val">opsz 14</span></div>
+          <div class="spec__row"><span class="spec__label">Icons</span><span class="spec__val">Font Awesome 6</span></div>
+          <div class="spec__row"><span class="spec__label">Thai</span><span class="spec__val">System Thai fallback — DM Sans carries no Thai glyphs</span></div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <h3>Geometry</h3>
+        <div class="spec">
+          <div class="spec__row"><span class="spec__label">Pill radius</span><span class="spec__val">24px — buttons, inputs, chips</span></div>
+          <div class="spec__row"><span class="spec__label">Radii/radii-S</span><span class="spec__val">4px — checkboxes</span></div>
+          <div class="spec__row"><span class="spec__label">Control height</span><span class="spec__val">40px</span></div>
+          <div class="spec__row"><span class="spec__label">Input padding</span><span class="spec__val">12px / 22px</span></div>
+          <div class="spec__row"><span class="spec__label">Spacing</span><span class="spec__val">Spacing/2 = 2 · Spacing/8 = 8</span></div>
+          <div class="spec__row"><span class="spec__label">Shadow/2</span><span class="spec__val">0 4 12 · #B7B7B7 at 10%</span></div>
+          <div class="spec__row"><span class="spec__label">Frame width</span><span class="spec__val">440pt</span></div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <h3>Representative components</h3>
+        <div class="comp-grid">
+          <div class="comp">
+            <span class="comp__label">Buttons — 40px, radius 24</span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="as-btn th">บันทึกข้อมูล</span>
+              <span class="as-btn as-btn--teal th">เข้าสู่ระบบ</span>
+            </div>
+          </div>
+          <div class="comp">
+            <span class="comp__label">Text field — border #CBD5E1</span>
+            <span class="as-input">Email</span>
+          </div>
+          <div class="comp">
+            <span class="comp__label">Attribute chip — off / on</span>
+            <div class="chipset">
+              <span class="chip th">สมส่วน</span>
+              <span class="chip chip--on th">ผอม</span>
+            </div>
+          </div>
+          <div class="comp">
+            <span class="comp__label">Result card + profile score</span>
+            <div class="as-card">
+              <span class="as-card__thumb"></span>
+              <span class="as-card__body">
+                <span class="as-card__name">Wannakorn Reungrat</span>
+                <span class="as-card__meta th">เพศ: ชาย อายุ: 25 ส่วนสูง: 175</span>
+                <span class="as-card__meta th">รูปร่าง: ผอม, สมส่วน</span>
+                <span class="as-score" style="margin-top:6px;justify-self:start;"><b>10/10</b><span class="th">คะแนนโปรไฟล์</span></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. REFLECTION ============ -->
+<section class="band band--tint" id="reflection">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Reflection &amp; outcomes</p>
+      <h2>What the file <em>actually contains</em></h2>
+      <p>Counted from the Figma document rather than recalled — so the numbers below are checkable
+         against the source.</p>
+    </div>
+
+    <div class="facts">
+      <div class="factcell"><b>32</b><span>mobile screens across two sections</span></div>
+      <div class="factcell"><b>2</b><span>account types behind one login</span></div>
+      <div class="factcell"><b>10+3</b><span>attribute groups plus numeric ranges in search</span></div>
+      <div class="factcell"><b>3</b><span>subscription tiers — Free, ฿99, ฿199</span></div>
+    </div>
+
+    <ul class="measured">
+      <li><b>One chip component carries the whole taxonomy.</b> The same control appears in talent
+          search and in the performer's own profile editor, so the thing being searched and the
+          thing being filled in cannot drift apart.</li>
+      <li><b>The result card is reused three times</b> — in search results, in the shortlist and in
+          the performer's applied-jobs list — with only its trailing action changed.</li>
+      <li><b>Consent is a screen, not a checkbox.</b> PDPA terms get a full screen and the acceptance
+          is stored with a timestamp shown back to the user.</li>
+      <li><b>Measured: white on #FF6468 is 2.9:1.</b> That clears WCAG AA as large text only, which
+          is worth knowing before coral is asked to carry small copy.</li>
+      <li><b>The search panel runs about 1,300&nbsp;px on a 440&nbsp;pt screen.</b> Collapsing groups
+          after first use is the obvious next thing to try.</li>
+    </ul>
+
+    <div class="ov-grid ov-grid--todo" style="margin-top:44px;">
+      <article class="ov ov--todo">
+        <h3>What worked</h3>
+        <span class="todo-chip">Needs your input</span>
+        <p>The decisions you would defend in an interview.</p>
+      </article>
+      <article class="ov ov--todo">
+        <h3>What you would change</h3>
+        <span class="todo-chip">Needs your input</span>
+        <p>Where the design fought you, and what you learned.</p>
+      </article>
+      <article class="ov ov--todo">
+        <h3>Outcome</h3>
+        <span class="todo-chip">Needs your input</span>
+        <p>Whether it shipped, and anything measured afterwards. No metrics have been invented here.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 8. CONTACT / FOOTER ============ -->
+<!-- lightbox -->
+
+<!-- ===================== EXPLORE MORE WORK ===================== -->
+<section class="pf-related" aria-labelledby="pf-related-title">
+  <div class="pf-wrap">
+    <div class="pf-related__head pf-reveal">
+      <h2 class="pf-related__title" id="pf-related-title">Explore more work</h2>
+      <a class="pf-related__all" href="../../#work">All work</a>
+    </div>
+    <ul class="pf-cardgrid pf-cardgrid--3">
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../assessment-platform/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--assessment-platform pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:2%;top:41%;width:10cqw;transform:rotate(-9deg)" viewBox="0 0 44 44" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="40" height="40" rx="9" fill="#E6FAFF" fill-opacity=".35" stroke="#E6FAFF" stroke-opacity=".75" stroke-width="3"/><path d="M12 22.5 19.5 30 32 15" stroke="#22C55E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="" style="right:2%;top:38%;width:11cqw;transform:rotate(7deg)" viewBox="0 0 52 50" width="52" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="30" width="9" height="18" rx="2.5" fill="#E6FAFF" fill-opacity=".55"/><rect x="15" y="18" width="9" height="30" rx="2.5" fill="#E6FAFF" fill-opacity=".8"/><rect x="28" y="24" width="9" height="24" rx="2.5" fill="#FFA70F" fill-opacity=".9"/><rect x="41" y="8" width="9" height="40" rx="2.5" fill="#E6FAFF" fill-opacity=".65"/></svg><svg class="" style="left:2%;bottom:9%;width:12cqw;transform:rotate(8deg)" viewBox="0 0 64 28" width="64" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="25" rx="7" fill="#E6FAFF" fill-opacity=".9"/><path d="M14 10.5h6m-6 5h10" stroke="#1B9AFB" stroke-width="3" stroke-linecap="round"/><rect x="34" y="9" width="16" height="8" rx="4" fill="#1B9AFB" fill-opacity=".8"/></svg><svg class="" style="right:2%;bottom:10%;width:11cqw;transform:rotate(-7deg)" viewBox="0 0 56 44" width="56" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="52" height="40" rx="7" fill="none" stroke="#E6FAFF" stroke-opacity=".6" stroke-width="2.6"/><rect x="10" y="11" width="34" height="4" rx="2" fill="#E6FAFF" fill-opacity=".8"/><circle cx="13" cy="25" r="3.5" fill="#22C55E" fill-opacity=".9"/><rect x="21" y="23" width="23" height="4" rx="2" fill="#E6FAFF" fill-opacity=".5"/><circle cx="13" cy="34" r="3.5" fill="#E6FAFF" fill-opacity=".45"/><rect x="21" y="32" width="16" height="4" rx="2" fill="#E6FAFF" fill-opacity=".5"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">MyCourse<em>Ville</em></p>
+                  <p class="pf-cover__tag">Making assessment management clearer for instructors.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__browser pf-cover__tilt-c"><span></span><span></span><span></span><img src="../assessment-platform/assets/img/v2-dashboard-960.webp" width="960" height="737" loading="lazy" decoding="async" alt="The Version 2 dashboard of the MyCourseVille Assessment Platform"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">MyCourseVille — Assessment Platform for Instructors</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Instructor experience</li>
+                <li>Desktop web</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../englishx/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--englishx pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:1.5%;top:42%;width:12cqw;transform:rotate(-9deg)" viewBox="0 0 64 48" width="64" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 2h52a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H26l-12 10V34H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4Z" fill="#FFF3F4" fill-opacity=".4" stroke="#FFF3F4" stroke-opacity=".8" stroke-width="2.5"/><circle cx="20" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".9"/><circle cx="32" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".7"/><circle cx="44" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".5"/></svg><svg class="" style="right:1.5%;top:38%;width:11cqw;transform:rotate(8deg)" viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="26" cy="26" r="21" stroke="#FFF3F4" stroke-opacity=".28" stroke-width="6"/><path d="M26 5a21 21 0 0 1 18.2 31.5" stroke="#FEA5D5" stroke-width="6" stroke-linecap="round"/><path d="M26 17c3 4 6 6 6 10a6 6 0 0 1-12 0c0-3 3-4 6-10Z" fill="#FFF3F4" fill-opacity=".85"/></svg><svg class="" style="left:2%;bottom:8%;width:11cqw;transform:rotate(7deg)" viewBox="0 0 56 50" width="56" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M28 2 52 20l-9 28H13L4 20 28 2Z" stroke="#FFF3F4" stroke-opacity=".45" stroke-width="2.4"/><path d="M28 13 42 23l-5 16H19l-5-16L28 13Z" fill="#9098D9" fill-opacity=".55" stroke="#FFF3F4" stroke-opacity=".7" stroke-width="2"/></svg><svg class="" style="right:2.5%;bottom:10%;width:9cqw;transform:rotate(-8deg)" viewBox="0 0 44 50" width="44" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="2" width="16" height="28" rx="8" fill="#20BFB6" fill-opacity=".8"/><path d="M6 24a16 16 0 0 0 32 0" stroke="#FFF3F4" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/><path d="M22 40v6" stroke="#FFF3F4" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">English<em>X</em></p>
+                  <p class="pf-cover__tag">An AI-assisted English learning platform for the desktop browser.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__browser pf-cover__tilt-c"><span></span><span></span><span></span><img src="../englishx/assets/img/dashboard-1120.webp" width="1120" height="796" loading="lazy" decoding="async" alt="The EnglishX learning dashboard"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">EnglishX</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Web app</li>
+                <li>EdTech</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../mcv-widget/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--mcv-widget pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:2%;top:40%;width:11cqw;transform:rotate(-9deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="11" fill="#1B9AFB" fill-opacity=".16" stroke="#1B9AFB" stroke-opacity=".5" stroke-width="2.5"/><rect x="11" y="12" width="20" height="4" rx="2" fill="#1B9AFB" fill-opacity=".8"/><rect x="11" y="22" width="26" height="4" rx="2" fill="#94A3B8" fill-opacity=".6"/><rect x="11" y="32" width="16" height="4" rx="2" fill="#FFA70F" fill-opacity=".85"/></svg><svg class="" style="right:2%;top:37%;width:10cqw;transform:rotate(8deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="7" width="44" height="39" rx="8" stroke="#94A3B8" stroke-opacity=".55" stroke-width="2.5"/><path d="M2 19h44" stroke="#94A3B8" stroke-opacity=".55" stroke-width="2.5"/><path d="M14 2v8M34 2v8" stroke="#1B9AFB" stroke-opacity=".9" stroke-width="3" stroke-linecap="round"/><rect x="11" y="26" width="8" height="8" rx="2" fill="#FFA70F" fill-opacity=".9"/><rect x="24" y="26" width="8" height="8" rx="2" fill="#94A3B8" fill-opacity=".45"/></svg><svg class="" style="left:2.5%;bottom:9%;width:9cqw;transform:rotate(9deg)" viewBox="0 0 44 44" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 4a13 13 0 0 1 13 13v9l4 7H5l4-7v-9A13 13 0 0 1 22 4Z" fill="#FFA70F" fill-opacity=".22" stroke="#FFA70F" stroke-opacity=".85" stroke-width="2.6"/><path d="M17 37a5 5 0 0 0 10 0" stroke="#FFA70F" stroke-opacity=".85" stroke-width="2.6" stroke-linecap="round"/></svg><svg class="" style="right:2.5%;bottom:11%;width:10cqw;transform:rotate(-6deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 46V23A21 21 0 0 1 23 2h23" stroke="#1B9AFB" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">MCV <em>Widget</em></p>
+                  <p class="pf-cover__tag">A set of home screen widgets for MCV.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__widget pf-cover__widget--tall pf-cover__tilt-l"><img src="../mcv-widget/assets/img/cs-iphone-large-dark.webp" width="676" height="708" loading="lazy" decoding="async" alt="The Class Schedule widget for iPhone, dark appearance"></div><div class="pf-cover__widget pf-cover__widget--wide pf-cover__tilt-r"><img src="../mcv-widget/assets/img/ar-ipad-xl-dark-628.webp" width="628" height="300" loading="lazy" decoding="async" alt="The Extra Large Assignment Reminder widget for iPad, dark appearance"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">MCV Widget</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>iOS &amp; iPadOS</li>
+                <li>Home screen widgets</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SHARED SITE FOOTER ===================== -->
+<footer class="pf-footer" id="contact">
+  <div class="pf-wrap">
+    <div class="pf-footer__grid">
+      <div>
+        <p class="pf-footer__brand">Artar's Portfolio</p>
+        <p class="pf-footer__name">Matcee Artapiyatham</p>
+      </div>
+
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" download="Matcee-Artapiyatham-Resume-UXUI.pdf">Download resume (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:matcee.artapiyatham@gmail.com">matcee.artapiyatham@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/matcee-artapiyatham-a617a625a" target="_blank" rel="noopener">linkedin.com/in/matcee-artapiyatham-a617a625a</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pf-footer__bottom">
+      <p>UX/UI portfolio — case study presentations of the design work.</p>
+      <p>&copy; 2026 Matcee Artapiyatham</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/shell.js" defer></script>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" hidden>
+  <div class="lb__bar">
+    <p class="lb__title" id="lbTitle"></p>
+    <span class="lb__count" id="lbCount"></span>
+    <button class="lb__btn" type="button" id="lbPrev" aria-label="Previous screen">←</button>
+    <button class="lb__btn" type="button" id="lbNext" aria-label="Next screen">→</button>
+    <button class="lb__btn" type="button" id="lbClose">Close</button>
+  </div>
+  <div class="lb__scroll" id="lbScroll">
+    <img id="lbImg" alt="">
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

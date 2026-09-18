@@ -1,0 +1,1145 @@
+/* ==========================================================================
+   Artar's Portfolio — shared website shell
+   --------------------------------------------------------------------------
+   Loaded on the homepage and on every case-study page, always BEFORE the
+   project's own stylesheet.
+
+   Every class here is prefixed `pf-` so it can never collide with a project's
+   own class names. The four case studies were written independently and reuse
+   names like .wrap, .band, .btn, .hero, .story, .reveal and .lightbox with
+   incompatible meanings — this file touches none of them.
+
+   Rules here are class-based, so they win over project element resets
+   (`ul, ol { list-style: none }` and the like) regardless of load order.
+   ========================================================================== */
+
+/* --- Natural letter spacing, everywhere, with no exceptions. ---------------
+   One authoritative rule, promoted site-wide from the rule the MCV Widget and
+   Assessment stylesheets already carried. Nothing in this file, and nothing in
+   any project stylesheet, sets a tracking value.                            */
+*,
+*::before,
+*::after {
+  letter-spacing: normal;
+  box-sizing: border-box;
+}
+
+:root {
+  --pf-font: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --pf-ink: #101114;
+  --pf-ink-2: #55595f;
+  --pf-ink-3: #82868d;
+  --pf-paper: #ffffff;
+  --pf-paper-2: #fafafa;
+  --pf-line: #e7e8ea;
+  --pf-line-strong: #d0d2d6;
+  --pf-focus: #1d5fd0;
+
+  --pf-wrap: 1180px;
+  --pf-gutter: clamp(20px, 4vw, 48px);
+
+  --pf-header-h: 64px;
+  --pf-sectionnav-h: 48px;
+  --pf-chrome-h: 112px;          /* header + section nav */
+  --pf-scroll-pad: 128px;        /* chrome + breathing room */
+
+  --pf-ease: cubic-bezier(.22, .61, .36, 1);
+  --pf-t: 240ms;
+}
+
+/* The homepage has no section nav, so its chrome is the header alone. This has
+   to sit on <html>, not <body> — `scroll-padding-top` is read off the scrolling
+   element, so a variable defined on <body> would never reach it. */
+.pf-home-doc {
+  --pf-chrome-h: var(--pf-header-h);
+  --pf-scroll-pad: 88px;
+}
+
+@media (max-width: 860px) {
+  :root {
+    --pf-header-h: 56px;
+    --pf-sectionnav-h: 44px;
+    --pf-chrome-h: 100px;
+    --pf-scroll-pad: 116px;
+  }
+
+  .pf-home-doc {
+    --pf-scroll-pad: 80px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--pf-scroll-pad);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.pf-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  font-family: var(--pf-font);
+  background: rgba(255, 255, 255, .88);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-header__inner {
+  width: 100%;
+  max-width: var(--pf-wrap);
+  margin-inline: auto;
+  padding-inline: var(--pf-gutter);
+  height: var(--pf-header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.pf-brand {
+  font-family: var(--pf-font);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--pf-ink);
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 6px;
+}
+
+.pf-brand:hover {
+  color: var(--pf-ink-2);
+}
+
+.pf-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pf-nav a {
+  display: inline-block;
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--pf-ink-2);
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  transition: color var(--pf-t) var(--pf-ease), background-color var(--pf-t) var(--pf-ease);
+}
+
+.pf-nav a:hover {
+  color: var(--pf-ink);
+  background: var(--pf-paper-2);
+}
+
+.pf-nav a[aria-current="page"],
+.pf-nav a[aria-current="true"] {
+  color: var(--pf-ink);
+  background: #f1f1f2;
+}
+
+/* Mobile menu ------------------------------------------------------------ */
+
+.pf-menubtn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--pf-ink);
+  background: none;
+  border: 1px solid var(--pf-line-strong);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.pf-menubtn__bars {
+  display: grid;
+  gap: 4px;
+  width: 16px;
+}
+
+.pf-menubtn__bars span {
+  display: block;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.pf-menu {
+  position: fixed;
+  inset: var(--pf-header-h) 0 auto 0;
+  z-index: 199;
+  background: var(--pf-paper);
+  border-bottom: 1px solid var(--pf-line);
+  padding: 8px var(--pf-gutter) 20px;
+  box-shadow: 0 18px 40px rgba(16, 17, 20, .08);
+}
+
+.pf-menu[hidden] {
+  display: none;
+}
+
+.pf-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pf-menu a {
+  display: block;
+  font-family: var(--pf-font);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--pf-ink);
+  text-decoration: none;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-menu li:last-child a {
+  border-bottom: 0;
+}
+
+.pf-menu a[aria-current="page"] {
+  color: var(--pf-ink-2);
+}
+
+@media (max-width: 860px) {
+  .pf-nav {
+    display: none;
+  }
+
+  .pf-menubtn {
+    display: inline-flex;
+  }
+}
+
+/* ==========================================================================
+   Case-study section nav (local, per page)
+   ========================================================================== */
+
+.pf-sectionnav {
+  position: sticky;
+  top: var(--pf-header-h);
+  z-index: 150;
+  font-family: var(--pf-font);
+  background: rgba(255, 255, 255, .9);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-sectionnav__inner {
+  width: 100%;
+  max-width: var(--pf-wrap);
+  margin-inline: auto;
+  padding-inline: var(--pf-gutter);
+  height: var(--pf-sectionnav-h);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pf-sectionnav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  font-family: var(--pf-font);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--pf-ink);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 8px 12px 8px 8px;
+  margin-left: -8px;
+  border-radius: 8px;
+  transition: background-color var(--pf-t) var(--pf-ease);
+}
+
+.pf-sectionnav__back:hover {
+  background: var(--pf-paper-2);
+}
+
+.pf-sectionnav__back svg {
+  transition: transform var(--pf-t) var(--pf-ease);
+}
+
+.pf-sectionnav__back:hover svg {
+  transform: translateX(-3px);
+}
+
+/* Hairline separating "Back to work" from the section links. */
+.pf-sectionnav__rule {
+  flex: none;
+  align-self: center;
+  width: 1px;
+  height: 18px;
+  background: var(--pf-line);
+}
+
+.pf-sectionnav__list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-width: 0;
+}
+
+.pf-sectionnav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.pf-sectionnav__list a {
+  display: inline-block;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--pf-ink-3);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 8px 10px;
+  border-radius: 7px;
+  transition: color var(--pf-t) var(--pf-ease), background-color var(--pf-t) var(--pf-ease);
+}
+
+.pf-sectionnav__list a:hover {
+  color: var(--pf-ink);
+  background: var(--pf-paper-2);
+}
+
+.pf-sectionnav__list a[aria-current="true"] {
+  color: var(--pf-ink);
+  background: #f1f1f2;
+}
+
+@media (max-width: 620px) {
+  .pf-sectionnav__back-label {
+    display: none;
+  }
+
+  .pf-sectionnav__back {
+    padding-inline: 8px;
+  }
+}
+
+/* ==========================================================================
+   Shared layout primitives
+   ========================================================================== */
+
+.pf-wrap {
+  width: 100%;
+  max-width: var(--pf-wrap);
+  margin-inline: auto;
+  padding-inline: var(--pf-gutter);
+}
+
+.pf-skip {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 300;
+  font-family: var(--pf-font);
+  font-size: 14px;
+  background: var(--pf-ink);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top var(--pf-t) var(--pf-ease);
+}
+
+.pf-skip:focus {
+  top: 12px;
+}
+
+/* Each case study ships its own `.skip` link, authored before the shared
+   header existed. The header paints later in the DOM at the same stacking
+   level, so lift the skip link above it while it is focused. */
+.skip:focus,
+.skip:focus-visible,
+.pf-skip:focus {
+  z-index: 300;
+}
+
+:where(.pf-header, .pf-menu, .pf-sectionnav, .pf-related, .pf-footer, .pf-home) :focus-visible,
+.pf-skip:focus-visible {
+  outline: 2px solid var(--pf-focus);
+  outline-offset: 3px;
+}
+
+.pf-eyebrow {
+  font-family: var(--pf-font);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pf-ink-3);
+  margin: 0;
+}
+
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--pf-font);
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--pf-t) var(--pf-ease),
+              border-color var(--pf-t) var(--pf-ease),
+              color var(--pf-t) var(--pf-ease),
+              transform var(--pf-t) var(--pf-ease);
+}
+
+.pf-btn--primary {
+  background: var(--pf-ink);
+  color: #fff;
+}
+
+.pf-btn--primary:hover {
+  background: #2b2d33;
+  transform: translateY(-1px);
+}
+
+.pf-btn--ghost {
+  background: transparent;
+  color: var(--pf-ink);
+  border-color: var(--pf-line-strong);
+}
+
+.pf-btn--ghost:hover {
+  border-color: var(--pf-ink);
+  background: var(--pf-paper-2);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Project cards — homepage grid and "Explore more work"
+   ========================================================================== */
+
+.pf-cardgrid {
+  display: grid;
+  gap: clamp(28px, 4vw, 52px) clamp(24px, 3vw, 40px);
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 760px) {
+  .pf-cardgrid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pf-cardgrid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pf-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pf-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+}
+
+/* One fixed image box for every card, so nothing is cropped inconsistently. */
+.pf-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--pf-line);
+  background: var(--pf-paper-2);
+  transition: border-color var(--pf-t) var(--pf-ease),
+              transform var(--pf-t) var(--pf-ease),
+              box-shadow var(--pf-t) var(--pf-ease);
+}
+
+.pf-card__link:hover .pf-card__media {
+  border-color: var(--pf-line-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(16, 17, 20, .09);
+}
+
+/* Landscape screens: full bleed, anchored to the top so the interface header
+   stays visible rather than being centre-cropped out. */
+.pf-card__media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.pf-card__media--pad {
+  padding: clamp(14px, 3%, 30px);
+}
+
+.pf-card__media--pad > img {
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+}
+
+/* ActorStock: three tall phone screens shown whole on a tinted plate, the same
+   composition as that project's own hero. Nothing is stretched. */
+.pf-card__trio {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(8px, 2.4%, 18px);
+  padding: clamp(16px, 6%, 34px) clamp(12px, 4%, 26px) 0;
+  background: linear-gradient(180deg, #fff2f1 0%, #ffdfdc 100%);
+}
+
+.pf-card__phone {
+  position: relative;
+  width: clamp(54px, 19%, 108px);
+  aspect-ratio: 440 / 956;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(40, 46, 69, .16);
+  border: 1px solid rgba(40, 46, 69, .1);
+}
+
+.pf-card__phone--side {
+  transform: translateY(10%) scale(.94);
+}
+
+.pf-card__phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pf-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pf-card__title {
+  font-family: var(--pf-font);
+  font-size: clamp(20px, 1.9vw, 25px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--pf-ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pf-card__desc {
+  font-family: var(--pf-font);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--pf-ink-2);
+  margin: 0;
+  max-width: 52ch;
+}
+
+.pf-card__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+}
+
+.pf-card__labels li {
+  font-family: var(--pf-font);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--pf-ink-2);
+  background: var(--pf-paper-2);
+  border: 1px solid var(--pf-line);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.pf-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--pf-font);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--pf-ink);
+  margin-top: 6px;
+}
+
+.pf-card__cta svg {
+  transition: transform var(--pf-t) var(--pf-ease);
+}
+
+.pf-card__link:hover .pf-card__cta svg {
+  transform: translateX(4px);
+}
+
+/* Compact variant used by "Explore more work" */
+.pf-card--sm .pf-card__link {
+  gap: 14px;
+}
+
+.pf-card--sm .pf-card__title {
+  font-size: clamp(17px, 1.4vw, 19px);
+}
+
+.pf-card--sm .pf-card__desc {
+  font-size: 14.5px;
+}
+
+/* ==========================================================================
+   "Explore more work" — foot of every case study
+   ========================================================================== */
+
+.pf-related {
+  font-family: var(--pf-font);
+  background: var(--pf-paper);
+  border-top: 1px solid var(--pf-line);
+  padding-block: clamp(56px, 8vw, 96px);
+  color: var(--pf-ink);
+}
+
+.pf-related__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.pf-related__title {
+  font-family: var(--pf-font);
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--pf-ink);
+  margin: 0;
+}
+
+.pf-related__all {
+  font-family: var(--pf-font);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--pf-ink-2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--pf-line-strong);
+  padding-bottom: 2px;
+}
+
+.pf-related__all:hover {
+  color: var(--pf-ink);
+  border-color: var(--pf-ink);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.pf-footer {
+  font-family: var(--pf-font);
+  background: var(--pf-paper);
+  color: var(--pf-ink);
+  border-top: 1px solid var(--pf-line);
+  padding-block: clamp(48px, 7vw, 84px) 36px;
+}
+
+.pf-footer__grid {
+  display: grid;
+  gap: clamp(32px, 5vw, 56px);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 760px) {
+  .pf-footer__grid {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.pf-footer__brand {
+  font-family: var(--pf-font);
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--pf-ink);
+  margin: 0;
+}
+
+.pf-footer__name {
+  font-family: var(--pf-font);
+  font-size: 16px;
+  color: var(--pf-ink-2);
+  margin: 8px 0 0;
+}
+
+.pf-footer h2 {
+  font-family: var(--pf-font);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pf-ink-3);
+  margin: 0 0 14px;
+}
+
+.pf-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.pf-footer a {
+  font-family: var(--pf-font);
+  font-size: 15.5px;
+  color: var(--pf-ink-2);
+  text-decoration: none;
+  transition: color var(--pf-t) var(--pf-ease);
+  overflow-wrap: anywhere;
+}
+
+.pf-footer a:hover {
+  color: var(--pf-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pf-footer__bottom {
+  margin-top: clamp(36px, 6vw, 60px);
+  padding-top: 24px;
+  border-top: 1px solid var(--pf-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  justify-content: space-between;
+}
+
+.pf-footer__bottom p {
+  font-family: var(--pf-font);
+  font-size: 13.5px;
+  color: var(--pf-ink-3);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Homepage
+   ========================================================================== */
+
+.pf-home {
+  font-family: var(--pf-font);
+  background: var(--pf-paper);
+  color: var(--pf-ink);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pf-home img {
+  max-width: 100%;
+}
+
+.pf-intro {
+  padding-block: clamp(72px, 13vw, 168px) clamp(64px, 10vw, 128px);
+}
+
+.pf-intro__eyebrow {
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.pf-intro__name {
+  font-family: var(--pf-font);
+  font-size: clamp(40px, 7.4vw, 78px);
+  font-weight: 600;
+  line-height: 1.02;
+  color: var(--pf-ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pf-intro__lede {
+  font-family: var(--pf-font);
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.62;
+  color: var(--pf-ink-2);
+  margin: clamp(24px, 3.4vw, 36px) 0 0;
+  max-width: 58ch;
+}
+
+.pf-intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(32px, 4.5vw, 48px);
+}
+
+.pf-work {
+  padding-block: 0 clamp(72px, 10vw, 128px);
+}
+
+.pf-work__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: clamp(24px, 3vw, 34px);
+  margin-bottom: clamp(36px, 5vw, 60px);
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-work__title {
+  font-family: var(--pf-font);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--pf-ink);
+  margin: 0;
+}
+
+.pf-work__count {
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  color: var(--pf-ink-3);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+
+.pf-js .pf-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 620ms var(--pf-ease), transform 620ms var(--pf-ease);
+}
+
+.pf-js .pf-reveal.pf-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .pf-js .pf-reveal,
+  .pf-js .pf-reveal.pf-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pf-header,
+  .pf-menu,
+  .pf-sectionnav,
+  .pf-related,
+  .pf-footer,
+  .pf-home,
+  .pf-home * {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .pf-btn:hover,
+  .pf-card__link:hover .pf-card__media,
+  .pf-card__link:hover .pf-card__cta svg {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Capture mode (?capture=1) — flatten the page for a Figma export
+   ========================================================================== */
+
+.pf-capture .pf-header,
+.pf-capture .pf-sectionnav,
+.pf-capture .pf-menu,
+.pf-capture .pf-menubtn,
+.pf-capture .pf-related,
+.pf-capture .pf-footer,
+.pf-capture .pf-skip {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Project covers
+   --------------------------------------------------------------------------
+   A branded cover per case study, built from that project's own screenshots
+   and its own Figma-sourced palette, in place of a single cropped screenshot.
+   Everything scales from the card's width (container query units), so one
+   composition works from a 320px phone card up to a full-width preview.
+
+   Two variants: `--motif` scatters flat shapes lifted from what the product
+   actually contains; `--clean` drops them.
+   ========================================================================== */
+
+.pf-card__media--cover {
+  container-type: inline-size;
+  padding: 0;
+  border: 0;
+}
+
+.pf-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  font-family: var(--pf-font);
+  isolation: isolate;
+}
+
+/* --- head ---------------------------------------------------------------- */
+
+.pf-cover__head {
+  position: relative;
+  z-index: 2;
+  padding: 6cqw 7cqw 0;
+  text-align: center;
+}
+
+.pf-cover__mark {
+  margin: 0;
+  font-size: max(21px, 7.6cqw);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.pf-cover__mark em {
+  font-style: normal;
+}
+
+.pf-cover__tag {
+  margin: 1.8cqw 0 0;
+  font-size: max(11.5px, 2.65cqw);
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, .82);
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+/* --- stage --------------------------------------------------------------- */
+
+.pf-cover__stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3cqw;
+  padding: 4cqw 7cqw 0;
+  min-height: 0;
+}
+
+/* Phone, browser and widget shells — all built here, never in the exports. */
+
+.pf-cover__phone {
+  position: relative;
+  width: 19cqw;
+  aspect-ratio: 440 / 956;
+  border-radius: 3cqw;
+  overflow: hidden;
+  background: #fff;
+  border: .55cqw solid rgba(15, 23, 42, .55);
+  box-shadow: 0 2cqw 4cqw rgba(15, 23, 42, .3);
+  flex: none;
+}
+
+.pf-cover__phone::after {
+  content: "";
+  position: absolute;
+  top: .9cqw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6cqw;
+  height: 1.1cqw;
+  border-radius: 1cqw;
+  background: rgba(15, 23, 42, .8);
+  z-index: 2;
+}
+
+/* The screenshot fits the phone: full width, anchored to the top, with the
+   frame cropping the rest — exactly what the screen looks like on a device.
+   (These exports are whole scrolling pages; home.webp alone is 440 x 9,436.) */
+.pf-cover__phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pf-cover__phone--lead {
+  width: 23cqw;
+  z-index: 2;
+}
+
+.pf-cover__phone--back {
+  margin-top: 3cqw;
+  opacity: .96;
+}
+
+.pf-cover__browser {
+  position: relative;
+  width: 62cqw;
+  border-radius: 1.8cqw;
+  overflow: hidden;
+  background: #fff;
+  border: .4cqw solid rgba(15, 23, 42, .4);
+  box-shadow: 0 2.4cqw 5cqw rgba(15, 23, 42, .32);
+  flex: none;
+}
+
+.pf-cover__browser::before {
+  content: "";
+  display: block;
+  height: 2.6cqw;
+  background: #f1f3f6;
+  border-bottom: 1px solid rgba(15, 23, 42, .1);
+}
+
+.pf-cover__browser > span {
+  position: absolute;
+  top: 1cqw;
+  width: .75cqw;
+  height: .75cqw;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, .22);
+}
+
+.pf-cover__browser > span:nth-of-type(1) { left: 1.4cqw; }
+.pf-cover__browser > span:nth-of-type(2) { left: 2.8cqw; }
+.pf-cover__browser > span:nth-of-type(3) { left: 4.2cqw; }
+
+.pf-cover__browser img {
+  display: block;
+  width: 142%;
+  height: auto;
+}
+
+.pf-cover__widget {
+  position: relative;
+  border-radius: 2.4cqw;
+  overflow: hidden;
+  box-shadow: 0 2cqw 4.5cqw rgba(2, 8, 30, .45);
+  flex: none;
+}
+
+.pf-cover__widget img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pf-cover__widget--wide { width: 50cqw; }
+.pf-cover__widget--tall { width: 21cqw; margin-top: 3cqw; }
+
+/* The widgets fit whole inside the box, so centre them rather than cropping. */
+.pf-cover--mcv-widget .pf-cover__stage {
+  align-items: center;
+  padding-top: 2cqw;
+}
+
+/* The tilt that gives the reference its depth. */
+.pf-cover__tilt-l { transform: rotate(-7deg) translateY(1.5cqw); }
+.pf-cover__tilt-r { transform: rotate(6deg) translateY(2.5cqw); }
+.pf-cover__tilt-c { transform: rotate(-2.5deg); }
+
+/* --- motifs -------------------------------------------------------------- */
+
+.pf-cover__motifs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pf-cover--clean .pf-cover__motifs {
+  display: none;
+}
+
+.pf-cover__motifs > * {
+  position: absolute;
+}
+
+/* --- per-project palettes, all read from each project's own Figma tokens -- */
+
+.pf-cover--actorstock {
+  background:
+    radial-gradient(120% 90% at 50% 0%, #ff8286 0%, #ff6468 52%, #f04c52 100%);
+}
+
+.pf-cover--actorstock .pf-cover__mark em { color: #282e45; }
+
+.pf-cover--englishx {
+  background:
+    radial-gradient(120% 90% at 50% 0%, #e2566d 0%, #d53951 55%, #b62c43 100%);
+}
+
+.pf-cover--englishx .pf-cover__mark em { color: #fea5d5; }
+
+.pf-cover--mcv-widget {
+  background: linear-gradient(170deg, #0f172a 0%, #071d5a 82%, #0b2a7a 100%);
+}
+
+.pf-cover--mcv-widget .pf-cover__mark em { color: #1b9afb; }
+
+.pf-cover--assessment-platform {
+  background:
+    radial-gradient(120% 90% at 50% 0%, #4fb4fc 0%, #1b9afb 52%, #0d6fd0 100%);
+}
+
+.pf-cover--assessment-platform .pf-cover__mark em { color: #ffa70f; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-cover__tilt-l,
+  .pf-cover__tilt-r,
+  .pf-cover__tilt-c {
+    transform: none;
+  }
+}

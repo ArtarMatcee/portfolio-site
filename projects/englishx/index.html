@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EnglishX — Current Design</title>
+<meta name="description" content="A design case study of EnglishX: the current desktop interface for its dashboard, AI learning partners, course and self-paced learning, and SpeakUp speaking practice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..700&display=swap">
+<link rel="stylesheet" href="../../assets/css/shell.css">
+<script>document.documentElement.classList.add('pf-js');</script>
+<link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>
+  /* Without JS nothing reveals or switches, so show everything at rest. */
+  .anim, .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .story__step { opacity: 1 !important; }
+  .story--fade .story__stage { display: none; }
+  .story--fade .story__inline { display: block; }
+  .switcher__panel[hidden] { display: block !important; }
+  .switcher__controls, .tabs__controls { display: none; }
+</style></noscript>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================ 1. HERO ============================ -->
+<!-- ===================== SHARED SITE HEADER ===================== -->
+<header class="pf-header">
+  <div class="pf-header__inner">
+    <a class="pf-brand" href="../../">Artar's Portfolio</a>
+
+    <nav aria-label="Main">
+      <ul class="pf-nav">
+        <li><a href="../../#work" aria-current="page">Work</a></li>
+        <li><a href="../../#about">About</a></li>
+        <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="pf-menubtn" type="button" data-pf-menu-button aria-expanded="false" aria-controls="pf-menu">
+      <span class="pf-menubtn__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+  </div>
+</header>
+
+<div class="pf-menu" id="pf-menu" data-pf-menu hidden>
+  <nav aria-label="Main, mobile">
+    <ul>
+      <li><a href="../../#work" aria-current="page">Work</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ================ LOCAL CASE-STUDY SECTION MENU ================ -->
+<nav class="pf-sectionnav" data-pf-sectionnav aria-label="Sections in this case study">
+  <div class="pf-sectionnav__inner">
+    <a class="pf-sectionnav__back" href="../../#work" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H4M7.5 11.5 4 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="pf-sectionnav__back-label">Back to work</span>
+    </a>
+    <span class="pf-sectionnav__rule" aria-hidden="true"></span>
+    <ul class="pf-sectionnav__list">
+        <li><a href="#current-design">Current design</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#ai-partner">AI partner</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#speakup">SpeakUp</a></li>
+        <li><a href="#closing">In summary</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow anim" data-anim="1">UX / UI case study</p>
+      <h1 class="hero__title anim" data-anim="2">English<span class="hero__x">X</span></h1>
+      <p class="hero__lede anim" data-anim="3">
+        An AI-assisted English learning platform for the desktop browser. A learner chooses an AI
+        partner, works through generated courses and self-paced practice sets, and rehearses real
+        conversations in <strong>SpeakUp</strong> — with streaks, progress and speaking scores
+        collected on one dashboard.
+      </p>
+      <div class="hero__actions anim" data-anim="4">
+        <a class="btn btn--primary" href="#current-design">
+          Explore the current design
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="https://www.figma.com/design/ForQz0tYJJQtk4aAml2OrO/EnglishX?node-id=386-2717" target="_blank" rel="noopener">
+          Open the Figma file
+        </a>
+      </div>
+    </div>
+
+    <figure class="hero__shot anim" data-anim="3">
+      <div class="browser browser--tilt">
+        <div class="browser__bar" aria-hidden="true">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="browser__label">Dashboard · 1440 × 1024</span>
+        </div>
+        <button class="shot" type="button" data-zoom="assets/img/dashboard.webp" data-zoom-caption="Dashboard — node 383:2217">
+          <img src="assets/img/dashboard.webp" srcset="assets/img/dashboard-1120.webp 1120w, assets/img/dashboard.webp 2240w"
+               sizes="(max-width: 900px) 92vw, 52vw" width="2240" height="1593"
+               alt="The EnglishX dashboard: sidebar, greeting bar, Day Streak, Daily Progress and LearnTrack panels, Continue Learning cards and a full-height AI assistant panel.">
+          <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+        </button>
+      </div>
+    </figure>
+  </div>
+  <div class="wrap">
+    <p class="hero__note anim" data-anim="5">
+      All figures visible in the screens — streak counts, percentages, scores — are sample UI data
+      from the Figma file, not measured project results.
+    </p>
+  </div>
+</header>
+
+<!-- ============================ SUB NAV ============================ -->
+<main id="main">
+
+<!-- ==================== 2. CURRENT DESIGN OVERVIEW ==================== -->
+<section class="band band--tint" id="current-design">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The current design</p>
+      <h2>Four surfaces, one learning loop</h2>
+      <p class="sec-head__lede">
+        The “Current Design” section of the Figma file covers four connected features. Each one
+        hands the learner to the next, and an AI partner stays present throughout.
+      </p>
+    </div>
+
+    <ol class="flow reveal">
+      <li class="flow__item">
+        <span class="flow__num">01</span>
+        <h3>Dashboard</h3>
+        <p>The home surface. Progress, streak and a <em>Continue Learning</em> row that links
+           straight into the three practice modes.</p>
+      </li>
+      <li class="flow__item">
+        <span class="flow__num">02</span>
+        <h3>AI partner</h3>
+        <p>Creating a course opens a three-step form. Step one is picking a partner — a named
+           character with a region, a specialism and a personality profile.</p>
+      </li>
+      <li class="flow__item">
+        <span class="flow__num">03</span>
+        <h3>Courses &amp; self-paced</h3>
+        <p>Generated courses live in <em>My Courses</em>; eight skill areas in
+           <em>Self-Paced Learning</em> generate practice sets on demand.</p>
+      </li>
+      <li class="flow__item">
+        <span class="flow__num">04</span>
+        <h3>SpeakUp</h3>
+        <p>Scenario-based speaking practice with an AI partner, scored turn by turn and
+           summarised at the end.</p>
+      </li>
+    </ol>
+
+    <div class="connects reveal">
+      <h3 class="connects__title">How the screens connect</h3>
+      <ul class="connects__list">
+        <li><strong>Dashboard → practice.</strong> The three Continue Learning cards map one-to-one
+            onto My Courses, Self-Paced Learning and Real-Life Speaking Practice.</li>
+        <li><strong>Form → course.</strong> The <em>+</em> button in My Courses and
+            <em>Create a New Scenario</em> in SpeakUp open the same three-step modal shell:
+            Your Information → Analysis Result → Complete.</li>
+        <li><strong>Partner → everywhere.</strong> The partner keeps a slot on every surface — a
+            full assistant panel on the dashboard, a sidebar card in the learning screens, and the
+            on-screen partner inside a SpeakUp session. Which character fills that slot varies
+            between frames in the file.</li>
+        <li><strong>Session → score.</strong> A finished SpeakUp scenario resolves into a radar
+            summary, and the SpeakUp overview charts sessions over time.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 3. LEARNING DASHBOARD ==================== -->
+<section class="band" id="dashboard">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">01 — Dashboard · node 383:2217</p>
+      <h2>A learning dashboard that answers “where was I?”</h2>
+      <p class="sec-head__lede">
+        One 1440 × 1024 screen carries five jobs: identify the learner and their level, show
+        momentum, show progress by skill, offer a way back into unfinished work, and keep the AI
+        assistant within reach.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="story story--hotspot" data-story data-stage="hotspot">
+      <div class="story__stage">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="browser__label">Dashboard</span>
+          </div>
+          <div class="browser__screen">
+            <button class="shot" type="button" data-zoom="assets/img/dashboard.webp" data-zoom-caption="Dashboard — node 383:2217">
+              <img src="assets/img/dashboard.webp" srcset="assets/img/dashboard-1120.webp 1120w, assets/img/dashboard.webp 2240w"
+                   sizes="(max-width: 900px) 92vw, 54vw" width="2240" height="1593" loading="lazy"
+                   alt="Full EnglishX dashboard screen.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+            <span class="hotspot" data-hotspot aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
+      <ol class="story__steps">
+        <li class="story__step" data-step data-x="21.4" data-y="37.3" data-w="52.9" data-h="26.1">
+          <p class="story__index">01</p>
+          <h3>Daily Progress and LearnTrack</h3>
+          <p>
+            Two panels share the row. <strong>Daily Progress</strong> plots a week of activity
+            against the learner’s starting level — the pill reads “Your Initial level: A1”.
+            <strong>LearnTrack</strong> turns the same week into a motivation ring, a
+            completed-courses ring, and a <em>Skill Boost Tracker</em> radial covering Grammar,
+            Vocabulary, Writing, Speaking, Reading and Listening. Tabs above it switch the tracker
+            between LearnTrack, PTS and IELTS.
+          </p>
+          <p class="story__benefit">Effort and skill balance are legible in a single glance,
+             without opening a report.</p>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/d-progress.webp" data-zoom-caption="Daily Progress and LearnTrack — detail">
+              <img src="assets/img/d-progress.webp" srcset="assets/img/d-progress-700.webp 700w, assets/img/d-progress.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="519" loading="lazy"
+                   alt="Detail: the Daily Progress line chart beside the LearnTrack rings and Skill Boost Tracker radial.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" data-step data-x="46.1" data-y="17.7" data-w="28.3" data-h="18.1">
+          <p class="story__index">02</p>
+          <h3>Day Streak</h3>
+          <p>
+            A single card counts consecutive days and lays the current week out as seven chips:
+            days already completed carry a check, the rest show their date. A month pill
+            (“May 2025”) anchors the streak to a calendar, and a flame motif sits behind the count.
+          </p>
+          <p class="story__benefit">Turns a large goal into one visible, daily commitment —
+             and makes breaking it feel costly.</p>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/d-streak.webp" data-zoom-caption="Day Streak — detail">
+              <img src="assets/img/d-streak.webp" srcset="assets/img/d-streak-500.webp 500w, assets/img/d-streak.webp 862w"
+                   sizes="(max-width: 900px) 92vw, 34vw" width="862" height="418" loading="lazy"
+                   alt="Detail: the Day Streak card with a 500 days count and a row of seven day chips.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" data-step data-x="21.0" data-y="62.5" data-w="54.0" data-h="29.5">
+          <p class="story__index">03</p>
+          <h3>Continue Learning</h3>
+          <p>
+            Three resume cards, one per practice mode. The <strong>My Courses</strong> and
+            <strong>Self-Paced Learning</strong> cards each name the item, its topic or skill tag,
+            the lessons completed and a percentage bar, and end in a <em>Resume course</em> button.
+            The third card — <strong>Real-Life Speaking Practice</strong> — swaps that pattern for
+            a filled pink panel with the scenario number, the role, a microphone and a
+            <em>Let’s Speak</em> button.
+          </p>
+          <p class="story__benefit">The dashboard’s main job is re-entry: three taps back into
+             whatever was left unfinished.</p>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/d-continue.webp" data-zoom-caption="Continue Learning — detail">
+              <img src="assets/img/d-continue.webp" srcset="assets/img/d-continue-700.webp 700w, assets/img/d-continue.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="468" loading="lazy"
+                   alt="Detail: three Continue Learning cards — My Courses, Self-Paced Learning and Real-Life Speaking Practice.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" data-step data-x="74.0" data-y="8.4" data-w="25.7" data-h="89.0">
+          <p class="story__index">04</p>
+          <h3>EnglishX Learning Assistant</h3>
+          <p>
+            A full-height panel pins the AI partner to the right of the dashboard: name, a gold
+            specialism badge, gender and MBTI chips, a region, and five personality meters —
+            Friendliness, Enthusiasm, Formality, Playfulness, Empathy. The character is rendered
+            below at full height, with a greeting bubble and an
+            <em>“Ask AI Anythink…”</em> field plus a <em>Send</em> button at the base.
+          </p>
+          <p class="story__benefit">Help keeps a face and a personality, and never costs a
+             navigation step.</p>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/d-assistant.webp" data-zoom-caption="EnglishX Learning Assistant — detail">
+              <img src="assets/img/d-assistant.webp" srcset="assets/img/d-assistant-500.webp 500w, assets/img/d-assistant.webp 736w"
+                   sizes="(max-width: 900px) 92vw, 26vw" width="736" height="528" loading="lazy"
+                   alt="Detail: the Learning Assistant header with the partner’s name, badges and five personality meters.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. AI LEARNING PARTNER ==================== -->
+<section class="band band--tint" id="ai-partner">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">02 — Create new course · nodes 419:4578, 423:5239, 423:5444</p>
+      <h2>Choosing an AI learning partner</h2>
+      <p class="sec-head__lede">
+        A new course begins in the <em>Personalized Learning Path Generation Form</em> — a modal
+        with three stages across the top: Your Information, Analysis Result, Complete. The first
+        thing the form asks for is not a level or a topic. It asks who the learner wants to
+        practise with.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="switcher reveal" data-switcher>
+      <div class="switcher__controls" role="tablist" aria-label="Partner selection states">
+        <button role="tab" id="pt-0" aria-controls="pp-0" aria-selected="true"  class="chip" data-tab="0">
+          <span class="chip__n">1</span> Browse partners
+        </button>
+        <button role="tab" id="pt-1" aria-controls="pp-1" aria-selected="false" class="chip" data-tab="1" tabindex="-1">
+          <span class="chip__n">2</span> Make a choice
+        </button>
+        <button role="tab" id="pt-2" aria-controls="pp-2" aria-selected="false" class="chip" data-tab="2" tabindex="-1">
+          <span class="chip__n">3</span> Read the profile
+        </button>
+      </div>
+      <p class="switcher__hint">Three states drawn in Figma. Switching here shows the designed
+         frames — it is a demo of the design, not a working product.</p>
+
+      <div class="switcher__stage">
+        <div class="switcher__panel is-active" role="tabpanel" id="pp-0" aria-labelledby="pt-0">
+          <figure class="figure">
+            <div class="modalmock">
+              <button class="shot" type="button" data-zoom="assets/img/partner-grid.webp" data-zoom-caption="Create new course — Select AI Partner (419:4578)">
+                <img src="assets/img/partner-grid.webp" srcset="assets/img/partner-grid-1000.webp 1000w, assets/img/partner-grid.webp 2000w"
+                     sizes="(max-width: 900px) 92vw, 62vw" width="2000" height="1112" loading="lazy"
+                     alt="The Select AI Partner step: a scrollable grid of ten character cards, each with a name, a country and a gold specialism badge.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <figcaption>
+              <strong>Browse.</strong> Every partner is a card: a full-body 3D render, the name and
+              region over the image, and a gold badge naming what they are good at. The grid
+              scrolls, and <em>Back</em> / <em>Submit</em> stay disabled until a choice is made.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="switcher__panel" role="tabpanel" id="pp-1" aria-labelledby="pt-1" hidden>
+          <figure class="figure">
+            <div class="modalmock">
+              <button class="shot" type="button" data-zoom="assets/img/partner-selected.webp" data-zoom-caption="Create new course — when a character is chosen (423:5239)">
+                <img src="assets/img/partner-selected.webp" srcset="assets/img/partner-selected-1000.webp 1000w, assets/img/partner-selected.webp 2000w"
+                     sizes="(max-width: 900px) 92vw, 62vw" width="2000" height="1112" loading="lazy"
+                     alt="The same grid with one card in full colour and a pink glow, while every other card is desaturated to grey.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <figcaption>
+              <strong>Choose.</strong> Selecting a partner drains the colour from every other card
+              and lifts the chosen one with a pink glow. No checkmark, no border, no extra chrome —
+              the whole grid becomes the selection indicator.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="switcher__panel" role="tabpanel" id="pp-2" aria-labelledby="pt-2" hidden>
+          <figure class="figure">
+            <div class="modalmock modalmock--narrow">
+              <button class="shot" type="button" data-zoom="assets/img/partner-details.webp" data-zoom-caption="Charactor-details (423:5444)">
+                <img src="assets/img/partner-details.webp" srcset="assets/img/partner-details-800.webp 800w, assets/img/partner-details.webp 1600w"
+                     sizes="(max-width: 900px) 92vw, 52vw" width="1600" height="990" loading="lazy"
+                     alt="The character detail panel: a large render on the left; on the right a specialism badge, the name Dream, region, Male and ENFJ chips, a written bio and five personality meters.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <figcaption>
+              <strong>Read.</strong> The detail panel gives the partner a biography and a
+              measurable temperament: specialism badge, name, region, gender and MBTI chips, a
+              short written character note, and the same five meters used by the dashboard
+              assistant. <em>Back</em> and <em>Next</em> close the step.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h3 class="sub-head reveal">The partners drawn in this section</h3>
+    <ul class="cast reveal">
+      <li class="cast__item">
+        <img src="assets/img/card-rosy.webp" width="420" height="481" loading="lazy" alt="Rosy — a character with bright pink hair, glasses and a pale jacket.">
+        <div class="cast__meta"><strong>Rosy</strong><span>United State, US</span><em>Confident Oral Fluency</em></div>
+      </li>
+      <li class="cast__item">
+        <img src="assets/img/card-jinny.webp" width="420" height="481" loading="lazy" alt="Jinny — a character with a purple bob and a metallic dress.">
+        <div class="cast__meta"><strong>Jinny</strong><span>United Kingdom, UK</span><em>Advanced Vocabulary Master</em></div>
+      </li>
+      <li class="cast__item">
+        <img src="assets/img/card-linda.webp" width="420" height="481" loading="lazy" alt="Linda — a character with long red hair in a dark suit and tie.">
+        <div class="cast__meta"><strong>Linda</strong><span>India, IN</span><em>Interactive Spoken Communication</em></div>
+      </li>
+      <li class="cast__item">
+        <img src="assets/img/card-charlotte.webp" width="420" height="481" loading="lazy" alt="Charlotte — a character with straight blonde hair in a brown hoodie.">
+        <div class="cast__meta"><strong>Charlotte</strong><span>Australia, AU</span><em>Rapid Spontaneous Response</em></div>
+      </li>
+      <li class="cast__item">
+        <img src="assets/img/card-emma.webp" width="420" height="481" loading="lazy" alt="Emma — a character in sunglasses and a patterned hoodie.">
+        <div class="cast__meta"><strong>Emma</strong><span>Canada, CA</span><em>Expressive Creative Communication</em></div>
+      </li>
+      <li class="cast__item">
+        <img src="assets/img/card-dream.webp" width="420" height="481" loading="lazy" alt="Dream — a character in sunglasses and a yellow puffer vest.">
+        <div class="cast__meta"><strong>Dream</strong><span>United State, US</span><em>Clear Pronunciation Mastery</em></div>
+      </li>
+    </ul>
+    <p class="note reveal">
+      Names, regions and specialisms are taken from the cards in node 419:4578. Of these, only
+      <strong>Dream</strong> has a detail state drawn in the Current Design section — the profile
+      panel above shows Male, ENFJ, United State, US and five personality meters.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 5. LEARNING ==================== -->
+<section class="band" id="learning">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">03 — My Courses · Self-Paced Learning · nodes 416:3662, 427:5501</p>
+      <h2>Personalised on one side, self-paced on the other</h2>
+      <p class="sec-head__lede">
+        Two screens share a shell — the same sidebar, the same greeting bar, the same
+        <em>Course content</em> grid — and differ in how work arrives. One delivers a generated
+        course with a fixed order. The other lets the learner pick a skill and generate a set on
+        the spot.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="tabs reveal" data-switcher>
+      <div class="tabs__controls" role="tablist" aria-label="Learning screens">
+        <button role="tab" id="lt-0" aria-controls="lp-0" aria-selected="true" class="chip chip--wide" data-tab="0">My Courses</button>
+        <button role="tab" id="lt-1" aria-controls="lp-1" aria-selected="false" class="chip chip--wide" data-tab="1" tabindex="-1">Self-Paced Learning</button>
+      </div>
+
+      <div class="switcher__stage">
+        <div class="switcher__panel is-active" role="tabpanel" id="lp-0" aria-labelledby="lt-0">
+          <div class="split">
+            <div class="split__media">
+              <div class="browser">
+                <div class="browser__bar" aria-hidden="true">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="browser__label">My course · option 1</span>
+                </div>
+                <button class="shot" type="button" data-zoom="assets/img/my-courses.webp" data-zoom-caption="My course-option1 — node 416:3662">
+                  <img src="assets/img/my-courses.webp" srcset="assets/img/my-courses-1120.webp 1120w, assets/img/my-courses.webp 2240w"
+                       sizes="(max-width: 900px) 92vw, 56vw" width="2240" height="1593" loading="lazy"
+                       alt="My Courses: a scrolling list of enrolled courses on the left and a Course detail panel with cover art, objectives and a Course content grid on the right.">
+                  <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+                </button>
+              </div>
+            </div>
+            <div class="split__body">
+              <h3>Course organisation</h3>
+              <ul class="ticks">
+                <li><strong>A single vertical rail</strong> holds every enrolled course. Each row
+                    carries the cover art, the full title, a days-remaining counter and a
+                    percentage bar.</li>
+                <li><strong>The active course is filled pink</strong> and white-on-pink; the rest
+                    stay outlined. Position in the list is the only navigation needed.</li>
+                <li><strong>A “+” button</strong> beside the heading opens the generation form —
+                    the same modal shell used to pick an AI partner.</li>
+              </ul>
+              <figure class="inline-crop">
+                <button class="shot shot--flat" type="button" data-zoom="assets/img/c-list.webp" data-zoom-caption="Course rail — active and inactive rows">
+                  <img src="assets/img/c-list.webp" srcset="assets/img/c-list-500.webp 500w, assets/img/c-list.webp 644w"
+                       sizes="(max-width: 900px) 92vw, 22vw" width="644" height="412" loading="lazy"
+                       alt="Detail: the active course row filled pink above an outlined inactive row, both showing days remaining and a progress bar.">
+                  <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+                </button>
+                <figcaption>Selected vs. unselected course rows.</figcaption>
+              </figure>
+
+              <h3>Lesson content</h3>
+              <ul class="ticks">
+                <li><strong>Course detail</strong> repeats the title, shows the generated cover
+                    illustration, and sets out the objective as one continuous paragraph —
+                    vocabulary, message construction, etiquette, discussion, presentation.</li>
+                <li><strong>Course content</strong> sits underneath as a two-column grid of cards.
+                    The AI assistant docks in the lower right as a collapsible chat.</li>
+              </ul>
+              <figure class="inline-crop inline-crop--wide">
+                <button class="shot shot--flat" type="button" data-zoom="assets/img/c-detail.webp" data-zoom-caption="Course detail — title, cover art and objectives">
+                  <img src="assets/img/c-detail.webp" srcset="assets/img/c-detail-700.webp 700w, assets/img/c-detail.webp 1400w"
+                       sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="516" loading="lazy"
+                       alt="Detail: the Course detail card with the course title, generated cover image and the objective paragraph.">
+                  <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+                </button>
+                <figcaption>Course detail: title, generated cover, objectives.</figcaption>
+              </figure>
+              <p class="note note--inline">In the file, the cards under <em>Course content</em> are
+                 empty placeholders — the lesson card itself has not been designed in this section.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="switcher__panel" role="tabpanel" id="lp-1" aria-labelledby="lt-1" hidden>
+          <div class="split">
+            <div class="split__media">
+              <div class="browser">
+                <div class="browser__bar" aria-hidden="true">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="browser__label">Self-Paced Learning</span>
+                </div>
+                <button class="shot" type="button" data-zoom="assets/img/self-paced.webp" data-zoom-caption="Self-Paced Learning — node 427:5501">
+                  <img src="assets/img/self-paced.webp" srcset="assets/img/self-paced-1120.webp 1120w, assets/img/self-paced.webp 2240w"
+                       sizes="(max-width: 900px) 92vw, 56vw" width="2240" height="1593" loading="lazy"
+                       alt="Self-Paced Learning: eight skill tiles in two rows above a Course content grid and a Generate a New Practice Set button.">
+                  <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+                </button>
+              </div>
+            </div>
+            <div class="split__body">
+              <h3>Eight ways in</h3>
+              <ul class="ticks">
+                <li><strong>A 4 × 2 grid of skill tiles</strong> replaces the course rail:
+                    Listening, Reading, Writing, Speaking, Vocabulary, Grammar, Thai Problematic
+                    and Integrated Skills.</li>
+                <li><strong>“Thai Problematic”</strong> names the audience outright — the tile set
+                    is built for Thai speakers learning English, not for a generic learner.</li>
+                <li><strong>Tiles are equal in weight:</strong> same size, same white card, same
+                    pink hairline. Nothing is recommended, so nothing is ranked.</li>
+              </ul>
+              <figure class="inline-crop inline-crop--wide">
+                <button class="shot shot--flat" type="button" data-zoom="assets/img/s-skills.webp" data-zoom-caption="The eight Self-Paced Learning skill tiles">
+                  <img src="assets/img/s-skills.webp" srcset="assets/img/s-skills-700.webp 700w, assets/img/s-skills.webp 1400w"
+                       sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="295" loading="lazy"
+                       alt="Detail: the eight skill tiles — Listening, Reading, Writing, Speaking, Vocabulary, Grammar, Thai Problematic, Integrated Skills.">
+                  <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+                </button>
+                <figcaption>The eight skill entry points.</figcaption>
+              </figure>
+
+              <h3>Practice on demand</h3>
+              <ul class="ticks">
+                <li><strong>“Generate a New Practice Set”</strong> is the one primary action on the
+                    screen, aligned right of the <em>Course content</em> heading.</li>
+                <li><strong>The same content grid returns</strong> below it, so a generated set and
+                    a course lesson are meant to read as the same kind of object.</li>
+                <li><strong>The assistant card stays in the sidebar</strong>, keeping the chosen
+                    partner present while the learner works alone.</li>
+              </ul>
+              <p class="note note--inline">As on My Courses, the content cards in this frame are
+                 placeholders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 6. SPEAKUP ==================== -->
+<section class="band band--deep" id="speakup">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">04 — SpeakUp · section 848:5491</p>
+      <h2>SpeakUp: rehearsing the conversation before it happens</h2>
+      <p class="sec-head__lede">
+        The largest sub-section of the file. SpeakUp takes the learner from a measured overview,
+        through building a scenario, into a timed spoken exchange with the AI partner, and out
+        again with a score. It is the only place in the Current Design where the learner speaks.
+      </p>
+    </div>
+
+    <figure class="figure figure--wide reveal">
+      <div class="browser">
+        <div class="browser__bar" aria-hidden="true">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="browser__label">SpeakUp — Real-life Speaking Practice</span>
+        </div>
+        <button class="shot" type="button" data-zoom="assets/img/speakup-overview.webp" data-zoom-caption="SpeakUp overview, expanded — node 896:5065">
+          <img src="assets/img/speakup-overview.webp" srcset="assets/img/speakup-overview-1120.webp 1120w, assets/img/speakup-overview.webp 2240w"
+               sizes="(max-width: 900px) 92vw, 78vw" width="2240" height="2128" loading="lazy"
+               alt="The SpeakUp overview: a Willingness to Communicate panel with a trend chart and a five-axis radar, a Progress Score chart, and a scenario summary expanded into a four-stage ladder.">
+          <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+        </button>
+      </div>
+      <figcaption>
+        <strong>The overview, expanded.</strong> <em>Willingness to Communicate</em> tracks five
+        measures — Speaking Time, Challenge Level, Repeats, Role Variety, Turns Used — as a weekly
+        trend and as a radar that compares two periods; <em>Progress Score</em> sits beside it.
+        Below, a goal (“Creative Skills”) holds a scenario summary: role, location, turn count and
+        four numbered scenarios.
+      </figcaption>
+    </figure>
+
+    <div class="duo reveal">
+      <figure class="figure">
+        <button class="shot shot--flat" type="button" data-zoom="assets/img/su-ladder.webp" data-zoom-caption="The scenario ladder — Start, Ready, Locked">
+          <img src="assets/img/su-ladder.webp" srcset="assets/img/su-ladder-700.webp 700w, assets/img/su-ladder.webp 1400w"
+               sizes="(max-width: 900px) 92vw, 42vw" width="1400" height="445" loading="lazy"
+               alt="Detail: four chevron stages labelled with scenario names and the states Start, Ready, Locked and Locked, above a numbered stepper.">
+          <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+        </button>
+        <figcaption><strong>A ladder, not a list.</strong> Expanding a goal reveals four chevron
+          stages that alternate between <em>You</em> and <em>AI</em>. The first reads
+          <em>Start</em>, the second <em>Ready</em>, and the last two are <em>Locked</em> —
+          difficulty labels (Basic, Interaction, Persuasion, Fluency) sit above each state.</figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="modalmock">
+          <button class="shot" type="button" data-zoom="assets/img/practice-setup.webp" data-zoom-caption="Create new Practice Senario — node 667:15793">
+            <img src="assets/img/practice-setup.webp" srcset="assets/img/practice-setup-1000.webp 1000w, assets/img/practice-setup.webp 2000w"
+                 sizes="(max-width: 900px) 92vw, 42vw" width="2000" height="1112" loading="lazy"
+                 alt="The Create new Practice Scenario modal: skill focus tiles and objective fields on the left, AI partner cards and a character setup form on the right.">
+            <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+          </button>
+        </div>
+        <figcaption><strong>Setting the scene.</strong> The scenario form reuses the three-step
+          modal shell. Left: eight skill-focus tiles, then Practice Objective, Learning Goal and
+          Focus Topic, with a <em>Random</em> shortcut. Right: the partner picker again, and a
+          <em>Real-Life Scenario / Environment Setup</em> block asking for Character, Role,
+          Organization, Feelings, Needs and Challenges — with <em>Add Character</em> for more than
+          one.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h3 class="sub-head reveal">Inside a session</h3>
+    <p class="sub-lede reveal">Five states are drawn for a single scenario — “Introduce Yourself
+       Over Coffee at Singapore Tower”. Scroll through them, or jump straight to one.</p>
+
+    <nav class="steplinks reveal" aria-label="Jump to a session state">
+      <a href="#su-step-1"><span>01</span> Briefing</a>
+      <a href="#su-step-2"><span>02</span> AI turn</a>
+      <a href="#su-step-3"><span>03</span> Your turn</a>
+      <a href="#su-step-4"><span>04</span> All turns</a>
+      <a href="#su-step-5"><span>05</span> Summary</a>
+    </nav>
+
+    <div class="story story--fade" data-story data-stage="fade">
+      <div class="story__stage">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="browser__label" data-stage-label>SpeakUp — Scenario briefing</span>
+          </div>
+          <div class="browser__screen browser__screen--stack">
+            <div class="layer is-active" data-layer>
+              <button class="shot" type="button" data-zoom="assets/img/speakup-brief.webp" data-zoom-caption="SpeakUp-Scenario — node 751:3795">
+                <img src="assets/img/speakup-brief.webp" srcset="assets/img/speakup-brief-1120.webp 1120w, assets/img/speakup-brief.webp 2240w"
+                     sizes="(max-width: 900px) 92vw, 54vw" width="2240" height="1593" loading="lazy"
+                     alt="A scenario briefing modal over a dimmed practice screen, ending in Confidence Mode and Coaching Mode buttons.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <div class="layer" data-layer>
+              <button class="shot" type="button" data-zoom="assets/img/speakup-ai1.webp" data-zoom-caption="SpeakUp — Focus dialogue, AI turn (753:4745)">
+                <img src="assets/img/speakup-ai1.webp" srcset="assets/img/speakup-ai1-1120.webp 1120w, assets/img/speakup-ai1.webp 2240w"
+                     sizes="(max-width: 900px) 92vw, 54vw" width="2240" height="1593" loading="lazy"
+                     alt="The AI partner rendered full height in a Singapore skyline scene with a large red speech bubble, the learner’s camera tile, and a control bar.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <div class="layer" data-layer>
+              <button class="shot" type="button" data-zoom="assets/img/speakup-user.webp" data-zoom-caption="SpeakUp — Focus dialogue, user turn (848:4934)">
+                <img src="assets/img/speakup-user.webp" srcset="assets/img/speakup-user-1120.webp 1120w, assets/img/speakup-user.webp 2240w"
+                     sizes="(max-width: 900px) 92vw, 54vw" width="2240" height="1593" loading="lazy"
+                     alt="The learner’s reply in a light bubble, with a Speaking Score panel and a Real-Time Feedback panel across the top of the scene.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <div class="layer" data-layer>
+              <button class="shot" type="button" data-zoom="assets/img/speakup-allturns.webp" data-zoom-caption="SpeakUp — All turn (848:5492)">
+                <img src="assets/img/speakup-allturns.webp" srcset="assets/img/speakup-allturns-1120.webp 1120w, assets/img/speakup-allturns.webp 2240w"
+                     sizes="(max-width: 900px) 92vw, 54vw" width="2240" height="1593" loading="lazy"
+                     alt="The same scene with the toggle set to All turns, showing a scrollable transcript of avatars and bubbles, and an AI Display menu offering Full, Mid, Upper and Head framing.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+            <div class="layer" data-layer>
+              <button class="shot" type="button" data-zoom="assets/img/speakup-score.webp" data-zoom-caption="SpeakUp — Speaking Score (753:5510)">
+                <img src="assets/img/speakup-score.webp" srcset="assets/img/speakup-score-1120.webp 1120w, assets/img/speakup-score.webp 2240w"
+                     sizes="(max-width: 900px) 92vw, 54vw" width="2240" height="1593" loading="lazy"
+                     alt="The session summary: fireworks over the scene, a written summary panel and a five-axis radar, with Practice Again, Go to SpeakUp and Next Scenario buttons.">
+                <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="story__steps">
+        <li class="story__step" id="su-step-1" data-step data-label="SpeakUp — Scenario briefing">
+          <p class="story__index">01</p>
+          <h3>The briefing, and two ways to run it</h3>
+          <p>
+            Before a word is spoken, a modal sets the situation: who the learner is, who they are
+            meeting, where, at what level, and for how many turns. It closes with a choice of two
+            buttons — <strong>Confidence Mode</strong> and <strong>Coaching Mode</strong>. The
+            annotated variant of this frame spells out the difference: Confidence Mode hides the
+            on-screen text, Coaching Mode shows it.
+          </p>
+          <figure class="story__inline">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/speakup-brief.webp" data-zoom-caption="SpeakUp-Scenario — node 751:3795">
+              <img src="assets/img/speakup-brief-1120.webp" width="1120" height="796" loading="lazy" alt="Scenario briefing modal over the dimmed practice screen.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/su-brief.webp" data-zoom-caption="Scenario briefing — detail">
+              <img src="assets/img/su-brief.webp" srcset="assets/img/su-brief-700.webp 700w, assets/img/su-brief.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="598" loading="lazy"
+                   alt="Detail: the scenario briefing text with key phrases in bold, above the Confidence Mode and Coaching Mode buttons.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" id="su-step-2" data-step data-label="SpeakUp — AI turn">
+          <p class="story__index">02</p>
+          <h3>The partner speaks</h3>
+          <p>
+            The partner is rendered full height inside the location, not cropped into a chat
+            avatar. Their line arrives as a large filled bubble; the learner’s camera sits in the
+            lower-right corner. A ring in the top bar counts the turns left, a
+            <em>Focus</em> toggle controls how much of the exchange is on screen, and
+            <em>Full screen mode</em> removes the app around it.
+          </p>
+          <p class="story__benefit">A control bar keeps the session’s verbs in one place:
+             Scenario, AI Display, Camera, Speak, Pause, Show Analysis, Hint.</p>
+          <figure class="story__inline">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/speakup-ai1.webp" data-zoom-caption="SpeakUp — AI turn (753:4745)">
+              <img src="assets/img/speakup-ai1-1120.webp" width="1120" height="796" loading="lazy" alt="The AI partner speaking inside the scene.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/su-controls.webp" data-zoom-caption="Session control bar — detail">
+              <img src="assets/img/su-controls.webp" srcset="assets/img/su-controls-700.webp 700w, assets/img/su-controls.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="129" loading="lazy"
+                   alt="Detail: the session control bar with Scenario, AI Display, Camera, Speak, Pause, Show Analysis and Hint.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" id="su-step-3" data-step data-label="SpeakUp — Your turn">
+          <p class="story__index">03</p>
+          <h3>The learner answers — and is scored live</h3>
+          <p>
+            The reply appears as a light bubble anchored to the learner’s camera tile, and the
+            previous AI line shrinks back to make room. Two panels drop into the top of the scene:
+            a <strong>Speaking Score</strong> block breaking the turn into Sentence, Complexity and
+            Context out of ten with a rating stamp, and a <strong>Real-Time Feedback</strong>
+            panel written in the learner’s first language.
+          </p>
+          <p class="story__benefit">Feedback lands on the turn just spoken, in the language the
+             learner thinks in — not at the end of the session in English.</p>
+          <figure class="story__inline">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/speakup-user.webp" data-zoom-caption="SpeakUp — user turn (848:4934)">
+              <img src="assets/img/speakup-user-1120.webp" width="1120" height="796" loading="lazy" alt="The learner’s reply with live scoring panels.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/su-feedback.webp" data-zoom-caption="Speaking Score and Real-Time Feedback — detail">
+              <img src="assets/img/su-feedback.webp" srcset="assets/img/su-feedback-700.webp 700w, assets/img/su-feedback.webp 1400w"
+                   sizes="(max-width: 900px) 92vw, 34vw" width="1400" height="156" loading="lazy"
+                   alt="Detail: the Speaking Score block showing Sentence 7/10, Complexity 8/10 and Context 9/10 beside a Real-Time Feedback panel.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" id="su-step-4" data-step data-label="SpeakUp — All turns">
+          <p class="story__index">04</p>
+          <h3>Zooming out to the whole exchange</h3>
+          <p>
+            Flipping the header toggle from <em>Focus</em> to <em>All turns</em> collapses the
+            oversized bubbles into a scrollable transcript with small avatars on both sides — the
+            same conversation at reading density instead of speaking density. The
+            <em>AI Display</em> control opens a menu of camera framings:
+            <em>Full</em>, <em>Mid</em>, <em>Upper</em>, <em>Head</em>.
+          </p>
+          <p class="story__benefit">One session supports two needs: performing in the moment, and
+             reviewing what was said.</p>
+          <figure class="story__inline">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/speakup-allturns.webp" data-zoom-caption="SpeakUp — All turn (848:5492)">
+              <img src="assets/img/speakup-allturns-1120.webp" width="1120" height="796" loading="lazy" alt="The transcript view with the AI Display framing menu open.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+
+        <li class="story__step" id="su-step-5" data-step data-label="SpeakUp — Speaking Score">
+          <p class="story__index">05</p>
+          <h3>Closing the session</h3>
+          <p>
+            The turn ring reaches zero, fireworks break over the scene, and the session resolves
+            into two halves: a written summary of what the learner did, and a five-axis radar —
+            <em>Context Suitability</em>, <em>Goal Progress</em>, <em>Fluency &amp; Coherence</em>,
+            <em>Vocabulary Usage</em>, <em>Grammar Accuracy</em>. Three exits sit underneath:
+            <em>Practice Again</em>, <em>Go to SpeakUp</em>, <em>Next Scenario</em>.
+          </p>
+          <p class="story__benefit">The ending is a decision, not a dead end — repeat, review the
+             overview, or unlock the next rung of the ladder.</p>
+          <figure class="story__inline">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/speakup-score.webp" data-zoom-caption="SpeakUp — Speaking Score (753:5510)">
+              <img src="assets/img/speakup-score-1120.webp" width="1120" height="796" loading="lazy" alt="The session summary with a radar chart and three exit buttons.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+          <figure class="story__crop">
+            <button class="shot shot--flat" type="button" data-zoom="assets/img/su-radar.webp" data-zoom-caption="Session radar — detail">
+              <img src="assets/img/su-radar.webp" srcset="assets/img/su-radar-500.webp 500w, assets/img/su-radar.webp 1000w"
+                   sizes="(max-width: 900px) 92vw, 26vw" width="1000" height="713" loading="lazy"
+                   alt="Detail: the five-axis session radar covering Context Suitability, Goal Progress, Fluency and Coherence, Vocabulary Usage and Grammar Accuracy.">
+              <span class="shot__zoom" aria-hidden="true">Enlarge</span>
+            </button>
+          </figure>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 7. CLOSING ==================== -->
+<section class="band band--tint" id="closing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">In summary</p>
+      <h2>What holds the current design together</h2>
+    </div>
+
+    <ul class="summary reveal">
+      <li>
+        <h3>One palette, four surfaces</h3>
+        <p>A rose primary (#D53951) with a softer pink (#D76991), pale pink surfaces (#FFF3F4)
+           and lavender and teal accents. Nothing in the Current Design steps outside it.</p>
+      </li>
+      <li>
+        <h3>A fixed desktop shell</h3>
+        <p>Every screen is 1440 × 1024 with the same persistent sidebar, level badge, greeting bar
+           and right-hand assistant, so only the working area changes between features.</p>
+      </li>
+      <li>
+        <h3>Modals carry the set-up work</h3>
+        <p>Creating a course and creating a scenario share one three-step form shell. The heaviest
+           input happens in an overlay; the underlying screen never reshuffles.</p>
+      </li>
+      <li>
+        <h3>Practice is always framed by feedback</h3>
+        <p>A ring, a bar, a score block or a radar sits beside whatever the learner just did —
+           on the dashboard, mid-turn in SpeakUp, and at the end of a session.</p>
+      </li>
+      <li>
+        <h3>The AI partner is a character, not a chatbot</h3>
+        <p>Name, region, specialism, MBTI and five personality meters are defined in the picker,
+           and the same profile fields reappear on the dashboard and inside sessions.</p>
+      </li>
+      <li>
+        <h3>Localised where it counts</h3>
+        <p>The interface is in English; the character bio and the in-session Real-Time Feedback are
+           written in Thai — support in the learner’s first language, practice in the target one.</p>
+      </li>
+    </ul>
+
+    <div class="scope reveal">
+      <h3>Scope of this page</h3>
+      <p>
+        This page documents the interface as drawn in the <strong>“Current Design”</strong> section
+        of the EnglishX Figma file (node 386:2717). Earlier explorations elsewhere on the canvas are
+        deliberately excluded. It does not report user research, testing, adoption or business
+        outcomes, and it does not describe anyone’s role on the project, because the source file
+        does not contain that information. Numbers inside the screens are sample UI data.
+      </p>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- lightbox -->
+
+<!-- ===================== EXPLORE MORE WORK ===================== -->
+<section class="pf-related" aria-labelledby="pf-related-title">
+  <div class="pf-wrap">
+    <div class="pf-related__head pf-reveal">
+      <h2 class="pf-related__title" id="pf-related-title">Explore more work</h2>
+      <a class="pf-related__all" href="../../#work">All work</a>
+    </div>
+    <ul class="pf-cardgrid pf-cardgrid--3">
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../assessment-platform/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--assessment-platform pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:2%;top:41%;width:10cqw;transform:rotate(-9deg)" viewBox="0 0 44 44" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="40" height="40" rx="9" fill="#E6FAFF" fill-opacity=".35" stroke="#E6FAFF" stroke-opacity=".75" stroke-width="3"/><path d="M12 22.5 19.5 30 32 15" stroke="#22C55E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="" style="right:2%;top:38%;width:11cqw;transform:rotate(7deg)" viewBox="0 0 52 50" width="52" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="30" width="9" height="18" rx="2.5" fill="#E6FAFF" fill-opacity=".55"/><rect x="15" y="18" width="9" height="30" rx="2.5" fill="#E6FAFF" fill-opacity=".8"/><rect x="28" y="24" width="9" height="24" rx="2.5" fill="#FFA70F" fill-opacity=".9"/><rect x="41" y="8" width="9" height="40" rx="2.5" fill="#E6FAFF" fill-opacity=".65"/></svg><svg class="" style="left:2%;bottom:9%;width:12cqw;transform:rotate(8deg)" viewBox="0 0 64 28" width="64" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="25" rx="7" fill="#E6FAFF" fill-opacity=".9"/><path d="M14 10.5h6m-6 5h10" stroke="#1B9AFB" stroke-width="3" stroke-linecap="round"/><rect x="34" y="9" width="16" height="8" rx="4" fill="#1B9AFB" fill-opacity=".8"/></svg><svg class="" style="right:2%;bottom:10%;width:11cqw;transform:rotate(-7deg)" viewBox="0 0 56 44" width="56" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="52" height="40" rx="7" fill="none" stroke="#E6FAFF" stroke-opacity=".6" stroke-width="2.6"/><rect x="10" y="11" width="34" height="4" rx="2" fill="#E6FAFF" fill-opacity=".8"/><circle cx="13" cy="25" r="3.5" fill="#22C55E" fill-opacity=".9"/><rect x="21" y="23" width="23" height="4" rx="2" fill="#E6FAFF" fill-opacity=".5"/><circle cx="13" cy="34" r="3.5" fill="#E6FAFF" fill-opacity=".45"/><rect x="21" y="32" width="16" height="4" rx="2" fill="#E6FAFF" fill-opacity=".5"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">MyCourse<em>Ville</em></p>
+                  <p class="pf-cover__tag">Making assessment management clearer for instructors.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__browser pf-cover__tilt-c"><span></span><span></span><span></span><img src="../assessment-platform/assets/img/v2-dashboard-960.webp" width="960" height="737" loading="lazy" decoding="async" alt="The Version 2 dashboard of the MyCourseVille Assessment Platform"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">MyCourseVille — Assessment Platform for Instructors</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Instructor experience</li>
+                <li>Desktop web</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../actorstock/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--actorstock pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:1.5%;top:44%;width:15cqw;transform:rotate(-8deg)" viewBox="0 0 94 23" width="94" height="23" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="52" height="20" rx="10" fill="#FFF2F1" fill-opacity=".5" stroke="#FFDFDC" stroke-opacity=".8" stroke-width="2"/><rect x="58" y="1" width="34" height="20" rx="10" fill="#07C1B6" fill-opacity=".85"/></svg><svg class="" style="right:1.5%;top:40%;width:13cqw;transform:rotate(9deg)" viewBox="0 0 64 48" width="64" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="45" rx="7" fill="#FFF2F1" fill-opacity=".45" stroke="#282E45" stroke-opacity=".35" stroke-width="3"/><circle cx="16" cy="17" r="7" fill="#282E45" fill-opacity=".4"/><rect x="28" y="12" width="26" height="4" rx="2" fill="#282E45" fill-opacity=".35"/><rect x="28" y="20" width="18" height="4" rx="2" fill="#282E45" fill-opacity=".22"/><rect x="9" y="32" width="45" height="6" rx="3" fill="#07C1B6" fill-opacity=".8"/></svg><svg class="" style="left:2%;bottom:8%;width:13cqw;transform:rotate(7deg)" viewBox="0 0 72 32" width="72" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="68" height="28" rx="6" fill="none" stroke="#FFF2F1" stroke-opacity=".75" stroke-width="3" stroke-dasharray="8 6"/><rect x="10" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".85"/><rect x="23" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".6"/><rect x="36" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".85"/><rect x="49" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".6"/></svg><svg class="" style="right:2%;bottom:10%;width:11cqw;transform:rotate(-10deg)" viewBox="0 0 58 26" width="58" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="56" height="24" rx="12" fill="#282E45" fill-opacity=".5"/><path d="M14 7h6a5 5 0 0 1 0 10h-6m0-5h9m-9-5v11" stroke="#FFF2F1" stroke-opacity=".9" stroke-width="2.2" stroke-linecap="round"/><rect x="34" y="10" width="14" height="5" rx="2.5" fill="#FFF2F1" fill-opacity=".7"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">Actor<em>Stock</em></p>
+                  <p class="pf-cover__tag">A Thai casting marketplace.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__phone pf-cover__phone--back pf-cover__tilt-l"><img src="../actorstock/assets/screens/home.webp" width="440" height="9436" loading="lazy" decoding="async" alt="The ActorStock home screen"></div><div class="pf-cover__phone pf-cover__phone--lead pf-cover__tilt-r"><img src="../actorstock/assets/screens/job-search.webp" width="464" height="2414" loading="lazy" decoding="async" alt="The ActorStock job search screen"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">ActorStock</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Mobile</li>
+                <li>Thai-language product</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../mcv-widget/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--mcv-widget pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:2%;top:40%;width:11cqw;transform:rotate(-9deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="11" fill="#1B9AFB" fill-opacity=".16" stroke="#1B9AFB" stroke-opacity=".5" stroke-width="2.5"/><rect x="11" y="12" width="20" height="4" rx="2" fill="#1B9AFB" fill-opacity=".8"/><rect x="11" y="22" width="26" height="4" rx="2" fill="#94A3B8" fill-opacity=".6"/><rect x="11" y="32" width="16" height="4" rx="2" fill="#FFA70F" fill-opacity=".85"/></svg><svg class="" style="right:2%;top:37%;width:10cqw;transform:rotate(8deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="7" width="44" height="39" rx="8" stroke="#94A3B8" stroke-opacity=".55" stroke-width="2.5"/><path d="M2 19h44" stroke="#94A3B8" stroke-opacity=".55" stroke-width="2.5"/><path d="M14 2v8M34 2v8" stroke="#1B9AFB" stroke-opacity=".9" stroke-width="3" stroke-linecap="round"/><rect x="11" y="26" width="8" height="8" rx="2" fill="#FFA70F" fill-opacity=".9"/><rect x="24" y="26" width="8" height="8" rx="2" fill="#94A3B8" fill-opacity=".45"/></svg><svg class="" style="left:2.5%;bottom:9%;width:9cqw;transform:rotate(9deg)" viewBox="0 0 44 44" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 4a13 13 0 0 1 13 13v9l4 7H5l4-7v-9A13 13 0 0 1 22 4Z" fill="#FFA70F" fill-opacity=".22" stroke="#FFA70F" stroke-opacity=".85" stroke-width="2.6"/><path d="M17 37a5 5 0 0 0 10 0" stroke="#FFA70F" stroke-opacity=".85" stroke-width="2.6" stroke-linecap="round"/></svg><svg class="" style="right:2.5%;bottom:11%;width:10cqw;transform:rotate(-6deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 46V23A21 21 0 0 1 23 2h23" stroke="#1B9AFB" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">MCV <em>Widget</em></p>
+                  <p class="pf-cover__tag">A set of home screen widgets for MCV.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__widget pf-cover__widget--tall pf-cover__tilt-l"><img src="../mcv-widget/assets/img/cs-iphone-large-dark.webp" width="676" height="708" loading="lazy" decoding="async" alt="The Class Schedule widget for iPhone, dark appearance"></div><div class="pf-cover__widget pf-cover__widget--wide pf-cover__tilt-r"><img src="../mcv-widget/assets/img/ar-ipad-xl-dark-628.webp" width="628" height="300" loading="lazy" decoding="async" alt="The Extra Large Assignment Reminder widget for iPad, dark appearance"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">MCV Widget</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>iOS &amp; iPadOS</li>
+                <li>Home screen widgets</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SHARED SITE FOOTER ===================== -->
+<footer class="pf-footer" id="contact">
+  <div class="pf-wrap">
+    <div class="pf-footer__grid">
+      <div>
+        <p class="pf-footer__brand">Artar's Portfolio</p>
+        <p class="pf-footer__name">Matcee Artapiyatham</p>
+      </div>
+
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" download="Matcee-Artapiyatham-Resume-UXUI.pdf">Download resume (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:matcee.artapiyatham@gmail.com">matcee.artapiyatham@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/matcee-artapiyatham-a617a625a" target="_blank" rel="noopener">linkedin.com/in/matcee-artapiyatham-a617a625a</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pf-footer__bottom">
+      <p>UX/UI portfolio — case study presentations of the design work.</p>
+      <p>&copy; 2026 Matcee Artapiyatham</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/shell.js" defer></script>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged screen">
+  <button class="lightbox__close" type="button" data-close aria-label="Close preview">✕</button>
+  <figure class="lightbox__fig">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-cap"></figcaption>
+  </figure>
+</dialog>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

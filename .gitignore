@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated from index.html by projects/actorstock/build.py.
+# capture.html is the page plus Figma's third-party html-to-design script — it
+# must never be published, which is the whole reason it is a separate file.
+# Regenerate both locally when you need to re-export to Figma.
+projects/actorstock/capture.html
+projects/actorstock/dist/
+
+# Local editor/preview config — contains an absolute path to one machine.
+.claude/

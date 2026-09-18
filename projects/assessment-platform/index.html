@@ -1,0 +1,1774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyCourseVille Assessment Platform — UX / UI case study</title>
+<meta name="description" content="How instructor interviews, Think Aloud testing and expert review shaped the redesign of the MyCourseVille online assessment platform, traced screen by screen from Version 1 to Version 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="../../assets/css/shell.css">
+<script>document.documentElement.classList.add('pf-js');</script>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+<noscript><style>
+  /* Nothing moves or switches without JS, so show everything at rest. */
+  .anim { opacity: 1 !important; transform: none !important; }
+  .story__stage { position: static !important; }
+  .stack { gap: 34px; }
+  .stack > .shot { grid-area: auto !important; }
+  .shot[data-state="off"] { opacity: 1 !important; visibility: visible !important; }
+  .anno__pin { opacity: 1 !important; transform: translate(-50%, -50%) scale(1) !important; }
+  .tabs { display: none !important; }
+  .zoom { cursor: default; }
+  .zoom__hint { display: none !important; }
+</style></noscript>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== SHARED SITE HEADER ===================== -->
+<header class="pf-header">
+  <div class="pf-header__inner">
+    <a class="pf-brand" href="../../">Artar's Portfolio</a>
+
+    <nav aria-label="Main">
+      <ul class="pf-nav">
+        <li><a href="../../#work" aria-current="page">Work</a></li>
+        <li><a href="../../#about">About</a></li>
+        <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="pf-menubtn" type="button" data-pf-menu-button aria-expanded="false" aria-controls="pf-menu">
+      <span class="pf-menubtn__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      Menu
+    </button>
+  </div>
+</header>
+
+<div class="pf-menu" id="pf-menu" data-pf-menu hidden>
+  <nav aria-label="Main, mobile">
+    <ul>
+      <li><a href="../../#work" aria-current="page">Work</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ================ LOCAL CASE-STUDY SECTION MENU ================ -->
+<nav class="pf-sectionnav" data-pf-sectionnav aria-label="Sections in this case study">
+  <div class="pf-sectionnav__inner">
+    <a class="pf-sectionnav__back" href="../../#work" aria-label="Back to work">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H4M7.5 11.5 4 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="pf-sectionnav__back-label">Back to work</span>
+    </a>
+    <span class="pf-sectionnav__rule" aria-hidden="true"></span>
+    <ul class="pf-sectionnav__list">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#compare">V1 &rarr; V2</a></li>
+        <li><a href="#walkthrough">Walkthrough</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ========================================================= 1. HERO ===== -->
+<header class="hero" id="top">
+  <div class="wrap-wide hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow anim" data-anim="1">UX / UI case study · Instructor experience</p>
+      <h1 class="h-xl hero__title anim" data-anim="2">Making assessment management clearer for instructors.</h1>
+      <p class="lede hero__lede anim" data-anim="3">
+        <strong>MyCourseVille Assessment Platform.</strong> Instructors at Chulalongkorn
+        University build and mark online exams here. Nine of them described the same
+        problems: a Save button they could not find, an editor they worked around by
+        drafting in Word, and no way to see what a student would see. This is how that
+        feedback moved the interface from <strong>Version&nbsp;1</strong> to
+        <strong>Version&nbsp;2</strong>.
+      </p>
+      <div class="hero__actions anim" data-anim="4">
+        <a class="btn btn--primary" href="#walkthrough">
+          Explore the redesign
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#compare">See V1 → V2</a>
+      </div>
+    </div>
+
+    <figure class="hero__shot anim" data-anim="3">
+      <div class="browser browser--lg">
+        <div class="browser__bar" aria-hidden="true">
+          <span class="browser__dots"><i></i><i></i><i></i></span>
+          <span class="browser__url">mycourseville.com · Assessment Platform · Dashboard</span>
+        </div>
+        <div class="browser__body">
+          <button type="button" class="zoom"
+                  data-full="assets/img/v2-dashboard.webp" data-w="1440" data-h="1105"
+                  data-alt="Version 2 Dashboard at full size."
+                  data-cap="<b>Version 2 · Dashboard</b> — Figma node 602:3622">
+            <img src="assets/img/v2-dashboard-960.webp"
+                 srcset="assets/img/v2-dashboard-640.webp 640w, assets/img/v2-dashboard-960.webp 960w, assets/img/v2-dashboard.webp 1440w"
+                 sizes="(min-width: 1180px) 1100px, 92vw"
+                 width="1440" height="1105" fetchpriority="high" decoding="async"
+                 alt="The Version 2 instructor dashboard: a welcome line, four summary tiles for total tests, active tests, students and average score, two bar charts of scores by test, and a row of recent test cards.">
+            <span class="zoom__hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>
+              Enlarge
+            </span>
+          </button>
+        </div>
+      </div>
+      <figcaption class="tiny" style="margin-top:14px">
+        Version 2 Dashboard, exported from the project Figma file. Every number on it is the
+        file's own placeholder content, not measured data.
+      </figcaption>
+    </figure>
+
+    <dl class="hero__facts anim" data-anim="4">
+      <div class="hero__fact"><dt>Platform</dt><dd>Desktop web, instructor side</dd></div>
+      <div class="hero__fact"><dt>Participants</dt><dd>9 instructors</dd></div>
+      <div class="hero__fact"><dt>Tested tasks</dt><dd>8, Think Aloud</dd></div>
+      <div class="hero__fact"><dt>Measures</dt><dd>SUS · UEQ · Heuristic review</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ============================================== 2. CONTEXT & PROBLEM === -->
+<section class="section section--tint" id="problem">
+  <div class="wrap">
+    <div class="section__head anim" data-anim="1">
+      <p class="eyebrow">Context and problem</p>
+      <h2 class="h-lg">An instructor's job is one long loop, and the interface interrupted it at every turn.</h2>
+      <p class="lede">
+        MyCourseVille is Chulalongkorn University's learning management system, and its
+        assessment module is where instructors create and run online exams. The workflow is
+        cyclical: find last term's paper, build a new assessment, fill it with parts and
+        questions, publish it, then read what the results say. The research documented
+        friction at every one of those stages.
+      </p>
+    </div>
+
+    <div class="grid grid--2 anim" data-anim="2">
+      <article class="card">
+        <span class="card__n">1</span>
+        <h3>Creating an assessment took too many steps</h3>
+        <p class="small">
+          Instructors described the exam-creation workflow as complex and unintuitive, and
+          organising questions once created as awkward. The order of question types in the
+          system did not match how often they were actually used.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__n">2</span>
+        <h3>Save was hard to notice — and work was lost</h3>
+        <p class="small">
+          The paper records this plainly: the Save button is not prominent, leading to data
+          loss. A destructive outcome caused by nothing more than button placement.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__n">3</span>
+        <h3>The text editor pushed people into Word</h3>
+        <p class="small">
+          Equations and special formatting were difficult enough that instructors reported
+          drafting exams in Word first and copying them into the system afterwards — a
+          workaround that quietly signals the editor had failed.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__n">4</span>
+        <h3>Drafts and group tests were inflexible</h3>
+        <p class="small">
+          The system lacked flexibility for draft management and for group assessments,
+          so work in progress and multi-section courses were both awkward to handle.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__n">5</span>
+        <h3>No Student View</h3>
+        <p class="small">
+          There was no way to preview an exam as a student would receive it, so instructors
+          could not check their own work before it reached a class.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card__n">6</span>
+        <h3>Analytics and feedback were insufficient</h3>
+        <p class="small">
+          After an exam closed, the platform gave instructors too little about how the
+          cohort performed or what students reported going wrong.
+        </p>
+      </article>
+    </div>
+
+    <div class="src-row anim" data-anim="3">
+      <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §III Problem Statement</span>
+      <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §IV.B.2 Pain Point Identification</span>
+    </div>
+
+    <div class="flag anim" data-anim="3">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-8h-2v6h2V8z"/></svg>
+      <p>
+        <strong>A distinction this case study keeps.</strong> The paper's "old version"
+        figure is a screenshot of the live, Thai-language MyCourseVille assessment page —
+        not of Figma Version&nbsp;1. So the problems above belong to the
+        <em>production platform</em>. Version&nbsp;1 and Version&nbsp;2 are two iterations of
+        the redesign that answered them, and the comparisons further down are
+        Version&nbsp;1&nbsp;→&nbsp;Version&nbsp;2 only.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 3. RESEARCH & TESTING ==== -->
+<section class="section" id="research">
+  <div class="wrap">
+    <div class="section__head anim" data-anim="1">
+      <p class="eyebrow">Research and UX testing</p>
+      <h2 class="h-lg">Nine instructors, twice — once to find the problems, once to judge the answer.</h2>
+      <p class="lede">
+        The study followed a user-centred design process: understand the context of use,
+        specify requirements, produce design solutions, evaluate them, and feed the result
+        back into the next iteration.
+      </p>
+    </div>
+
+    <ol class="rail anim" data-anim="2">
+      <li><div class="rail__step"><span class="rail__n">#1</span><h3>Understand</h3><p>Defined the scope and interviewed 9 instructors about their workflows, needs and frustrations.</p></div></li>
+      <li><div class="rail__step"><span class="rail__n">#2</span><h3>Define</h3><p>Analysed interview findings to identify usability problems and set design priorities.</p></div></li>
+      <li><div class="rail__step"><span class="rail__n">#3</span><h3>Design</h3><p>Created wireframes and an interactive Figma prototype to explore clearer layouts and workflows.</p></div></li>
+      <li><div class="rail__step"><span class="rail__n">#4</span><h3>Test &amp; refine</h3><p>Observed instructors using the prototype, refined the design, and reviewed the changes in follow-up interviews.</p></div></li>
+      <li><div class="rail__step"><span class="rail__n">#5</span><h3>Evaluate</h3><p>Assessed usability and user experience through SUS, UEQ, expert review and a satisfaction survey.</p></div></li>
+      <li><div class="rail__step"><span class="rail__n">#6</span><h3>Reflect</h3><p>Reviewed the results, made final adjustments, and documented design decisions, limitations and next steps.</p></div></li>
+    </ol>
+
+    <div class="reason anim" data-anim="3">
+      <div class="reason__box">
+        <h4>Initial research</h4>
+        <p>
+          Semi-structured interviews with nine instructors experienced with the platform,
+          covering exam-creation workflow, question management, navigation, analytics and
+          overall satisfaction. The qualitative data was analysed for recurring pain points,
+          which became the requirements list.
+        </p>
+      </div>
+      <div class="reason__box">
+        <h4>Formative feedback</h4>
+        <p>
+          Think Aloud sessions in which instructors narrated their reasoning through eight
+          tasks, and a second round of interviews with the same group once a prototype
+          existed — asking directly whether the redesign had answered what they reported the
+          first time. Feedback from both was used to refine the interface further.
+        </p>
+      </div>
+      <div class="reason__box reason__box--out">
+        <h4>Final evaluation</h4>
+        <p>
+          The System Usability Scale and the User Experience Questionnaire, both run against
+          the old and the redesigned version, plus a heuristic evaluation by experts scoring
+          the redesign against ten established usability principles.
+        </p>
+      </div>
+    </div>
+
+    <div class="section__head anim" data-anim="2" style="margin-top:clamp(48px,6vw,76px)">
+      <h3 class="h-md">The eight tested tasks, in the order an instructor meets them</h3>
+      <p class="small muted">
+        Each of the nine participants performed all eight tasks under the Think Aloud
+        protocol, on both the original and the redesigned platform.
+      </p>
+    </div>
+
+    <ol class="journey anim" data-anim="3">
+      <li><div class="journey__row"><span class="journey__n">1</span><span class="journey__label">Find an assessment</span><span class="journey__task">Task: find archived assessment</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">2</span><span class="journey__label">Create and configure</span><span class="journey__task">Task: create a new assessment and set up</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">3</span><span class="journey__label">Add parts and questions</span><span class="journey__task">Task: add part and multiple question types</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">4</span><span class="journey__label">Reuse question pools</span><span class="journey__task">Task: create an assessment from pool</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">5</span><span class="journey__label">Preview as a student</span><span class="journey__task">Task: preview the assessment as a student</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">6</span><span class="journey__label">Review submissions and analytics</span><span class="journey__task">Task: view submission, use analytics and report</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">7</span><span class="journey__label">Check the dashboard</span><span class="journey__task">Task: view overview data from dashboard</span></div></li>
+      <li><div class="journey__row"><span class="journey__n">8</span><span class="journey__label">Contact support</span><span class="journey__task">Task: report a problem on Contact Support</span></div></li>
+    </ol>
+
+    <div class="src-row anim" data-anim="3">
+      <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §IV Methodology</span>
+      <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §VI.A Think Aloud Protocol</span>
+    </div>
+
+    <div class="flag anim" data-anim="3">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-8h-2v6h2V8z"/></svg>
+      <p>
+        The sources record which methods were used and what they found overall, but they do
+        not attribute individual findings to a particular round of testing. Nothing below is
+        claimed as coming from a specific session.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =================================== 4. V1 → V2, THE MAIN SHOWCASE ===== -->
+<section class="section section--deep" id="compare">
+  <div class="wrap-wide">
+    <div class="section__head anim" data-anim="1">
+      <p class="eyebrow">Version 1 → Version 2</p>
+      <h2 class="h-lg">Four changes, and the reason each one was made.</h2>
+      <p class="lede">
+        Both versions live in the same Figma file and share the same design system, so the
+        differences below are deliberate design decisions rather than drift. Use the
+        Version&nbsp;1 / Version&nbsp;2 toggle, or the numbered pins, to move between them.
+        Every screen opens at full size.
+      </p>
+    </div>
+
+    <!-- ------------------------------------------------ A. Save & toolbar -->
+    <div class="compare anim" data-anim="2" id="compare-action-row">
+      <h3 class="h-md">A. The action row: putting Save where it is found first</h3>
+
+      <div class="reason">
+        <div class="reason__box">
+          <h4>The user problem</h4>
+          <p>
+            Instructors lost work. Save sat fourth in a row of five controls at the far right
+            of the editor, next to an unlabelled gear, where it read as one more option
+            rather than the thing that protects your work.
+          </p>
+        </div>
+        <div class="reason__box">
+          <h4>Research evidence</h4>
+          <p>
+            The paper lists "the Save button is not prominent, leading to data loss" among
+            the problems instructors reported, and a clear, prominent Save function among
+            the pain points the analysis identified.
+          </p>
+        </div>
+        <div class="reason__box reason__box--out">
+          <h4>The design decision</h4>
+          <p>
+            Order the row by consequence, not by frequency: the one irreversible-if-missed
+            action comes first, and every other control earns a text label. Instructors
+            described the prominent Save button as contributing to a more positive experience.
+          </p>
+        </div>
+      </div>
+
+      <div class="story" style="margin-top:clamp(28px,4vw,44px)">
+        <div class="story__stage">
+          <div class="viewer">
+            <div class="viewer__head">
+              <div class="tabs" role="group" aria-label="Show Version 1 or Version 2 of the assessment editor">
+                <button type="button" data-v="v1" aria-pressed="false">Version 1</button>
+                <button type="button" data-v="v2" aria-pressed="true">Version 2</button>
+              </div>
+              <p class="viewer__note">Create New Assessment · both frames 1440&nbsp;×&nbsp;1121</p>
+            </div>
+            <div class="stack">
+
+              <figure class="shot" data-v="v1" data-state="off">
+                <span class="shot__tag">Version 1</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">Create New Assessment — Version 1</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v1-create.webp" data-w="1440" data-h="1121"
+                            data-alt="Version 1 of the Create New Assessment screen at full size."
+                            data-cap="<b>Version 1 · Create New Assessment</b> — Save sits fourth from the left in the action row">
+                      <img src="assets/img/v1-create-960.webp"
+                           srcset="assets/img/v1-create-640.webp 640w, assets/img/v1-create-960.webp 960w, assets/img/v1-create.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1121" loading="lazy" decoding="async"
+                           alt="Version 1 of the assessment editor. The top row reads Draft Tests, Preview, View Submission, Save and an unlabelled gear icon. The instructions field has a collapsed formatting toolbar.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:90.8%;--y:8.5%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:95.3%;--y:8.5%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:72.4%;--y:8.5%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:36.1%;--y:19.6%">4</button>
+                      <button type="button" class="anno__pin" data-n="5" style="--x:14.9%;--y:29.8%">5</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+              <figure class="shot" data-v="v2" data-state="on">
+                <span class="shot__tag">Version 2</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">Create New Assessment — Version 2</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v2-create.webp" data-w="1440" data-h="1121"
+                            data-alt="Version 2 of the Create New Assessment screen at full size."
+                            data-cap="<b>Version 2 · Create New Assessment</b> — Save leads the action row, every control is labelled">
+                      <img src="assets/img/v2-create-960.webp"
+                           srcset="assets/img/v2-create-640.webp 640w, assets/img/v2-create-960.webp 960w, assets/img/v2-create.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1121" loading="lazy" decoding="async"
+                           alt="Version 2 of the assessment editor. The top row now begins with a blue Save button, followed by View Submission, Setting, Student View and Draft Tests. The instructions field shows a full formatting toolbar ending in an Equation control.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:53.3%;--y:8.5%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:71.7%;--y:8.5%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:80.8%;--y:8.5%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:65.3%;--y:20.6%">4</button>
+                      <button type="button" class="anno__pin" data-n="5" style="--x:14.9%;--y:29.8%">5</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+            </div>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li><button type="button" class="step" data-v="v2" data-n="1">
+            <span class="step__top"><span class="step__n">1</span><span class="step__v">V1 → V2</span></span>
+            <h4>Save moves from fourth to first</h4>
+            <p>It keeps its solid blue fill — now the only one in the row — so it reads as the primary action rather than a sibling of Draft Tests and Preview.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="2">
+            <span class="step__top"><span class="step__n">2</span><span class="step__v">V1 → V2</span></span>
+            <h4>The gear icon becomes a labelled Setting button</h4>
+            <p>Version 1 hid the assessment's dates, duration, attempts, password and groups behind a bare cog. Naming it removes the guess.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="3">
+            <span class="step__top"><span class="step__n">3</span><span class="step__v">V1 → V2</span></span>
+            <h4>"Preview" is replaced by "Student View"</h4>
+            <p>Preview never said whose view it was. Student View names the audience, and opens the interface a student actually receives.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="4">
+            <span class="step__top"><span class="step__n">4</span><span class="step__v">V1 → V2</span></span>
+            <h4>The formatting toolbar is opened out</h4>
+            <p>Version 1 folded everything into three dropdown stubs. Version 2 lays out bold, italic, lists, alignment, media, superscript and subscript — and ends with a dedicated <strong>Equation</strong> control.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="5">
+            <span class="step__top"><span class="step__n">5</span><span class="step__v">V1 → V2</span></span>
+            <h4>"Report" in the sidebar becomes "Contact Support"</h4>
+            <p>In Version 1, "Report" collided with reporting on results. Renaming it separates asking for help from reading your data.</p>
+          </button></li>
+        </ol>
+      </div>
+
+      <div class="crops crops--2" style="margin-top:30px">
+        <figure class="crop crop--v1">
+          <span class="crop__tag">Version 1</span>
+          <div class="crop__frame">
+            <img src="assets/img/v1-crop-toolbar.webp" srcset="assets/img/v1-crop-toolbar-760.webp 760w, assets/img/v1-crop-toolbar.webp 710w" sizes="(min-width: 760px) 46vw, 92vw" width="710" height="68" loading="lazy" decoding="async" alt="Version 1 action row: Draft Tests, Preview, View Submission, Save, then a grey gear icon.">
+          </div>
+          <figcaption>Save is fourth of five, beside an unlabelled gear.</figcaption>
+        </figure>
+        <figure class="crop crop--v2">
+          <span class="crop__tag">Version 2</span>
+          <div class="crop__frame">
+            <img src="assets/img/v2-crop-toolbar.webp" srcset="assets/img/v2-crop-toolbar-760.webp 760w, assets/img/v2-crop-toolbar.webp 710w" sizes="(min-width: 760px) 46vw, 92vw" width="710" height="68" loading="lazy" decoding="async" alt="Version 2 action row: a blue Save button first, then View Submission, Setting, Student View and Draft Tests.">
+          </div>
+          <figcaption>Save leads; every remaining control carries a name.</figcaption>
+        </figure>
+        <figure class="crop crop--v1">
+          <span class="crop__tag">Version 1</span>
+          <div class="crop__frame">
+            <img src="assets/img/v1-crop-editor.webp" srcset="assets/img/v1-crop-editor-760.webp 760w, assets/img/v1-crop-editor.webp 646w" sizes="(min-width: 760px) 46vw, 92vw" width="646" height="64" loading="lazy" decoding="async" alt="Version 1 formatting toolbar: three collapsed dropdown stubs.">
+          </div>
+          <figcaption>Three stubs. Equations are somewhere inside the "+".</figcaption>
+        </figure>
+        <figure class="crop crop--v2">
+          <span class="crop__tag">Version 2</span>
+          <div class="crop__frame">
+            <img src="assets/img/v2-crop-editor.webp" srcset="assets/img/v2-crop-editor-760.webp 760w, assets/img/v2-crop-editor.webp 646w" sizes="(min-width: 760px) 46vw, 92vw" width="646" height="64" loading="lazy" decoding="async" alt="Version 2 formatting toolbar, fully expanded, ending with a labelled Equation control.">
+          </div>
+          <figcaption>Everything visible, with Equation named at the end.</figcaption>
+        </figure>
+      </div>
+
+      <div class="src-row">
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §III, §IV.B.2, §VI.A.2</span>
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Figma · Create New Assessment · 602:4147</span>
+      </div>
+    </div>
+
+    <!-- --------------------------------------- B. Question editor & scoring -->
+    <div class="compare anim" data-anim="2" style="margin-top:clamp(64px,9vw,112px)" id="compare-question-editor">
+      <h3 class="h-md">B. The question editor: one commit action, honest defaults, real scoring rules</h3>
+
+      <div class="reason">
+        <div class="reason__box">
+          <h4>The user problem</h4>
+          <p>
+            In Version 1 the only filled button under a finished question said
+            <em>Preview</em>, all four answer choices arrived already ticked as correct, and
+            formatting had to be dug out of collapsed menus.
+          </p>
+        </div>
+        <div class="reason__box">
+          <h4>Research evidence</h4>
+          <p>
+            The paper records a text editor that is complex, especially for equations and
+            special formatting — to the point that instructors drafted exams in Word first —
+            alongside difficulty managing questions and a system lacking flexibility.
+          </p>
+        </div>
+        <div class="reason__box reason__box--out">
+          <h4>The design decision</h4>
+          <p>
+            Make writing a question and committing a question two visibly different acts,
+            and stop pre-answering it for the instructor. Then add the scoring rules the
+            editor had been silently deciding on their behalf.
+          </p>
+        </div>
+      </div>
+
+      <div class="story" style="margin-top:clamp(28px,4vw,44px)">
+        <div class="story__stage">
+          <div class="viewer">
+            <div class="viewer__head">
+              <div class="tabs" role="group" aria-label="Show Version 1 or Version 2 of the multiple choice editor">
+                <button type="button" data-v="v1" aria-pressed="false">Version 1</button>
+                <button type="button" data-v="v2" aria-pressed="true">Version 2</button>
+              </div>
+              <p class="viewer__note">Add new question · Multiple choice · matched 1440&nbsp;×&nbsp;1120 crop</p>
+            </div>
+            <div class="stack">
+
+              <figure class="shot" data-v="v1" data-state="off">
+                <span class="shot__tag">Version 1</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">Add new question — Multiple choice — Version 1</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v1-q-mc.webp" data-w="1440" data-h="1120"
+                            data-alt="Version 1 of the multiple choice question editor at full size."
+                            data-cap="<b>Version 1 · Multiple choice</b> — every choice pre-ticked, Preview is the only primary action">
+                      <img src="assets/img/v1-q-mc-960.webp"
+                           srcset="assets/img/v1-q-mc-640.webp 640w, assets/img/v1-q-mc-960.webp 960w, assets/img/v1-q-mc.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1120" loading="lazy" decoding="async"
+                           alt="Version 1 multiple choice editor. Four answer choices, each with a blue ticked checkbox and a collapsed formatting toolbar. At the bottom, a blue Preview button and a Cancel button.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:37.5%;--y:16.8%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:40.6%;--y:43.2%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:19.8%;--y:33.0%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:19.8%;--y:77.1%">4</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+              <figure class="shot" data-v="v2" data-state="on">
+                <span class="shot__tag">Version 2</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">Add new question — Multiple choice — Version 2</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v2-q-mc.webp" data-w="1440" data-h="1202"
+                            data-alt="Version 2 of the multiple choice question editor at full size, including the scoring settings."
+                            data-cap="<b>Version 2 · Multiple choice</b> — shown here at its full height, including the Scoring Setting block">
+                      <img src="assets/img/v2-q-mc-top-960.webp"
+                           srcset="assets/img/v2-q-mc-top-640.webp 640w, assets/img/v2-q-mc-top-960.webp 960w, assets/img/v2-q-mc-top.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1120" loading="lazy" decoding="async"
+                           alt="Version 2 multiple choice editor. Each choice has an empty checkbox and its own full formatting toolbar ending in Equation. At the bottom, a blue Confirm button, an outlined Preview button and Cancel.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:66.0%;--y:17.1%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:68.4%;--y:43.5%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:19.8%;--y:33.0%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:19.8%;--y:77.1%">4</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+            </div>
+            <p class="shot__cap">
+              Version 2 is 82&nbsp;px taller than Version 1 because of the scoring block at its
+              foot. It is trimmed to Version 1's height here so both sit at identical scale;
+              the trimmed block is shown below, and "Enlarge" opens the untrimmed screen.
+            </p>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li><button type="button" class="step" data-v="v2" data-n="1">
+            <span class="step__top"><span class="step__n">1</span><span class="step__v">V1 → V2</span></span>
+            <h4>Equation comes out of the "+" menu</h4>
+            <p>The single most-reported editor problem gets a permanently visible, named control on the question's own toolbar.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="2">
+            <span class="step__top"><span class="step__n">2</span><span class="step__v">V1 → V2</span></span>
+            <h4>Every answer choice gets the full toolbar too</h4>
+            <p>Equations do not only appear in question stems. In a physics or maths paper they are frequently the answers, so each choice carries the same formatting and Equation control.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="3">
+            <span class="step__top"><span class="step__n">3</span><span class="step__v">V1 → V2</span></span>
+            <h4>Choices no longer arrive pre-ticked</h4>
+            <p>Version 1 opened with all four boxes ticked blue, which reads as "all of these are correct". Version 2 starts empty, so marking the correct answer is a decision the instructor makes rather than one they have to undo.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="4">
+            <span class="step__top"><span class="step__n">4</span><span class="step__v">V1 → V2</span></span>
+            <h4>Confirm becomes the primary action; Preview steps back</h4>
+            <p>Version 1 offered Preview and Cancel — no visible way to commit. Version 2 adds <strong>Confirm</strong> as the filled button and demotes Preview to an outline beside it.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="5">
+            <span class="step__top"><span class="step__n">5</span><span class="step__v">New in V2</span></span>
+            <h4>Scoring Setting: partial credit and negative marking</h4>
+            <p>All-or-nothing marking, or partial points per correct choice with optional deductions for wrong ones. Version 1 had no equivalent, so the rule was fixed and invisible.</p>
+          </button></li>
+        </ol>
+      </div>
+
+      <div class="crops crops--2" style="margin-top:30px">
+        <figure class="crop crop--v1">
+          <span class="crop__tag">Version 1</span>
+          <div class="crop__frame">
+            <img src="assets/img/v1-crop-choices.webp" srcset="assets/img/v1-crop-choices-760.webp 760w, assets/img/v1-crop-choices.webp 464w" sizes="(min-width: 760px) 46vw, 92vw" width="464" height="78" loading="lazy" decoding="async" alt="Version 1 choice row with a blue ticked checkbox beside it.">
+          </div>
+          <figcaption>Choice 1 arrives already marked correct.</figcaption>
+        </figure>
+        <figure class="crop crop--v2">
+          <span class="crop__tag">Version 2</span>
+          <div class="crop__frame">
+            <img src="assets/img/v2-crop-choices.webp" srcset="assets/img/v2-crop-choices-760.webp 760w, assets/img/v2-crop-choices.webp 464w" sizes="(min-width: 760px) 46vw, 92vw" width="464" height="78" loading="lazy" decoding="async" alt="Version 2 choice row with an empty checkbox beside it.">
+          </div>
+          <figcaption>The same row, waiting for a decision.</figcaption>
+        </figure>
+        <figure class="crop crop--v1">
+          <span class="crop__tag">Version 1</span>
+          <div class="crop__frame">
+            <img src="assets/img/v1-crop-actions.webp" srcset="assets/img/v1-crop-actions-760.webp 760w, assets/img/v1-crop-actions.webp 704w" sizes="(min-width: 760px) 46vw, 92vw" width="704" height="60" loading="lazy" decoding="async" alt="Version 1 action row under the choices: a blue Preview button and a Cancel button.">
+          </div>
+          <figcaption>Preview is the only filled button. Nothing commits.</figcaption>
+        </figure>
+        <figure class="crop crop--v2">
+          <span class="crop__tag">Version 2</span>
+          <div class="crop__frame">
+            <img src="assets/img/v2-crop-actions.webp" srcset="assets/img/v2-crop-actions-760.webp 760w, assets/img/v2-crop-actions.webp 704w" sizes="(min-width: 760px) 46vw, 92vw" width="704" height="60" loading="lazy" decoding="async" alt="Version 2 action row: a blue Confirm button, an outlined Preview button and a Cancel button.">
+          </div>
+          <figcaption>Confirm commits; Preview is available, not compulsory.</figcaption>
+        </figure>
+      </div>
+
+      <figure class="crop crop--v2" style="margin-top:22px">
+        <span class="crop__tag">New in Version 2</span>
+        <div class="crop__frame">
+          <img src="assets/img/v2-crop-scoring.webp" srcset="assets/img/v2-crop-scoring-760.webp 760w, assets/img/v2-crop-scoring.webp 712w" sizes="(min-width: 900px) 700px, 92vw" width="712" height="244" loading="lazy" decoding="async" alt="Version 2 Scoring Setting block: radio buttons for All (Correct Answer Required) and Partial Credit, a points-per-correct-answer field, a negative marking checkbox and a points-deducted field.">
+        </div>
+        <figcaption>The block that has no Version 1 counterpart — scoring rules the instructor can now see and set.</figcaption>
+      </figure>
+
+      <div class="src-row">
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §III, §V Redesign goals</span>
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Figma · Add new question · 602:4818</span>
+      </div>
+    </div>
+
+    <!-- --------------------------------------- C. Quick Preview & Student View -->
+    <div class="compare anim" data-anim="2" style="margin-top:clamp(64px,9vw,112px)" id="compare-preview">
+      <h3 class="h-md">C. Preview, split in two: check the question, then check the exam</h3>
+
+      <div class="reason">
+        <div class="reason__box">
+          <h4>The user problem</h4>
+          <p>
+            "Preview" in Version 1 was a single word doing two jobs badly. It rendered the
+            question you were editing, and it was the loudest button on the screen — but it
+            never showed the assessment as a student would sit it.
+          </p>
+        </div>
+        <div class="reason__box">
+          <h4>Research evidence</h4>
+          <p>
+            The paper lists "there is no Student View for previewing exams" as a problem with
+            the current platform, and inadequate preview among the identified pain points.
+            Participants later highlighted the addition of the Student View as particularly
+            valuable.
+          </p>
+        </div>
+        <div class="reason__box reason__box--out">
+          <h4>The design decision</h4>
+          <p>
+            Separate the two questions an instructor actually asks. <em>Did this question come
+            out right?</em> stays inline as a quick preview. <em>What will my class see?</em>
+            becomes its own named destination, reachable from the editor's action row.
+          </p>
+        </div>
+      </div>
+
+      <div class="walk__pair walk__pair--2" style="margin-top:clamp(28px,4vw,44px)">
+        <figure class="shot" data-v="v2" data-state="on" style="position:relative">
+          <span class="shot__tag">Version 2 · Quick Preview</span>
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true">
+              <span class="browser__dots"><i></i><i></i><i></i></span>
+              <span class="browser__url">Add new question — Multiple choice — Preview</span>
+            </div>
+            <div class="browser__body">
+              <button type="button" class="zoom"
+                      data-full="assets/img/v2-q-mc-preview.webp" data-w="1440" data-h="1024"
+                      data-alt="Version 2 quick preview of a multiple choice question at full size."
+                      data-cap="<b>Version 2 · Quick Preview</b> — the question rendered in place, without leaving the editor">
+                <img src="assets/img/v2-q-mc-preview-960.webp"
+                     srcset="assets/img/v2-q-mc-preview-640.webp 640w, assets/img/v2-q-mc-preview-960.webp 960w, assets/img/v2-q-mc-preview.webp 1440w"
+                     sizes="(min-width: 620px) 46vw, 92vw"
+                     width="1440" height="1024" loading="lazy" decoding="async"
+                     alt="Version 2 quick preview: the multiple choice question shown as rendered output inside the editor.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+          <figcaption class="shot__cap">Checks one question. Version 2 ships a preview state for every question type in the file.</figcaption>
+        </figure>
+
+        <figure class="shot" data-v="v2" data-state="on" style="position:relative">
+          <span class="shot__tag">Version 2 · Student View</span>
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true">
+              <span class="browser__dots"><i></i><i></i><i></i></span>
+              <span class="browser__url">Student View — the exam as a student receives it</span>
+            </div>
+            <div class="browser__body">
+              <button type="button" class="zoom"
+                      data-full="assets/img/v2-student-view.webp" data-w="1440" data-h="1024"
+                      data-alt="The Student View exam interface at full size."
+                      data-cap="<b>Version 2 · Student View</b> — design adopted from Nichakan Poomipraphat's student-side redesign">
+                <img src="assets/img/v2-student-view-960.webp"
+                     srcset="assets/img/v2-student-view-640.webp 640w, assets/img/v2-student-view-960.webp 960w, assets/img/v2-student-view.webp 1440w"
+                     sizes="(min-width: 620px) 46vw, 92vw"
+                     width="1440" height="1024" loading="lazy" decoding="async"
+                     alt="The Student View: an exam header with the course name and a countdown timer, a part selector with numbered question chips and a See All control, one multiple choice question with lettered options, and a Report an Issue link.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+          <figcaption class="shot__cap">Checks the whole sitting: timer, part navigation, question chips, and the student's own route to report a problem.</figcaption>
+        </figure>
+      </div>
+
+      <div class="flag">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-8h-2v6h2V8z"/></svg>
+        <p>
+          <strong>Two things this comparison cannot show, and does not claim.</strong>
+          Version&nbsp;1 contains no Student View screen and no per-question preview state, so
+          there is no Version&nbsp;1 image to place beside either of these — the evidence for
+          the change is the absence itself, plus Version&nbsp;1's Preview button shown in
+          comparison&nbsp;B.
+        </p>
+        <p>
+          The Student View is also not solely this project's work. The paper states the
+          feature was directly inspired by <strong>Nichakan Poomipraphat's</strong>
+          user-centred redesign of the student side of the same platform, and that its
+          interface elements and design principles were adopted from that prior work so the
+          two sides stay consistent.
+        </p>
+      </div>
+
+      <div class="src-row">
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §V.I Integration of Student View Design</span>
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Figma · Student View · 602:5708</span>
+      </div>
+    </div>
+
+    <!-- ------------------------------------ D. Submissions, feedback, analytics -->
+    <div class="compare anim" data-anim="2" style="margin-top:clamp(64px,9vw,112px)" id="compare-after-the-exam">
+      <h3 class="h-md">D. After the exam: reading the results without reading them twice</h3>
+
+      <div class="reason">
+        <div class="reason__box">
+          <h4>The user problem</h4>
+          <p>
+            Version 1's results area asked instructors to accept whatever order the table
+            arrived in, gave no sign of when scores were last calculated, and printed the
+            same ranking twice — once as "hardest", once as "easiest".
+          </p>
+        </div>
+        <div class="reason__box">
+          <h4>Research evidence</h4>
+          <p>
+            Insufficient analytics and feedback features appear in both the problem statement
+            and the pain-point analysis, and better analytics was one of the three key
+            requirements drawn from the interviews. Improved analytics was later highlighted
+            as particularly valuable.
+          </p>
+        </div>
+        <div class="reason__box reason__box--out">
+          <h4>The design decision</h4>
+          <p>
+            Let one table answer several questions by making it sortable and switchable,
+            rather than duplicating it. Add the two things a table cannot say: how the cohort
+            spread, and how fresh the numbers are.
+          </p>
+        </div>
+      </div>
+
+      <div class="story" style="margin-top:clamp(28px,4vw,44px)">
+        <div class="story__stage">
+          <div class="viewer">
+            <div class="viewer__head">
+              <div class="tabs" role="group" aria-label="Show Version 1 or Version 2 of the submissions table">
+                <button type="button" data-v="v1" aria-pressed="false">Version 1</button>
+                <button type="button" data-v="v2" aria-pressed="true">Version 2</button>
+              </div>
+              <p class="viewer__note">View Submission · Submission tab · both frames 1440&nbsp;×&nbsp;1024</p>
+            </div>
+            <div class="stack">
+
+              <figure class="shot" data-v="v1" data-state="off">
+                <span class="shot__tag">Version 1</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">View Submission — Version 1</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v1-submissions.webp" data-w="1440" data-h="1024"
+                            data-alt="Version 1 of the submissions table at full size."
+                            data-cap="<b>Version 1 · Submissions</b> — one fixed table, tabs read Analysis and Report from Students">
+                      <img src="assets/img/v1-submissions-960.webp"
+                           srcset="assets/img/v1-submissions-640.webp 640w, assets/img/v1-submissions-960.webp 960w, assets/img/v1-submissions.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1024" loading="lazy" decoding="async"
+                           alt="Version 1 submissions table with tabs Submission, Analysis and Report from Students. Columns are Student ID, Name, Surname, Submitted and Score, with no sorting controls.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:46.9%;--y:22.1%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:78.2%;--y:27.8%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:44.9%;--y:27.8%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:19.6%;--y:43.0%">4</button>
+                      <button type="button" class="anno__pin" data-n="5" style="--x:78.2%;--y:16.8%">5</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+              <figure class="shot" data-v="v2" data-state="on">
+                <span class="shot__tag">Version 2</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">View Submission — Version 2</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v2-submissions.webp" data-w="1440" data-h="1024"
+                            data-alt="Version 2 of the submissions table at full size."
+                            data-cap="<b>Version 2 · Submissions</b> — a score-view switcher, sortable columns, a Joined column and a last-updated stamp">
+                      <img src="assets/img/v2-submissions-960.webp"
+                           srcset="assets/img/v2-submissions-640.webp 640w, assets/img/v2-submissions-960.webp 960w, assets/img/v2-submissions.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1024" loading="lazy" decoding="async"
+                           alt="Version 2 submissions table with tabs Submission, Analytics and Student Feedback and Issues carrying a green count badge. A dropdown reads Individual Student Scores. Name and Surname headers carry sort arrows, and a Joined column sits beside Submitted. A line underneath gives the last score update time.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:46.9%;--y:22.1%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:65.6%;--y:27.8%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:37.2%;--y:27.8%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:19.6%;--y:43.0%">4</button>
+                      <button type="button" class="anno__pin" data-n="5" style="--x:82.8%;--y:16.8%">5</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+            </div>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li><button type="button" class="step" data-v="v2" data-n="1">
+            <span class="step__top"><span class="step__n">1</span><span class="step__v">V1 → V2</span></span>
+            <h4>One table, two ways to read it</h4>
+            <p>A score-view switcher appears beside the search box: <em>Individual Student Scores</em> or <em>Scores by Part</em>. Version 2 carries a designed frame for each.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="2">
+            <span class="step__top"><span class="step__n">2</span><span class="step__v">V1 → V2</span></span>
+            <h4>"Joined" joins "Submitted"</h4>
+            <p>Two timestamps instead of one, so an instructor can see how long a student actually spent — and spot the ones who opened the paper but never finished it.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="3">
+            <span class="step__top"><span class="step__n">3</span><span class="step__v">V1 → V2</span></span>
+            <h4>Name and Surname become sortable</h4>
+            <p>Sort arrows on the headers. Finding one student in a 300-person cohort stops depending on the order the database returned.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="4">
+            <span class="step__top"><span class="step__n">4</span><span class="step__v">V1 → V2</span></span>
+            <h4>A last-updated line under the table</h4>
+            <p>"Last score update: 11 April 2025 at 13.00". With auto-grading in the same view, knowing whether you are looking at fresh numbers matters.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="5">
+            <span class="step__top"><span class="step__n">5</span><span class="step__v">V1 → V2</span></span>
+            <h4>"Report from Students" becomes "Student Feedback &amp; Issues"</h4>
+            <p>A clearer name, and a green count badge so an unread report is visible from the tab strip instead of requiring a visit to check.</p>
+          </button></li>
+        </ol>
+      </div>
+
+      <div class="crops crops--2" style="margin-top:30px">
+        <figure class="crop crop--v1">
+          <span class="crop__tag">Version 1</span>
+          <div class="crop__frame">
+            <img src="assets/img/v1-crop-subhead.webp" srcset="assets/img/v1-crop-subhead-760.webp 760w, assets/img/v1-crop-subhead.webp 1108w" sizes="(min-width: 760px) 46vw, 92vw" width="1108" height="158" loading="lazy" decoding="async" alt="Version 1 tabs and table header: Submission, Analysis, Report from Students; columns Student ID, Name, Surname, Submitted, Score.">
+          </div>
+          <figcaption>Three plain tabs, five fixed columns.</figcaption>
+        </figure>
+        <figure class="crop crop--v2">
+          <span class="crop__tag">Version 2</span>
+          <div class="crop__frame">
+            <img src="assets/img/v2-crop-subhead.webp" srcset="assets/img/v2-crop-subhead-760.webp 760w, assets/img/v2-crop-subhead.webp 1108w" sizes="(min-width: 760px) 46vw, 92vw" width="1108" height="158" loading="lazy" decoding="async" alt="Version 2 tabs and table header: Submission, Analytics, Student Feedback and Issues with a count badge; a score-view dropdown; sortable Name and Surname; a Joined column.">
+          </div>
+          <figcaption>A badge, a view switcher, sort arrows and an extra timestamp.</figcaption>
+        </figure>
+      </div>
+
+      <h4 class="h-sm" style="margin-top:clamp(44px,6vw,72px)">…and the Analytics tab behind it</h4>
+
+      <div class="story" style="margin-top:clamp(20px,3vw,30px)">
+        <div class="story__stage">
+          <div class="viewer">
+            <div class="viewer__head">
+              <div class="tabs" role="group" aria-label="Show Version 1 or Version 2 of the analytics tab">
+                <button type="button" data-v="v1" aria-pressed="false">Version 1</button>
+                <button type="button" data-v="v2" aria-pressed="true">Version 2</button>
+              </div>
+              <p class="viewer__note">View Submission · Analytics tab · both frames 1440&nbsp;×&nbsp;1190</p>
+            </div>
+            <div class="stack">
+
+              <figure class="shot" data-v="v1" data-state="off">
+                <span class="shot__tag">Version 1</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">View Submission — Analysis — Version 1</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v1-analytics.webp" data-w="1440" data-h="1190"
+                            data-alt="Version 1 analysis tab at full size."
+                            data-cap="<b>Version 1 · Analysis</b> — Hardest Questions and Easiest Questions side by side">
+                      <img src="assets/img/v1-analytics-960.webp"
+                           srcset="assets/img/v1-analytics-640.webp 640w, assets/img/v1-analytics-960.webp 960w, assets/img/v1-analytics.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1190" loading="lazy" decoding="async"
+                           alt="Version 1 analysis tab: four summary tiles for students, maximum, minimum and average score, a bar chart of students by correct answer, and two side-by-side tables headed Hardest Questions and Easiest Questions.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:19.6%;--y:58.9%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:57.9%;--y:58.9%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:54.2%;--y:61.3%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:36.5%;--y:22.7%">4</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+              <figure class="shot" data-v="v2" data-state="on">
+                <span class="shot__tag">Version 2</span>
+                <div class="browser">
+                  <div class="browser__bar" aria-hidden="true">
+                    <span class="browser__dots"><i></i><i></i><i></i></span>
+                    <span class="browser__url">View Submission — Analytics — Version 2</span>
+                  </div>
+                  <div class="browser__body">
+                    <button type="button" class="zoom"
+                            data-full="assets/img/v2-analytics.webp" data-w="1440" data-h="1190"
+                            data-alt="Version 2 analytics tab at full size."
+                            data-cap="<b>Version 2 · Analytics</b> — one sortable Ranking Questions table plus a Score Distribution panel">
+                      <img src="assets/img/v2-analytics-960.webp"
+                           srcset="assets/img/v2-analytics-640.webp 640w, assets/img/v2-analytics-960.webp 960w, assets/img/v2-analytics.webp 1440w"
+                           sizes="(min-width: 1000px) 60vw, 92vw"
+                           width="1440" height="1190" loading="lazy" decoding="async"
+                           alt="Version 2 analytics tab: summary tiles for maximum, minimum, average and mean score, the same bar chart, then a single Ranking Questions table with a sortable Percent column beside a Score Distribution panel showing student counts per score band.">
+                      <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+                    </button>
+                    <div class="anno">
+                      <button type="button" class="anno__pin" data-n="1" style="--x:19.6%;--y:58.7%">1</button>
+                      <button type="button" class="anno__pin" data-n="2" style="--x:59.2%;--y:60.8%">2</button>
+                      <button type="button" class="anno__pin" data-n="3" style="--x:52.8%;--y:61.7%">3</button>
+                      <button type="button" class="anno__pin" data-n="4" style="--x:94.1%;--y:22.7%">4</button>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+
+            </div>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li><button type="button" class="step" data-v="v2" data-n="1">
+            <span class="step__top"><span class="step__n">1</span><span class="step__v">V1 → V2</span></span>
+            <h4>Two mirrored tables become one</h4>
+            <p>Version 1 printed "Hardest Questions" and "Easiest Questions" beside each other — the same nine questions, the same percentages, read from opposite ends. Version 2 keeps one <strong>Ranking Questions</strong> table.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="2">
+            <span class="step__top"><span class="step__n">2</span><span class="step__v">New in V2</span></span>
+            <h4>Score Distribution takes the freed space</h4>
+            <p>A banded histogram of how many students landed in each score range — the shape of the cohort, which no ranking of questions can show.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="3">
+            <span class="step__top"><span class="step__n">3</span><span class="step__v">V1 → V2</span></span>
+            <h4>Percent becomes sortable</h4>
+            <p>Which is what made the second table redundant: hardest and easiest are the same list, sorted two ways, so the control replaces the duplicate.</p>
+          </button></li>
+          <li><button type="button" class="step" data-v="v2" data-n="4">
+            <span class="step__top"><span class="step__n">4</span><span class="step__v">V1 → V2</span></span>
+            <h4>The tiles drop a repeat and add Mean</h4>
+            <p>Version 1's Students tile repeated a figure already on the dashboard. Version 2 spends the slot on Mean instead, beside maximum, minimum and average.</p>
+          </button></li>
+        </ol>
+      </div>
+
+      <div class="crops crops--2" style="margin-top:30px">
+        <figure class="crop crop--v1">
+          <span class="crop__tag">Version 1</span>
+          <div class="crop__frame">
+            <img src="assets/img/v1-crop-anabody.webp" srcset="assets/img/v1-crop-anabody-760.webp 760w, assets/img/v1-crop-anabody.webp 1108w" sizes="(min-width: 760px) 46vw, 92vw" width="1108" height="428" loading="lazy" decoding="async" alt="Version 1: Hardest Questions and Easiest Questions tables side by side, listing the same nine questions.">
+          </div>
+          <figcaption>The same nine rows, printed twice.</figcaption>
+        </figure>
+        <figure class="crop crop--v2">
+          <span class="crop__tag">Version 2</span>
+          <div class="crop__frame">
+            <img src="assets/img/v2-crop-anabody.webp" srcset="assets/img/v2-crop-anabody-760.webp 760w, assets/img/v2-crop-anabody.webp 1108w" sizes="(min-width: 760px) 46vw, 92vw" width="1108" height="428" loading="lazy" decoding="async" alt="Version 2: one Ranking Questions table with a sortable Percent column, beside a Score Distribution panel.">
+          </div>
+          <figcaption>One sortable table, and the distribution beside it.</figcaption>
+        </figure>
+      </div>
+
+      <div class="src-row">
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · §III, §IV.A.2, §VI.A.2</span>
+        <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Figma · View Submission · 602:3766</span>
+      </div>
+    </div>
+
+    <!-- --------------------------------------------- smaller corrections -->
+    <div class="compare anim" data-anim="2" style="margin-top:clamp(64px,9vw,112px)" id="compare-smaller-corrections">
+      <h3 class="h-md">Smaller corrections, carried through the whole file</h3>
+      <p class="lede" style="max-width:760px">
+        Not every Version 2 change needed a research finding behind it. These came from
+        reading Version 1 against its own rules — the kind of inconsistency the heuristic
+        review scored most highly once it was gone.
+      </p>
+
+      <div class="grid grid--3" style="margin-top:30px">
+        <article class="card">
+          <h3>The sidebar told you the wrong thing</h3>
+          <p class="small">On Version 1's Dashboard, the highlighted nav item was <em>All Tests</em>. Version 2 highlights Dashboard, and the breadcrumb becomes a real link.</p>
+          <div class="crops crops--2" style="margin-top:16px;gap:12px">
+            <figure class="crop crop--v1"><span class="crop__tag">V1</span><div class="crop__frame"><img src="assets/img/v1-crop-nav.webp" width="250" height="138" loading="lazy" decoding="async" alt="Version 1 sidebar on the Dashboard, with All Tests highlighted and a Report item."></div></figure>
+            <figure class="crop crop--v2"><span class="crop__tag">V2</span><div class="crop__frame"><img src="assets/img/v2-crop-nav.webp" width="250" height="138" loading="lazy" decoding="async" alt="Version 2 sidebar on the Dashboard, with Dashboard highlighted and a Contact Support item."></div></figure>
+          </div>
+        </article>
+        <article class="card">
+          <h3>One action, one name</h3>
+          <p class="small">
+            The dashboard's recent-test cards said <em>Submission</em> while the All Tests
+            table said <em>View Submission</em> for the identical destination. Version 2
+            settles on <em>View Submission</em> everywhere.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Support asks a better first question</h3>
+          <p class="small">
+            Version 1's report form opened an empty textarea. Version 2 offers a list of
+            common problems for the issue type you picked, so a report can be filed by
+            recognition rather than composition. The submit button's spelling was fixed
+            at the same time.
+          </p>
+        </article>
+      </div>
+
+      <div class="flag">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-8h-2v6h2V8z"/></svg>
+        <p>
+          <strong>What is deliberately not claimed as a V1 → V2 change.</strong> The
+          Active&nbsp;/&nbsp;Draft&nbsp;/&nbsp;Archived tab structure and the reuse-from-pool
+          screen are already present in Version&nbsp;1 and are near-identical in Version&nbsp;2.
+          They answer the production platform's problems, not Version&nbsp;1's, so they appear
+          in the walkthrough below rather than as before-and-after comparisons.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== 5. V2 WALKTHROUGH ====== -->
+<section class="section" id="walkthrough">
+  <div class="wrap-wide">
+    <div class="section__head anim" data-anim="1">
+      <p class="eyebrow">Version 2 walkthrough</p>
+      <h2 class="h-lg">One assessment, start to finish.</h2>
+      <p class="lede">
+        Every screen below is an export of a designed Version&nbsp;2 frame. Steps the Figma
+        file does not cover are not shown.
+      </p>
+    </div>
+
+    <div class="walk">
+
+      <article class="walk__step anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 1</p>
+          <h3 class="h-md">Locate an assessment</h3>
+          <p>
+            Everything an instructor owns sits behind three tabs — Active, Draft and Archived
+            — with search and a due-date sort above them. Clear categorisation of tests was
+            one of the redesign's stated goals.
+          </p>
+          <ul class="callout">
+            <li>Status is a coloured pill, not a column of text</li>
+            <li>Each row carries View Submission, duplicate and delete</li>
+            <li>An empty tab says "No Test" rather than showing a blank table</li>
+          </ul>
+        </div>
+        <div class="walk__pair walk__pair--2">
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">All Tests — Active</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-all-active.webp" data-w="1440" data-h="1024" data-alt="All Tests, Active tab, at full size." data-cap="<b>Version 2 · All Tests — Active</b>">
+                <img src="assets/img/v2-all-active-960.webp" srcset="assets/img/v2-all-active-640.webp 640w, assets/img/v2-all-active-960.webp 960w, assets/img/v2-all-active.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="All Tests screen, Active tab: a table of assessments with green Active pills, publish and due dates, and per-row actions.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">All Tests — Archived, empty</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-all-empty.webp" data-w="1440" data-h="1024" data-alt="All Tests empty state at full size." data-cap="<b>Version 2 · All Tests — empty state</b>">
+                <img src="assets/img/v2-all-empty-960.webp" srcset="assets/img/v2-all-empty-640.webp 640w, assets/img/v2-all-empty-960.webp 960w, assets/img/v2-all-empty.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="All Tests screen with the Archived tab selected and no results, showing a placeholder circle and the words No Test.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="walk__step walk__step--flip anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 2</p>
+          <h3 class="h-md">Create it, then configure it</h3>
+          <p>
+            The editor opens with Save leading the action row. Setting — the button that was
+            a bare gear in Version 1 — holds everything about how the exam runs, including
+            the group assignment and secure-exam controls the research asked for.
+          </p>
+          <ul class="callout">
+            <li>Dates, duration and attempts allowed</li>
+            <li>A generated password, and assignment to groups</li>
+            <li>Secure Exam Mode, off by default, with its effect spelled out</li>
+          </ul>
+        </div>
+        <div class="walk__pair walk__pair--2">
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Create New Assessment</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-create.webp" data-w="1440" data-h="1121" data-alt="Create New Assessment at full size." data-cap="<b>Version 2 · Create New Assessment</b>">
+                <img src="assets/img/v2-create-960.webp" srcset="assets/img/v2-create-640.webp 640w, assets/img/v2-create-960.webp 960w, assets/img/v2-create.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1121" loading="lazy" decoding="async" alt="Create New Assessment screen with the instructions editor, signature agreement row and an empty Part 1.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+          <figure style="margin:0">
+            <div class="crop__frame">
+              <button type="button" class="zoom" data-full="assets/img/v2-setting-panel.webp" data-w="762" data-h="771" data-alt="The About Test settings panel at full size." data-cap="<b>Version 2 · Setting panel</b> — About Test">
+                <img src="assets/img/v2-setting-panel-640.webp" srcset="assets/img/v2-setting-panel-640.webp 640w, assets/img/v2-setting-panel.webp 762w" sizes="(min-width: 620px) 44vw, 92vw" width="762" height="771" loading="lazy" decoding="async" alt="The About Test panel: start and due date and time, duration, attempts allowed, number of questions, password, assigned groups with an Assign to groups link, and a Secure Exam Mode toggle set to off.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+            <figcaption class="tiny" style="margin-top:10px">The Setting panel, opened over the editor.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="walk__step anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 3</p>
+          <h3 class="h-md">Build the parts and questions</h3>
+          <p>
+            Parts become tabs across the top of Test Content, so a multi-part paper is one
+            click wide rather than one long scroll. Inside a part, questions are draggable
+            rows with their own points, a Show answer toggle, and edit and delete controls.
+          </p>
+          <ul class="callout">
+            <li>Multiple choice, fill in the blank, true/false, pair matching, essay, calculated formula and question sets</li>
+            <li>Points are set per question, inline</li>
+            <li>Each question type has its own designed editor and preview state</li>
+          </ul>
+        </div>
+        <div class="walk__pair walk__pair--2">
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Create New Assessment — New Part</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-create-part.webp" data-w="1440" data-h="1024" data-alt="The assessment editor with two parts and five questions, at full size." data-cap="<b>Version 2 · Part management</b>">
+                <img src="assets/img/v2-create-part-960.webp" srcset="assets/img/v2-create-part-640.webp 640w, assets/img/v2-create-part-960.webp 960w, assets/img/v2-create-part.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="The assessment editor showing Part 1 and Part 2 tabs, and five question rows each with a drag handle, a Show answer button, a points field and edit and delete icons.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Add new question — Pair matching</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-q-pair.webp" data-w="1440" data-h="1024" data-alt="The pair matching question editor at full size." data-cap="<b>Version 2 · Pair matching question</b>">
+                <img src="assets/img/v2-q-pair-960.webp" srcset="assets/img/v2-q-pair-640.webp 640w, assets/img/v2-q-pair-960.webp 960w, assets/img/v2-q-pair.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="The pair matching question editor, showing prompt and answer columns to be paired.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="walk__step walk__step--flip anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 4</p>
+          <h3 class="h-md">Or reuse what already exists</h3>
+          <p>
+            Copy from pool lists past assessments by term down the left, and expands the
+            chosen one into its parts and questions on the right, each individually
+            selectable. An instructor can take a whole paper, one part, or a single question.
+          </p>
+          <ul class="callout">
+            <li>Grouped by academic term</li>
+            <li>Checkboxes cascade from the paper, to the part, to the question</li>
+            <li>Points come across with each question</li>
+          </ul>
+        </div>
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Add new question — Copy from pool</span></div>
+          <div class="browser__body">
+            <button type="button" class="zoom" data-full="assets/img/v2-pool.webp" data-w="1440" data-h="1435" data-alt="Copy from pool at full size." data-cap="<b>Version 2 · Copy from pool</b> — near-identical to Version 1, kept from the earlier iteration">
+              <img src="assets/img/v2-pool-960.webp" srcset="assets/img/v2-pool-640.webp 640w, assets/img/v2-pool-960.webp 960w, assets/img/v2-pool.webp 1440w" sizes="(min-width: 940px) 62vw, 92vw" width="1440" height="1435" loading="lazy" decoding="async" alt="Copy from pool: a searchable list of past assessments grouped by term on the left, and the selected paper expanded into seven parts of questions with checkboxes and points on the right.">
+              <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="walk__step anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 5</p>
+          <h3 class="h-md">See it as the class will</h3>
+          <p>
+            Student View renders the exam the way a student receives it: the countdown, the
+            part selector, numbered question chips with a See All overview, and the
+            student's own Report an Issue link in the corner — which is what feeds the
+            Student Feedback &amp; Issues tab further on.
+          </p>
+          <p class="small muted">
+            Design adopted from Nichakan Poomipraphat's student-side redesign of the same
+            platform, as recorded in the paper.
+          </p>
+        </div>
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Student View</span></div>
+          <div class="browser__body">
+            <button type="button" class="zoom" data-full="assets/img/v2-student-view.webp" data-w="1440" data-h="1024" data-alt="Student View at full size." data-cap="<b>Version 2 · Student View</b>">
+              <img src="assets/img/v2-student-view-960.webp" srcset="assets/img/v2-student-view-640.webp 640w, assets/img/v2-student-view-960.webp 960w, assets/img/v2-student-view.webp 1440w" sizes="(min-width: 940px) 62vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="Student View: exam title bar with a three-hour countdown, part selector, five numbered question chips with a See All control, a Thai multiple choice question with four lettered options, and Next question.">
+              <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="walk__step walk__step--flip anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 6</p>
+          <h3 class="h-md">Read the results</h3>
+          <p>
+            Submissions, Analytics and Student Feedback &amp; Issues sit under one heading.
+            The table handles individual marking and bulk actions; the analytics tab answers
+            how the paper performed rather than how one student did.
+          </p>
+          <ul class="callout">
+            <li>Auto grade and upload, with a last-updated stamp</li>
+            <li>Force Submit for unfinished attempts, and a submissions download</li>
+            <li>Ranking Questions and Score Distribution side by side</li>
+          </ul>
+        </div>
+        <div class="walk__pair walk__pair--2">
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">View Submission — Submission</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-submissions.webp" data-w="1440" data-h="1024" data-alt="Version 2 submissions at full size." data-cap="<b>Version 2 · Submissions</b>">
+                <img src="assets/img/v2-submissions-960.webp" srcset="assets/img/v2-submissions-640.webp 640w, assets/img/v2-submissions-960.webp 960w, assets/img/v2-submissions.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="Version 2 submissions table with the score-view dropdown, sortable columns and the last score update line.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+          <div class="browser">
+            <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">View Submission — Analytics</span></div>
+            <div class="browser__body">
+              <button type="button" class="zoom" data-full="assets/img/v2-analytics.webp" data-w="1440" data-h="1190" data-alt="Version 2 analytics at full size." data-cap="<b>Version 2 · Analytics</b>">
+                <img src="assets/img/v2-analytics-960.webp" srcset="assets/img/v2-analytics-640.webp 640w, assets/img/v2-analytics-960.webp 960w, assets/img/v2-analytics.webp 1440w" sizes="(min-width: 620px) 44vw, 92vw" width="1440" height="1190" loading="lazy" decoding="async" alt="Version 2 analytics tab with summary tiles, a bar chart, the Ranking Questions table and the Score Distribution panel.">
+                <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="walk__step anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 7</p>
+          <h3 class="h-md">Across every course: the dashboard</h3>
+          <p>
+            One level up from a single paper. Four summary tiles, two score charts across the
+            term, and recent tests as cards that go straight to Edit or View Submission.
+            Enhanced analytics and dashboard was one of the redesign's stated aims.
+          </p>
+          <p class="tiny">Figma node 602:3622. The figures shown are the file's placeholder content.</p>
+        </div>
+        <div class="browser browser--lg">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Dashboard</span></div>
+          <div class="browser__body">
+            <button type="button" class="zoom" data-full="assets/img/v2-dashboard.webp" data-w="1440" data-h="1105" data-alt="Version 2 dashboard at full size." data-cap="<b>Version 2 · Dashboard</b> — Figma node 602:3622">
+              <img src="assets/img/v2-dashboard-960.webp" srcset="assets/img/v2-dashboard-640.webp 640w, assets/img/v2-dashboard-960.webp 960w, assets/img/v2-dashboard.webp 1440w" sizes="(min-width: 940px) 62vw, 92vw" width="1440" height="1105" loading="lazy" decoding="async" alt="Version 2 dashboard: summary tiles, Average Scores By Test and Mean Scores By Test bar charts, and four recent test cards with progress, average score and question count.">
+              <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="walk__step walk__step--flip anim" data-anim="2">
+        <div class="walk__copy">
+          <p class="eyebrow eyebrow--muted">Step 8</p>
+          <h3 class="h-md">When something goes wrong</h3>
+          <p>
+            Contact Support asks for the issue type first — Question Creation, Exam Display,
+            Grading &amp; Calculation, Security, Account, Technical Issue, Suggestion or Other
+            — then offers the problems commonly reported under it. Priority sets the expected
+            response window in plain words rather than in labels only the team understands.
+          </p>
+          <ul class="callout">
+            <li>Low (1 week), Medium (1 day), High (immediately)</li>
+            <li>Screenshots and files can be attached</li>
+          </ul>
+        </div>
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">Contact Support</span></div>
+          <div class="browser__body">
+            <button type="button" class="zoom" data-full="assets/img/v2-contact.webp" data-w="1440" data-h="1024" data-alt="Contact Support at full size." data-cap="<b>Version 2 · Contact Support</b>">
+              <img src="assets/img/v2-contact-960.webp" srcset="assets/img/v2-contact-640.webp 640w, assets/img/v2-contact-960.webp 960w, assets/img/v2-contact.webp 1440w" sizes="(min-width: 940px) 62vw, 92vw" width="1440" height="1024" loading="lazy" decoding="async" alt="Contact Support: Report an Issue, eight issue-type chips with Question Creation selected, a dropdown of common problems, three priority radio buttons and a file upload control.">
+              <span class="zoom__hint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>Enlarge</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== 6. EVALUATION ========== -->
+<section class="section section--tint" id="results">
+  <div class="wrap">
+    <div class="section__head anim" data-anim="1">
+      <p class="eyebrow">Evaluation results</p>
+      <h2 class="h-lg">Measured, and mixed.</h2>
+      <p class="lede">
+        All figures below are the paper's own. They compare the <strong>old version</strong>
+        — the platform as it stood — against the <strong>redesigned version</strong>. They are
+        not a Version&nbsp;1 versus Version&nbsp;2 measurement, and the sources do not report
+        one.
+      </p>
+    </div>
+
+    <h3 class="h-md anim" data-anim="2">System Usability Scale</h3>
+    <dl class="scores anim" data-anim="2" style="margin-top:20px">
+      <div class="score score--old">
+        <dt>Old version</dt>
+        <dd><span class="score__big">55.8</span><span class="score__unit"> / 100</span></dd>
+        <dd class="score__sub">Usability level: Poor</dd>
+      </div>
+      <div class="score score--new">
+        <dt>Redesigned version</dt>
+        <dd><span class="score__big">63.3</span><span class="score__unit"> / 100</span></dd>
+        <dd class="score__sub">Usability level: Fair</dd>
+      </div>
+      <div class="score score--delta">
+        <dt>Change</dt>
+        <dd><span class="score__big">+7.5</span><span class="score__unit"> points</span></dd>
+        <dd class="score__sub">Reported as an improvement; no significance test is given</dd>
+      </div>
+    </dl>
+    <div class="src-row anim" data-anim="2">
+      <span class="src"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h5l3 3v11H4z"/></svg>Paper.pdf · Table&nbsp;I</span>
+    </div>
+
+    <h3 class="h-md anim" data-anim="2" style="margin-top:clamp(48px,6vw,76px)">User Experience Questionnaire</h3>
+    <p class="anim" data-anim="2" style="max-width:720px;color:var(--ink-soft)">
+      Six dimensions, each rated from &minus;3 to +3. Four rose, one fell and one did not
+      move — so this is not an improvement across the board, and the paper does not present
+      it as one.
+    </p>
+
+    <figure class="chart-wrap anim" data-anim="3">
+      <ul class="chart-key">
+        <li><i style="background:var(--line-mid)"></i> Old version</li>
+        <li><i style="background:var(--blue)"></i> Redesigned version</li>
+      </ul>
+      <svg viewBox="0 0 920 372" role="img" aria-label="Bar chart of UEQ scores for the old and redesigned versions across six dimensions, on a scale from minus 3 to plus 3. The same values are given in the table below." focusable="false">
+        <!-- gridlines -->
+        <g class="ueq-grid">
+          <line x1="170" y1="36" x2="170" y2="340"/>
+          <line x1="290" y1="36" x2="290" y2="340"/>
+          <line x1="410" y1="36" x2="410" y2="340"/>
+          <line x1="650" y1="36" x2="650" y2="340"/>
+          <line x1="770" y1="36" x2="770" y2="340"/>
+          <line x1="890" y1="36" x2="890" y2="340"/>
+        </g>
+        <line class="ueq-zero" x1="530" y1="36" x2="530" y2="340"/>
+        <!-- axis ticks -->
+        <g class="ueq-tick" text-anchor="middle">
+          <text x="170" y="28">&minus;3</text><text x="290" y="28">&minus;2</text>
+          <text x="410" y="28">&minus;1</text><text x="530" y="28">0</text>
+          <text x="650" y="28">+1</text><text x="770" y="28">+2</text><text x="890" y="28">+3</text>
+          <text x="170" y="360">&minus;3</text><text x="290" y="360">&minus;2</text>
+          <text x="410" y="360">&minus;1</text><text x="530" y="360">0</text>
+          <text x="650" y="360">+1</text><text x="770" y="360">+2</text><text x="890" y="360">+3</text>
+        </g>
+        <!-- rows -->
+        <g class="ueq-label" text-anchor="end">
+          <text x="152" y="73">Attractiveness</text>
+          <text x="152" y="121">Perspicuity</text>
+          <text x="152" y="169">Efficiency</text>
+          <text x="152" y="217">Dependability</text>
+          <text x="152" y="265">Stimulation</text>
+          <text x="152" y="313">Novelty</text>
+        </g>
+        <g>
+          <rect class="ueq-bar-old" x="530" y="52"  width="84"  height="14" rx="2"/>
+          <rect class="ueq-bar-new" x="530" y="70"  width="96"  height="14" rx="2"/>
+          <rect class="ueq-bar-old" x="530" y="100" width="120" height="14" rx="2"/>
+          <rect class="ueq-bar-new" x="530" y="118" width="192" height="14" rx="2"/>
+          <rect class="ueq-bar-old" x="530" y="148" width="144" height="14" rx="2"/>
+          <rect class="ueq-bar-new" x="530" y="166" width="168" height="14" rx="2"/>
+          <rect class="ueq-bar-old" x="530" y="196" width="72"  height="14" rx="2"/>
+          <rect class="ueq-bar-new" x="530" y="214" width="204" height="14" rx="2"/>
+          <rect class="ueq-bar-old" x="530" y="244" width="36"  height="14" rx="2"/>
+          <rect class="ueq-bar-new" x="530" y="262" width="12"  height="14" rx="2"/>
+          <rect class="ueq-bar-old" x="500" y="292" width="30"  height="14" rx="2"/>
+          <rect class="ueq-bar-new" x="500" y="310" width="30"  height="14" rx="2"/>
+        </g>
+        <g class="ueq-val">
+          <text x="622" y="63">0.7</text>   <text x="634" y="81">0.8</text>
+          <text x="658" y="111">1.0</text>  <text x="730" y="129">1.6</text>
+          <text x="682" y="159">1.2</text>  <text x="706" y="177">1.4</text>
+          <text x="610" y="207">0.6</text>  <text x="742" y="225">1.7</text>
+          <text x="574" y="255">0.3</text>  <text x="550" y="273">0.1</text>
+          <text x="492" y="303" text-anchor="end">&minus;0.25</text>
+          <text x="492" y="321" text-anchor="end">&minus;0.25</text>
+        </g>
+      </svg>
+      <figcaption>UEQ scores, old versus redesigned, on the &minus;3 to +3 scale. Source: Paper.pdf, Table&nbsp;II.</figcaption>
+    </figure>
+
+    <div class="table-wrap anim" data-anim="2">
+      <table>
+        <caption>UEQ scores for the old and redesigned versions, with the paper's interpretation of the redesigned score. Source: Paper.pdf, Table&nbsp;II.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Scale</th>
+            <th scope="col" class="num">Old version</th>
+            <th scope="col" class="num">Redesigned version</th>
+            <th scope="col" class="num">Change</th>
+            <th scope="col">Interpretation (redesigned)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Attractiveness</th><td class="num">0.7</td><td class="num">0.8</td><td class="num delta-up">+0.1</td><td>Good</td></tr>
+          <tr><th scope="row">Perspicuity</th><td class="num">1.0</td><td class="num">1.6</td><td class="num delta-up">+0.6</td><td>Excellent</td></tr>
+          <tr><th scope="row">Efficiency</th><td class="num">1.2</td><td class="num">1.4</td><td class="num delta-up">+0.2</td><td>Good</td></tr>
+          <tr><th scope="row">Dependability</th><td class="num">0.6</td><td class="num">1.7</td><td class="num delta-up">+1.1</td><td>Excellent</td></tr>
+          <tr><th scope="row">Stimulation</th><td class="num">0.3</td><td class="num">0.1</td><td class="num delta-down">&minus;0.2</td><td>Neutral</td></tr>
+          <tr><th scope="row">Novelty</th><td class="num">&minus;0.25</td><td class="num">&minus;0.25</td><td class="num delta-flat">0.0</td><td>Neutral</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid grid--2 anim" data-anim="2" style="margin-top:26px">
+      <article class="card">
+        <h3>What moved most</h3>
+        <p class="small">
+          <strong>Dependability</strong> (+1.1) and <strong>Perspicuity</strong> (+0.6) are the
+          two largest gains — whether the system feels predictable and controllable, and
+          whether it is easy to understand. Those are the dimensions a visible Save, labelled
+          controls and a consistent nav would be expected to move.
+        </p>
+      </article>
+      <article class="card">
+        <h3>What did not</h3>
+        <p class="small">
+          <strong>Stimulation fell</strong> from 0.3 to 0.1 and <strong>Novelty was
+          unchanged</strong> at &minus;0.25. The redesign made the platform clearer without
+          making it more engaging or more original in participants' eyes. The paper reports
+          no significance testing, so these figures describe the sample, not a proven effect.
+        </p>
+      </article>
+    </div>
+
+    <h3 class="h-md anim" data-anim="2" style="margin-top:clamp(48px,6vw,76px)">Expert heuristic evaluation</h3>
+    <p class="anim" data-anim="2" style="max-width:720px;color:var(--ink-soft)">
+      The paper reports an <strong>average score of 7.3 out of 10</strong> across ten
+      usability principles. It gives no evaluator count and no baseline score for the old
+      version, so this is a reading of the redesign on its own, not a comparison.
+    </p>
+
+    <div class="table-wrap anim" data-anim="2">
+      <table>
+        <caption>Heuristic evaluation of the redesigned platform. Source: Paper.pdf, Table&nbsp;III.</caption>
+        <thead>
+          <tr><th scope="col">Heuristic principle</th><th scope="col" class="num">Score</th><th scope="col">Evaluator comment</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Consistency and standards</th><td class="num">9</td><td>Excellent consistency in icons, wording and layout across the platform.</td></tr>
+          <tr><th scope="row">Aesthetic and minimalist design</th><td class="num">9</td><td>The UI is aesthetically pleasing and easy to use.</td></tr>
+          <tr><th scope="row">User control and freedom</th><td class="num">8</td><td>The system effectively allows users to undo or cancel actions easily.</td></tr>
+          <tr><th scope="row">Recognition rather than recall</th><td class="num">8</td><td>UI design supports visibility and minimises reliance on memory.</td></tr>
+          <tr><th scope="row">Match between system and the real world</th><td class="num">7</td><td>Language and terminology are appropriate for the target users.</td></tr>
+          <tr><th scope="row">Error prevention</th><td class="num">7</td><td>The system prevents user errors well, though improvements are still possible.</td></tr>
+          <tr><th scope="row">Help and documentation</th><td class="num">7</td><td>Help documentation is reasonably accessible but could be more intuitive to locate and use.</td></tr>
+          <tr><th scope="row">Visibility of system status</th><td class="num">6</td><td>Status is generally displayed clearly, though some areas may lack full clarity.</td></tr>
+          <tr><th scope="row">Flexibility and efficiency of use</th><td class="num">6</td><td>Some customisation is possible, but the system does not fully adapt to all individual preferences.</td></tr>
+          <tr><th scope="row">Help users recognise, diagnose and recover from errors</th><td class="num">6</td><td>Most error messages are understandable, though some lack clarity or actionable guidance.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flag anim" data-anim="2">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-8h-2v6h2V8z"/></svg>
+      <p>
+        Every number in this section comes from Paper.pdf, Tables&nbsp;I&ndash;III. None of them
+        are the sample figures printed inside the dashboard and analytics screenshots — those
+        are placeholder content in the Figma file and measure nothing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== 7. REFLECTION ========== -->
+<section class="section" id="reflection">
+  <div class="wrap">
+    <div class="section__head anim" data-anim="1">
+      <p class="eyebrow">Reflection and next steps</p>
+      <h2 class="h-lg">Clearer, yes. Finished, no.</h2>
+    </div>
+
+    <div class="split anim" data-anim="2">
+      <div class="panel">
+        <h3>What became clearer</h3>
+        <ul>
+          <li><strong>Where to save.</strong> Moving one button and removing its competition addressed the problem instructors described most concretely — losing work.</li>
+          <li><strong>What a control does.</strong> Labelling the gear, renaming Preview to Student View and Report to Contact Support each cost nothing and removed a guess. Consistency scored 9/10 in the expert review.</li>
+          <li><strong>What the system just did.</strong> A last-updated stamp and an unread count on the feedback tab let the interface answer questions instead of being asked them.</li>
+          <li><strong>What the results mean.</strong> One sortable ranking and a score distribution replaced a table printed twice.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>What still needs work</h3>
+        <ul>
+          <li><strong>Error messages.</strong> The expert review scored error recovery 6/10: most messages are understandable, but some lack clarity or actionable guidance.</li>
+          <li><strong>Flexibility for different workflows.</strong> Also 6/10. Some customisation is possible, but the system does not adapt to individual instructors' preferences — and instructors in this study did not all work the same way.</li>
+          <li><strong>Visibility of system status.</strong> 6/10 again. The stamps and badges added in Version 2 are a start, not a finish.</li>
+          <li><strong>Engagement.</strong> Stimulation fell and novelty did not move. Clarity was won; nothing was won on how the platform feels to use.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel--next anim" data-anim="2" style="margin-top:20px">
+      <h3>Next steps — proposed, not built</h3>
+      <p class="small" style="color:var(--ink-soft)">
+        These follow from the limitations above and from the goals the paper lists for the
+        redesign. None of them are implemented in the Figma file, and none are claimed as
+        completed work.
+      </p>
+      <ul>
+        <li>Rewrite error messages so each one names the cause and the next action, then re-run the error-recovery heuristic.</li>
+        <li>Give the editor room for different working styles — the instructors who draft in Word are describing a workflow, not just a formatting problem.</li>
+        <li>Order question types by how often they are actually used, which the paper records as a mismatch in the current platform and which neither Figma version resolves.</li>
+        <li>Test the Scoring Setting, group assignment and Secure Exam Mode with instructors; they were added late and have no usability data of their own.</li>
+        <li>Establish whether the clarity gains hold over a term of real use, rather than a single session.</li>
+      </ul>
+    </div>
+
+    <div class="flag anim" data-anim="2">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 14h-2v2h2v-2zm0-8h-2v6h2V8z"/></svg>
+      <p>
+        <strong>Credit.</strong> This was not solo work. The paper is co-authored with
+        <strong>Nichakan Poomipraphat</strong>, whose parallel redesign of the student side of
+        the platform supplied the Student View design adopted here. The authors' own
+        acknowledgements also thank the instructors who took part and the Learning Innovation
+        Center, Chulalongkorn University.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== 8. CONTACT ============= -->
+</main>
+
+<!-- ============================================== LIGHTBOX =============== -->
+
+<!-- ===================== EXPLORE MORE WORK ===================== -->
+<section class="pf-related" aria-labelledby="pf-related-title">
+  <div class="pf-wrap">
+    <div class="pf-related__head pf-reveal">
+      <h2 class="pf-related__title" id="pf-related-title">Explore more work</h2>
+      <a class="pf-related__all" href="../../#work">All work</a>
+    </div>
+    <ul class="pf-cardgrid pf-cardgrid--3">
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../actorstock/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--actorstock pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:1.5%;top:44%;width:15cqw;transform:rotate(-8deg)" viewBox="0 0 94 23" width="94" height="23" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="52" height="20" rx="10" fill="#FFF2F1" fill-opacity=".5" stroke="#FFDFDC" stroke-opacity=".8" stroke-width="2"/><rect x="58" y="1" width="34" height="20" rx="10" fill="#07C1B6" fill-opacity=".85"/></svg><svg class="" style="right:1.5%;top:40%;width:13cqw;transform:rotate(9deg)" viewBox="0 0 64 48" width="64" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="45" rx="7" fill="#FFF2F1" fill-opacity=".45" stroke="#282E45" stroke-opacity=".35" stroke-width="3"/><circle cx="16" cy="17" r="7" fill="#282E45" fill-opacity=".4"/><rect x="28" y="12" width="26" height="4" rx="2" fill="#282E45" fill-opacity=".35"/><rect x="28" y="20" width="18" height="4" rx="2" fill="#282E45" fill-opacity=".22"/><rect x="9" y="32" width="45" height="6" rx="3" fill="#07C1B6" fill-opacity=".8"/></svg><svg class="" style="left:2%;bottom:8%;width:13cqw;transform:rotate(7deg)" viewBox="0 0 72 32" width="72" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="68" height="28" rx="6" fill="none" stroke="#FFF2F1" stroke-opacity=".75" stroke-width="3" stroke-dasharray="8 6"/><rect x="10" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".85"/><rect x="23" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".6"/><rect x="36" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".85"/><rect x="49" y="12" width="9" height="9" rx="2" fill="#FFF2F1" fill-opacity=".6"/></svg><svg class="" style="right:2%;bottom:10%;width:11cqw;transform:rotate(-10deg)" viewBox="0 0 58 26" width="58" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="56" height="24" rx="12" fill="#282E45" fill-opacity=".5"/><path d="M14 7h6a5 5 0 0 1 0 10h-6m0-5h9m-9-5v11" stroke="#FFF2F1" stroke-opacity=".9" stroke-width="2.2" stroke-linecap="round"/><rect x="34" y="10" width="14" height="5" rx="2.5" fill="#FFF2F1" fill-opacity=".7"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">Actor<em>Stock</em></p>
+                  <p class="pf-cover__tag">A Thai casting marketplace.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__phone pf-cover__phone--back pf-cover__tilt-l"><img src="../actorstock/assets/screens/home.webp" width="440" height="9436" loading="lazy" decoding="async" alt="The ActorStock home screen"></div><div class="pf-cover__phone pf-cover__phone--lead pf-cover__tilt-r"><img src="../actorstock/assets/screens/job-search.webp" width="464" height="2414" loading="lazy" decoding="async" alt="The ActorStock job search screen"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">ActorStock</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Mobile</li>
+                <li>Thai-language product</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../englishx/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--englishx pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:1.5%;top:42%;width:12cqw;transform:rotate(-9deg)" viewBox="0 0 64 48" width="64" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 2h52a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H26l-12 10V34H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4Z" fill="#FFF3F4" fill-opacity=".4" stroke="#FFF3F4" stroke-opacity=".8" stroke-width="2.5"/><circle cx="20" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".9"/><circle cx="32" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".7"/><circle cx="44" cy="18" r="3.5" fill="#FFF3F4" fill-opacity=".5"/></svg><svg class="" style="right:1.5%;top:38%;width:11cqw;transform:rotate(8deg)" viewBox="0 0 52 52" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="26" cy="26" r="21" stroke="#FFF3F4" stroke-opacity=".28" stroke-width="6"/><path d="M26 5a21 21 0 0 1 18.2 31.5" stroke="#FEA5D5" stroke-width="6" stroke-linecap="round"/><path d="M26 17c3 4 6 6 6 10a6 6 0 0 1-12 0c0-3 3-4 6-10Z" fill="#FFF3F4" fill-opacity=".85"/></svg><svg class="" style="left:2%;bottom:8%;width:11cqw;transform:rotate(7deg)" viewBox="0 0 56 50" width="56" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M28 2 52 20l-9 28H13L4 20 28 2Z" stroke="#FFF3F4" stroke-opacity=".45" stroke-width="2.4"/><path d="M28 13 42 23l-5 16H19l-5-16L28 13Z" fill="#9098D9" fill-opacity=".55" stroke="#FFF3F4" stroke-opacity=".7" stroke-width="2"/></svg><svg class="" style="right:2.5%;bottom:10%;width:9cqw;transform:rotate(-8deg)" viewBox="0 0 44 50" width="44" height="50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="14" y="2" width="16" height="28" rx="8" fill="#20BFB6" fill-opacity=".8"/><path d="M6 24a16 16 0 0 0 32 0" stroke="#FFF3F4" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/><path d="M22 40v6" stroke="#FFF3F4" stroke-opacity=".85" stroke-width="3" stroke-linecap="round"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">English<em>X</em></p>
+                  <p class="pf-cover__tag">An AI-assisted English learning platform for the desktop browser.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__browser pf-cover__tilt-c"><span></span><span></span><span></span><img src="../englishx/assets/img/dashboard-1120.webp" width="1120" height="796" loading="lazy" decoding="async" alt="The EnglishX learning dashboard"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">EnglishX</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>Web app</li>
+                <li>EdTech</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+        <li class="pf-card pf-card--sm pf-reveal">
+          <a class="pf-card__link" href="../mcv-widget/">
+            <div class="pf-card__media pf-card__media--cover">
+              <div class="pf-cover pf-cover--mcv-widget pf-cover--motif">
+              <div class="pf-cover__motifs" aria-hidden="true"><svg class="" style="left:2%;top:40%;width:11cqw;transform:rotate(-9deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="11" fill="#1B9AFB" fill-opacity=".16" stroke="#1B9AFB" stroke-opacity=".5" stroke-width="2.5"/><rect x="11" y="12" width="20" height="4" rx="2" fill="#1B9AFB" fill-opacity=".8"/><rect x="11" y="22" width="26" height="4" rx="2" fill="#94A3B8" fill-opacity=".6"/><rect x="11" y="32" width="16" height="4" rx="2" fill="#FFA70F" fill-opacity=".85"/></svg><svg class="" style="right:2%;top:37%;width:10cqw;transform:rotate(8deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="7" width="44" height="39" rx="8" stroke="#94A3B8" stroke-opacity=".55" stroke-width="2.5"/><path d="M2 19h44" stroke="#94A3B8" stroke-opacity=".55" stroke-width="2.5"/><path d="M14 2v8M34 2v8" stroke="#1B9AFB" stroke-opacity=".9" stroke-width="3" stroke-linecap="round"/><rect x="11" y="26" width="8" height="8" rx="2" fill="#FFA70F" fill-opacity=".9"/><rect x="24" y="26" width="8" height="8" rx="2" fill="#94A3B8" fill-opacity=".45"/></svg><svg class="" style="left:2.5%;bottom:9%;width:9cqw;transform:rotate(9deg)" viewBox="0 0 44 44" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 4a13 13 0 0 1 13 13v9l4 7H5l4-7v-9A13 13 0 0 1 22 4Z" fill="#FFA70F" fill-opacity=".22" stroke="#FFA70F" stroke-opacity=".85" stroke-width="2.6"/><path d="M17 37a5 5 0 0 0 10 0" stroke="#FFA70F" stroke-opacity=".85" stroke-width="2.6" stroke-linecap="round"/></svg><svg class="" style="right:2.5%;bottom:11%;width:10cqw;transform:rotate(-6deg)" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 46V23A21 21 0 0 1 23 2h23" stroke="#1B9AFB" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 7"/></svg></div>
+                <div class="pf-cover__head">
+                  <p class="pf-cover__mark">MCV <em>Widget</em></p>
+                  <p class="pf-cover__tag">A set of home screen widgets for MCV.</p>
+                </div>
+                <div class="pf-cover__stage"><div class="pf-cover__widget pf-cover__widget--tall pf-cover__tilt-l"><img src="../mcv-widget/assets/img/cs-iphone-large-dark.webp" width="676" height="708" loading="lazy" decoding="async" alt="The Class Schedule widget for iPhone, dark appearance"></div><div class="pf-cover__widget pf-cover__widget--wide pf-cover__tilt-r"><img src="../mcv-widget/assets/img/ar-ipad-xl-dark-628.webp" width="628" height="300" loading="lazy" decoding="async" alt="The Extra Large Assignment Reminder widget for iPad, dark appearance"></div></div>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <h3 class="pf-card__title">MCV Widget</h3>
+              <ul class="pf-card__labels">
+                <li>UX/UI case study</li>
+                <li>iOS &amp; iPadOS</li>
+                <li>Home screen widgets</li>
+              </ul>
+              <span class="pf-card__cta">View project <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SHARED SITE FOOTER ===================== -->
+<footer class="pf-footer" id="contact">
+  <div class="pf-wrap">
+    <div class="pf-footer__grid">
+      <div>
+        <p class="pf-footer__brand">Artar's Portfolio</p>
+        <p class="pf-footer__name">Matcee Artapiyatham</p>
+      </div>
+
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../#work">Work</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="../../assets/resume/Matcee-Artapiyatham-Resume-UXUI.pdf" download="Matcee-Artapiyatham-Resume-UXUI.pdf">Download resume (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:matcee.artapiyatham@gmail.com">matcee.artapiyatham@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/matcee-artapiyatham-a617a625a" target="_blank" rel="noopener">linkedin.com/in/matcee-artapiyatham-a617a625a</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pf-footer__bottom">
+      <p>UX/UI portfolio — case study presentations of the design work.</p>
+      <p>&copy; 2026 Matcee Artapiyatham</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/shell.js" defer></script>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged screen" aria-hidden="true">
+  <div class="lb__inner">
+    <div class="lb__bar">
+      <p class="lb__cap" id="lightbox-cap"></p>
+      <button type="button" class="lb__close" id="lightbox-close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        Close
+      </button>
+    </div>
+    <div class="lb__scroll"><img id="lightbox-img" alt=""></div>
+  </div>
+</div>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
