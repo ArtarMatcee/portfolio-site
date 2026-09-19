@@ -795,67 +795,101 @@ html {
 }
 
 /* ==========================================================================
-   Hero — LINE MAN
+   Hero — pearls on the photograph
    --------------------------------------------------------------------------
-   Read off lineman.line.me: the LINE green #06C755 field, near-black #1A1A1A
-   ink on top, heavy tight display type, and one radius — the full pill. White
-   on that green is only 2.26:1, so the type is ink. The field is a gradient
-   from #5BE08C through #06C755 to #04A24A, and every colour set on it is
-   measured against that darkest stop: ink 5.20:1, supporting text 5.05:1.
+   Three layers under the content: the photograph, a rose wash that lifts it
+   and ties it to the site's pink, and a procedural film grain. The wordmark
+   is a single strand of pearls strung along the centreline of "Artar" — the
+   <h1> underneath carries the real heading, so the strand is aria-hidden.
    ========================================================================== */
 .pf-intro {
-  background:
-    radial-gradient(90% 72% at 50% 16%, rgba(255, 255, 255, .32) 0%, rgba(255, 255, 255, 0) 64%),
-    linear-gradient(155deg, #5BE08C 0%, #06C755 52%, #04A24A 100%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   text-align: center;
-  padding-block: clamp(64px, 11vw, 132px) clamp(56px, 9vw, 112px);
+  padding-block: clamp(56px, 8vw, 104px) clamp(60px, 9vw, 112px);
+  /* shows through while the photograph loads */
+  background:
+    radial-gradient(95% 75% at 50% 12%, rgba(255, 255, 255, .62) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(118deg, #FFD1E4 0%, #FFE2DA 48%, #FFF0DC 100%);
+}
+
+/* the photograph, held light: part-desaturated so the gold braid does not
+   fight the pearls, and lifted so the field stays bright */
+.pf-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("../img/hero-photo.webp");
+  background-size: cover;
+  background-position: 50% 66%;
+  filter: grayscale(.34) brightness(1.06) contrast(.96);
+}
+
+/* the wash is load-bearing: cream pearls over white fabric would disappear
+   without it, and it is what makes the photograph belong to this site */
+.pf-intro__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(64% 48% at 50% 40%, rgba(255, 255, 255, .66) 0%, rgba(255, 255, 255, 0) 72%),
+    linear-gradient(118deg, rgba(255, 209, 228, .80) 0%, rgba(255, 226, 218, .72) 48%, rgba(255, 240, 220, .80) 100%);
+}
+
+/* film grain, procedural so it costs nothing and never softens */
+.pf-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .34;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.pf-intro > *:not(.pf-intro__wash) { position: relative; z-index: 1; }
+
+/* the scattered stones would compete with the strand, so the hero keeps only
+   the pearls; the rest of the page still carries its scatter */
+.pf-intro .pf-gems { display: none; }
+
+.pf-intro__word {
+  display: block;
+  width: min(100%, 720px);
+  height: auto;
+  margin: 0 auto clamp(14px, 2.2vw, 26px);
+}
+
+.pf-intro__eyebrow {
+  font-family: inherit;
+  font-size: clamp(12.5px, 1.05vw, 15px);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #7A626C;
+  margin: 0;
+}
+
+.pf-intro__name {
+  font-family: var(--pf-font);
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #2B2225;
+  margin: clamp(6px, 1vw, 10px) 0 0;
+  text-wrap: balance;
 }
 
 .pf-intro__lede {
   font-family: var(--pf-font);
-  font-size: clamp(15px, 1.35vw, 18px);
-  font-weight: 500;
-  line-height: 1.6;
-  color: #0B2113;
-  margin: clamp(22px, 3.2vw, 34px) auto 0;
+  font-size: clamp(15px, 1.35vw, 17.5px);
+  line-height: 1.62;
+  color: #55444B;
+  margin: clamp(18px, 2.6vw, 28px) auto 0;
   max-width: 58ch;
-}
-
-/* The embellishment that opens the block, above the title. */
-.pf-intro__motif {
-  display: block;
-  width: clamp(34px, 3.8vw, 48px);
-  margin: 0 auto clamp(16px, 2.4vw, 28px);
-}
-
-.pf-intro__motif svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  color: #D6217A;
-  filter: drop-shadow(0 2px 4px rgba(4, 60, 28, .28));
-}
-
-/* Heavy and tight, the way LINE MAN sets a headline. */
-.pf-intro__name {
-  font-family: var(--pf-font);
-  font-size: clamp(38px, 6.6vw, 80px);
-  font-weight: 700;
-  line-height: 1.02;
-  color: #1A1A1A;
-  margin: 0;
-  text-wrap: balance;
-}
-
-/* Caps above the title. Tracking stays normal: this site sets
-   letter-spacing: normal everywhere, and that rule is not worth breaking. */
-.pf-intro__eyebrow {
-  font-family: inherit;
-  font-size: clamp(12.5px, 1.05vw, 15px);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #0B2113;
-  margin: 0 0 clamp(8px, 1.4vw, 14px);
 }
 
 .pf-intro__actions {
@@ -863,36 +897,29 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: clamp(30px, 4.2vw, 52px);
+  margin-top: clamp(26px, 3.6vw, 44px);
 }
 
-/* The one radius LINE MAN uses for a control, and the two fills that clear
-   AA on the green: ink at 17.4:1 and white at 17.4:1 against their labels. */
 .pf-intro .pf-btn {
   border-radius: 999px;
-  font-weight: 700;
-  padding: 15px 30px;
+  font-weight: 600;
+  padding: 14px 28px;
 }
 
 .pf-intro .pf-btn--primary {
-  background: #1A1A1A;
+  background: #2B2225;
   color: #fff;
 }
 
-.pf-intro .pf-btn--primary:hover {
-  background: #000;
-}
+.pf-intro .pf-btn--primary:hover { background: #170F12; }
 
 .pf-intro .pf-btn--ghost {
   background: #fff;
-  color: #1A1A1A;
+  color: #2B2225;
   border-color: #fff;
 }
 
-.pf-intro .pf-btn--ghost:hover {
-  background: #F2F4F3;
-  border-color: #F2F4F3;
-}
+.pf-intro .pf-btn--ghost:hover { background: #F6EFEA; border-color: #F6EFEA; }
 
 .pf-work {
   padding-block: clamp(56px, 8vw, 96px) clamp(72px, 10vw, 128px);
