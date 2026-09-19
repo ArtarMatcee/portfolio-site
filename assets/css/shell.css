@@ -1227,6 +1227,82 @@ html {
   text-wrap: pretty;
 }
 
+/* --------------------------------------------------------------- lead --
+   A short summary placed above a feature's existing detail: what the
+   problem was, what was decided and why, what constrained it, and what
+   evidence there is. Rows with nothing recorded behind them are simply not
+   written — the detail below is left exactly as it was. */
+.pf-lead {
+  margin: 0 0 clamp(26px, 3.4vw, 40px);
+  padding: clamp(20px, 2.6vw, 28px) clamp(20px, 2.6vw, 30px);
+  background: var(--pf-paper);
+  border: 1px solid var(--pf-line);
+  border-radius: 14px;
+}
+
+.pf-lead__row {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 4px 20px;
+  padding: 11px 0;
+  border-top: 1px solid var(--pf-line);
+}
+
+.pf-lead__row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.pf-lead__row:last-child {
+  padding-bottom: 0;
+}
+
+.pf-lead__row dt {
+  margin: 0;
+  font-family: var(--pf-font);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pf-ink-3);
+  padding-top: 3px;
+}
+
+.pf-lead__row dd {
+  margin: 0;
+  font-family: var(--pf-font);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pf-ink);
+  text-wrap: pretty;
+}
+
+.pf-lead__row dd strong { font-weight: 600; }
+
+@media (max-width: 640px) {
+  .pf-lead__row { grid-template-columns: 1fr; gap: 3px; }
+  .pf-lead__row dt { padding-top: 0; }
+}
+
+/* On the two genuinely dark bands — ActorStock's journey and the MCV Widget
+   showcase — a white card would glare, so it goes translucent and inherits
+   the band's own light text. Names are not a reliable guide here: EnglishX's
+   band--deep and Assessment's section--deep are both light, so they keep the
+   default card. */
+.band--ink .pf-lead,
+.band--dark .pf-lead {
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(255, 255, 255, .2);
+}
+
+.band--ink .pf-lead__row,
+.band--dark .pf-lead__row { border-top-color: rgba(255, 255, 255, .18); }
+
+.band--ink .pf-lead__row dd,
+.band--dark .pf-lead__row dd { color: inherit; }
+
+.band--ink .pf-lead__row dt,
+.band--dark .pf-lead__row dt { color: rgba(255, 255, 255, .66); }
+
 /* ==========================================================================
    Bedazzle — scattered gems on the homepage
    --------------------------------------------------------------------------

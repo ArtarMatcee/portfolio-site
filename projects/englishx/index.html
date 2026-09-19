@@ -124,20 +124,50 @@
 
 <!-- ==================== 2. CURRENT DESIGN OVERVIEW ==================== -->
 <!-- ========================================== PROJECT SUMMARY (shell) ===
-     Role / Team / Timeline / Project type / Delivery status. Every value
-     here comes from this case study or from the CV; nothing is inferred.
-     Still to confirm, deliberately left out rather than guessed:
-     Role, Team, Timeline, Delivery status. -->
+     Role / Team / Timeline / Project type / Delivery status.
+     Still to confirm: Team, Timeline, and which surfaces the redesign
+     covered — left out rather than guessed. -->
 <aside class="pf-meta" aria-label="Project summary">
   <div class="pf-wrap">
     <dl class="pf-meta__list">
-        <div class="pf-meta__item"><dt>Project type</dt><dd>Design documentation of the current EnglishX design, read from the project Figma file</dd></div>
+        <div class="pf-meta__item"><dt>Role</dt><dd>UX/UI designer — partial redesign of an existing platform</dd></div>
+        <div class="pf-meta__item"><dt>Project type</dt><dd>Redesign of parts of a live AI-assisted learning product</dd></div>
+        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Prototype, tested with users</dd></div>
     </dl>
   </div>
 </aside>
 
 <section class="band band--tint" id="current-design">
   <div class="wrap">
+
+    <!-- ===== OPENING: problem, responsibility, status (shared shell) ===== -->
+    <dl class="pf-lead">
+      <div class="pf-lead__row">
+        <dt>The product</dt>
+        <dd>EnglishX is an existing AI-assisted English learning platform for the desktop
+            browser. It was already live when this work started; the screens on this page are
+            the design as it stands.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>The problem</dt>
+        <dd>Language practice fails at two points: a learner who leaves for a week cannot tell
+            where they were or what to do next, and speaking — the skill they are there for —
+            is the one they avoid, because a real conversation is unforgiving and gives no
+            second try. Everything below is built against those two.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>My responsibility</dt>
+        <dd>UX/UI designer on a <strong>partial redesign</strong> — I reworked parts of the
+            existing product rather than starting it. This page documents the design across
+            all four surfaces so the changes can be read in context.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Status</dt>
+        <dd>A prototype, <strong>tested with users</strong>. Nothing on this page is measured
+            product data — the figures in the screens are sample UI content.</dd>
+      </div>
+    </dl>
+
     <div class="sec-head reveal">
       <p class="eyebrow">The current design</p>
       <h2>Four surfaces, one learning loop</h2>
@@ -205,6 +235,22 @@
         assistant within reach.
       </p>
     </div>
+
+    <dl class="pf-lead">
+      <div class="pf-lead__row">
+        <dt>Problem</dt>
+        <dd>A learner who has been away for a week cannot tell where they stopped or whether they are getting better, so the way back in is to re-read everything — or not come back.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Decision</dt>
+        <dd>Make the home screen answer <strong>“where was I?”</strong> before it offers anything new: who the learner is and at what level, momentum, progress by skill, and a direct route into the unfinished thing.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Constraint</dt>
+        <dd>All of it has to land in one browser screen. Anything that needs opening is a report, and a report is the thing a returning learner will not open — so the streak, the weekly plot and the skill radar are all readable without a click.</dd>
+      </div>
+    </dl>
+
   </div>
 
   <div class="wrap">
@@ -333,6 +379,22 @@
         practise with.
       </p>
     </div>
+
+    <dl class="pf-lead">
+      <div class="pf-lead__row">
+        <dt>Problem</dt>
+        <dd>Generated courses are impersonal, and a learner who feels nothing towards the thing teaching them stops turning up.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Decision</dt>
+        <dd>Ask <strong>who you want to practise with</strong> before asking for a level or a topic. The partner is a character with a region, a specialism and a temperament, so the course arrives attached to someone.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Constraint</dt>
+        <dd>A named character has to be chosen from a grid without turning the grid into a form. The selection carries no checkbox or border: choosing drains the colour from every other card, so the whole grid is the indicator.</dd>
+      </div>
+    </dl>
+
   </div>
 
   <div class="wrap">
@@ -425,6 +487,22 @@
         the spot.
       </p>
     </div>
+
+    <dl class="pf-lead">
+      <div class="pf-lead__row">
+        <dt>Problem</dt>
+        <dd>Two ways of working — a generated course to follow, and a skill to drill on impulse — pull in opposite directions, and giving each its own interface teaches the product twice.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Decision</dt>
+        <dd>Run both through <strong>one shell</strong>: the same sidebar, greeting bar and Course content grid, differing only in how work arrives. A generated set and a course lesson are deliberately the same kind of object.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Constraint</dt>
+        <dd>Course order matters in one and not the other, so navigation carries the difference instead of the layout: a vertical rail of enrolled courses on one side, a 4 × 2 grid of skills on the other.</dd>
+      </div>
+    </dl>
+
   </div>
 
   <div class="wrap">
@@ -561,6 +639,22 @@
         again with a score. It is the only place in the Current Design where the learner speaks.
       </p>
     </div>
+
+    <dl class="pf-lead">
+      <div class="pf-lead__row">
+        <dt>Problem</dt>
+        <dd>Speaking is the skill learners are there for and the one they avoid. A real conversation is unforgiving, gives no second attempt, and offers no way to tell whether you did better than last time.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Decision</dt>
+        <dd>Rehearse it first. A scenario is set up, run as a timed exchange with the AI partner, and <strong>scored turn by turn</strong>, so the stakes are low and the improvement is visible.</dd>
+      </div>
+      <div class="pf-lead__row">
+        <dt>Constraint</dt>
+        <dd>Scoring speech risks reducing it to one number. Willingness to Communicate is tracked as five separate measures — speaking time, challenge level, repeats, role variety, turns used — and compared between periods rather than ranked.</dd>
+      </div>
+    </dl>
+
 
     <figure class="figure figure--wide reveal">
       <div class="browser">
