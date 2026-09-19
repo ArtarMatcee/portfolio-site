@@ -868,7 +868,9 @@ html {
   font-family: var(--pf-font);
   font-size: clamp(12.5px, 1.1vw, 15px);
   font-weight: 500;
-  color: #C6BBB6;
+  /* the reference's pale pink. 6.08:1 against the lightest patch of the
+     photograph that sits behind text, 13:1 against the deep areas. */
+  color: #F2C9DD;
 }
 
 .pf-intro__word {
@@ -901,7 +903,7 @@ html {
   font-family: var(--pf-font);
   font-size: clamp(15px, 1.35vw, 17.5px);
   line-height: 1.62;
-  color: #D4CBC6;
+  color: #F2C9DD;
   margin: clamp(18px, 2.6vw, 28px) auto 0;
   max-width: 58ch;
 }
