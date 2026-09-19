@@ -845,7 +845,7 @@ html {
 }
 
 .pf-work {
-  padding-block: 0 clamp(72px, 10vw, 128px);
+  padding-block: clamp(56px, 8vw, 96px) clamp(72px, 10vw, 128px);
 }
 
 .pf-work__head {
