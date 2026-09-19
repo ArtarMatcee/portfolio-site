@@ -1412,7 +1412,6 @@ html {
 
 /* Selected Work reads as a quiet rule, not a divider */
 .pf-home .pf-work__head { border-bottom-color: #EFDCE1; }
-.pf-home .pf-work__count { color: #8A737C; }
 
 /* the cards lift off the rose ground instead of sitting flat on white */
 .pf-home .pf-card {
