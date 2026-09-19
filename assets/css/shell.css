@@ -794,9 +794,15 @@ html {
   max-width: 100%;
 }
 
+/* ==========================================================================
+   Hero — LINE MAN
+   --------------------------------------------------------------------------
+   Read off lineman.line.me: the LINE green #06C755 field, near-black #1A1A1A
+   ink on top, heavy tight display type, and one radius — the full pill. White
+   on that green is only 2.26:1, so the type is ink, which measures 7.71:1.
+   ========================================================================== */
 .pf-intro {
-  /* the reference's calm field: warm grey, so the pearl and clear pieces read */
-  background: #EBE9E5;
+  background: #06C755;
   text-align: center;
   padding-block: clamp(64px, 11vw, 132px) clamp(56px, 9vw, 112px);
 }
@@ -804,16 +810,17 @@ html {
 .pf-intro__lede {
   font-family: var(--pf-font);
   font-size: clamp(15px, 1.35vw, 18px);
-  line-height: 1.62;
-  color: #4A4742;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #12331F;
   margin: clamp(22px, 3.2vw, 34px) auto 0;
-  max-width: 62ch;
+  max-width: 58ch;
 }
 
 /* The embellishment that opens the block, above the title. */
 .pf-intro__motif {
   display: block;
-  width: clamp(30px, 3.4vw, 42px);
+  width: clamp(34px, 3.8vw, 48px);
   margin: 0 auto clamp(16px, 2.4vw, 28px);
 }
 
@@ -822,28 +829,28 @@ html {
   width: 100%;
   height: auto;
   color: #D6217A;
-  filter: drop-shadow(0 1px 2px rgba(80, 30, 60, .18));
+  filter: drop-shadow(0 2px 4px rgba(4, 60, 28, .28));
 }
 
+/* Heavy and tight, the way LINE MAN sets a headline. */
 .pf-intro__name {
   font-family: var(--pf-font);
-  font-size: clamp(36px, 6vw, 72px);
-  font-weight: 600;
-  line-height: 1.1;
-  color: #1A1713;
+  font-size: clamp(38px, 6.6vw, 80px);
+  font-weight: 700;
+  line-height: 1.02;
+  color: #1A1A1A;
   margin: 0;
   text-wrap: balance;
 }
 
-/* Caps above the title, in the site's own sans. Tracking stays normal: this
-   site sets letter-spacing: normal everywhere, and that rule is not worth
-   breaking for one line. */
+/* Caps above the title. Tracking stays normal: this site sets
+   letter-spacing: normal everywhere, and that rule is not worth breaking. */
 .pf-intro__eyebrow {
   font-family: inherit;
   font-size: clamp(12.5px, 1.05vw, 15px);
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #55504A;
+  color: #0B3D1E;
   margin: 0 0 clamp(8px, 1.4vw, 14px);
 }
 
@@ -853,6 +860,34 @@ html {
   justify-content: center;
   gap: 12px;
   margin-top: clamp(30px, 4.2vw, 52px);
+}
+
+/* The one radius LINE MAN uses for a control, and the two fills that clear
+   AA on the green: ink at 17.4:1 and white at 17.4:1 against their labels. */
+.pf-intro .pf-btn {
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 15px 30px;
+}
+
+.pf-intro .pf-btn--primary {
+  background: #1A1A1A;
+  color: #fff;
+}
+
+.pf-intro .pf-btn--primary:hover {
+  background: #000;
+}
+
+.pf-intro .pf-btn--ghost {
+  background: #fff;
+  color: #1A1A1A;
+  border-color: #fff;
+}
+
+.pf-intro .pf-btn--ghost:hover {
+  background: #F2F4F3;
+  border-color: #F2F4F3;
 }
 
 .pf-work {
@@ -1349,6 +1384,12 @@ html {
   height: auto;
   opacity: var(--o, .9);
   filter: drop-shadow(0 1px 2px rgba(80, 30, 60, .18));
+}
+
+/* On the green field the pale stones lose their edge, so they get a deeper,
+   green-cast shadow instead of the pink-cast one used over white. */
+.pf-intro .pf-gem svg {
+  filter: drop-shadow(0 2px 4px rgba(4, 60, 28, .32));
 }
 
 /* A slow, staggered shimmer — a rhinestone catching the light, not a blink. */
