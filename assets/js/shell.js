@@ -262,11 +262,79 @@
     }
   }
 
+
+  /* ---------------------------------------------------------------- gems --
+     The stones are placed in CSS, which cannot know where the text actually
+     wraps. A stone tucked behind the big display name reads as deliberate; one
+     behind body copy just looks like a smudge. So after layout, hide any stone
+     that lands on a glyph run smaller than display size, and re-check on
+     resize. Without JS the full scatter still renders, which is harmless. */
+  function initGems() {
+    var gems = Array.prototype.slice.call(document.querySelectorAll('.pf-gem'));
+    if (!gems.length) return;
+
+    var DISPLAY_PX = 38;   // at or above this, a stone behind the text is fine
+
+    function smallTextRects() {
+      var rects = [];
+      var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      var node;
+      while ((node = walker.nextNode())) {
+        if (!node.nodeValue.trim()) continue;
+        var el = node.parentElement;
+        if (!el || el.closest('.pf-gems, .pf-gemdefs')) continue;
+        if (parseFloat(getComputedStyle(el).fontSize) >= DISPLAY_PX) continue;
+        var range = document.createRange();
+        range.selectNodeContents(node);
+        var list = range.getClientRects();
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].width > 1 && list[i].height > 1) rects.push(list[i]);
+        }
+      }
+      return rects;
+    }
+
+    function place() {
+      gems.forEach(function (g) { g.classList.remove('pf-gem--clear'); });
+      var rects = smallTextRects();
+      gems.forEach(function (g) {
+        var a = g.getBoundingClientRect();
+        if (!a.width) return;
+        var pad = 4;
+        for (var i = 0; i < rects.length; i++) {
+          var b = rects[i];
+          if (a.left < b.right + pad && a.right > b.left - pad &&
+              a.top < b.bottom + pad && a.bottom > b.top - pad) {
+            g.classList.add('pf-gem--clear');
+            return;
+          }
+        }
+      });
+    }
+
+    place();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place).catch(function () {});
+    // The reveal transition lifts content by 18px, so the first pass measures
+    // positions the layout has not settled into yet — check again after it has.
+    window.addEventListener('load', function () {
+      place();
+      window.setTimeout(place, 700);
+      window.setTimeout(place, 1500);
+    });
+
+    var t;
+    window.addEventListener('resize', function () {
+      window.clearTimeout(t);
+      t = window.setTimeout(place, 140);
+    }, { passive: true });
+  }
+
   function boot() {
     initMenu();
     initSectionNav();
     initReveal();
     initHashLanding();
+    initGems();
   }
 
   if (document.readyState === 'loading') {

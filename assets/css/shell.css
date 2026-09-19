@@ -1143,3 +1143,88 @@ html {
     transform: none;
   }
 }
+
+/* ==========================================================================
+   Bedazzle — scattered gems on the homepage
+   --------------------------------------------------------------------------
+   Faceted SVG shapes, recoloured per instance through `currentColor`, so one
+   symbol set covers every stone. Purely decorative: the layer is aria-hidden,
+   ignores pointer events, and sits behind the content, never over the text.
+   ========================================================================== */
+
+.pf-gems {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content always sits above the stones. */
+.pf-intro > .pf-wrap,
+.pf-work > .pf-wrap,
+.pf-footer > .pf-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.pf-intro,
+.pf-work,
+.pf-footer {
+  position: relative;
+}
+
+.pf-gem {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s, 26px);
+  color: var(--c, #f0a8bd);
+  transform: rotate(var(--r, 0deg));
+  will-change: transform;
+}
+
+.pf-gem svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: var(--o, .9);
+  filter: drop-shadow(0 1px 2px rgba(80, 30, 60, .18));
+}
+
+/* A slow, staggered shimmer — a rhinestone catching the light, not a blink. */
+@media (prefers-reduced-motion: no-preference) {
+  .pf-gem svg {
+    animation: pf-twinkle var(--t, 6s) var(--pf-ease) var(--d, 0s) infinite;
+  }
+}
+
+@keyframes pf-twinkle {
+  0%, 100% { opacity: var(--o, .9); transform: scale(1); }
+  46%      { opacity: 1;            transform: scale(1.07); }
+  54%      { opacity: 1;            transform: scale(1.07); }
+}
+
+/* Stones thin out as the screen narrows — the hero needs its whitespace more
+   than it needs decoration. */
+@media (max-width: 860px) {
+  .pf-gem[data-drop="md"] { display: none; }
+  .pf-gem { width: calc(var(--s, 26px) * .8); }
+}
+
+@media (max-width: 620px) {
+  .pf-gem[data-drop="sm"] { display: none; }
+  .pf-gem { width: calc(var(--s, 26px) * .66); }
+}
+
+.pf-gemdefs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* A stone that landed on body copy — hidden by shell.js after layout. */
+.pf-gem--clear {
+  visibility: hidden;
+}
