@@ -801,14 +801,13 @@ html {
   padding-block: clamp(64px, 11vw, 132px) clamp(56px, 9vw, 112px);
 }
 
-/* Typewriter, under the title block. */
 .pf-intro__lede {
-  font-family: "Courier Prime", ui-monospace, "Courier New", monospace;
-  font-size: clamp(13.5px, 1.1vw, 15.5px);
-  line-height: 1.72;
+  font-family: var(--pf-font);
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.62;
   color: #4A4742;
   margin: clamp(22px, 3.2vw, 34px) auto 0;
-  max-width: 58ch;
+  max-width: 62ch;
 }
 
 /* The embellishment that opens the block, above the title. */
@@ -826,12 +825,11 @@ html {
   filter: drop-shadow(0 1px 2px rgba(80, 30, 60, .18));
 }
 
-/* The title, in the reference's script. */
 .pf-intro__name {
-  font-family: "Parisienne", "Snell Roundhand", cursive;
-  font-size: clamp(52px, 8.6vw, 112px);
-  font-weight: 400;
-  line-height: 1.06;
+  font-family: var(--pf-font);
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 600;
+  line-height: 1.1;
   color: #1A1713;
   margin: 0;
   text-wrap: balance;
