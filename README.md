@@ -134,10 +134,3 @@ separate so the shipped page never loads a third-party script) and
 feature panels, hides the tablist, unpins the journey, disables scroll-reveal and
 forces every lazy image eager; `shell.js` hides the header, section menu,
 "Explore more work" and footer.
-
-## Still to supply
-
-ActorStock's Reflection section has three cards — **What worked**, **What you
-would change**, **Outcome** — that were never written. The markup is still in
-`projects/actorstock/index.html`; it is hidden by one rule at the foot of
-`projects/actorstock/styles.css`. Delete that rule once the copy exists.

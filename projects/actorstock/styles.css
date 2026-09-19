@@ -612,10 +612,3 @@ body.is-capture .step__phone { display: block; max-width: 340px; }
 body.is-capture .step { opacity: 1; min-height: 0; }
 body.is-capture .js-reveal { opacity: 1; transform: none; }
 body.is-capture .nav { position: static; }
-
-/* --------------------------------------------------------------------------
-   Portfolio site: the three Reflection cards marked "Needs your input" are
-   unfilled content, so they are not rendered on the published site. The markup
-   is untouched — delete this rule to bring them back once the copy exists.
-   -------------------------------------------------------------------------- */
-.ov-grid--todo { display: none; }
