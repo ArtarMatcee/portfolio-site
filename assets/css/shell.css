@@ -102,6 +102,9 @@ html {
 }
 
 .pf-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--pf-font);
   font-size: 15px;
   font-weight: 600;
@@ -110,6 +113,16 @@ html {
   text-decoration: none;
   white-space: nowrap;
   border-radius: 6px;
+}
+
+/* The heart is the same stone as the homepage scatter, inlined rather than
+   referenced so the three project pages do not need the sprite. */
+.pf-brand__gem {
+  flex: none;
+  width: 15px;
+  height: auto;
+  color: #D6217A;
+  filter: drop-shadow(0 1px 1.5px rgba(80, 30, 60, .22));
 }
 
 .pf-brand:hover {
