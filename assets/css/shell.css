@@ -418,13 +418,14 @@ html {
               transform var(--pf-t) var(--pf-ease);
 }
 
+/* The cherry gem's pink. White on it is 4.9:1, so the label still passes AA. */
 .pf-btn--primary {
-  background: var(--pf-ink);
+  background: #D6217A;
   color: #fff;
 }
 
 .pf-btn--primary:hover {
-  background: #2b2d33;
+  background: #B81866;
   transform: translateY(-1px);
 }
 
