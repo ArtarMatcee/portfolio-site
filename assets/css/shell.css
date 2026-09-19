@@ -799,10 +799,14 @@ html {
    --------------------------------------------------------------------------
    Read off lineman.line.me: the LINE green #06C755 field, near-black #1A1A1A
    ink on top, heavy tight display type, and one radius — the full pill. White
-   on that green is only 2.26:1, so the type is ink, which measures 7.71:1.
+   on that green is only 2.26:1, so the type is ink. The field is a gradient
+   from #5BE08C through #06C755 to #04A24A, and every colour set on it is
+   measured against that darkest stop: ink 5.20:1, supporting text 5.05:1.
    ========================================================================== */
 .pf-intro {
-  background: #06C755;
+  background:
+    radial-gradient(90% 72% at 50% 16%, rgba(255, 255, 255, .32) 0%, rgba(255, 255, 255, 0) 64%),
+    linear-gradient(155deg, #5BE08C 0%, #06C755 52%, #04A24A 100%);
   text-align: center;
   padding-block: clamp(64px, 11vw, 132px) clamp(56px, 9vw, 112px);
 }
@@ -812,7 +816,7 @@ html {
   font-size: clamp(15px, 1.35vw, 18px);
   font-weight: 500;
   line-height: 1.6;
-  color: #12331F;
+  color: #0B2113;
   margin: clamp(22px, 3.2vw, 34px) auto 0;
   max-width: 58ch;
 }
@@ -850,7 +854,7 @@ html {
   font-size: clamp(12.5px, 1.05vw, 15px);
   font-weight: 700;
   text-transform: uppercase;
-  color: #0B3D1E;
+  color: #0B2113;
   margin: 0 0 clamp(8px, 1.4vw, 14px);
 }
 
