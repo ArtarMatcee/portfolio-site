@@ -1385,6 +1385,185 @@ html {
 .band--dark .pf-lead__row dt { color: rgba(255, 255, 255, .66); }
 
 /* ==========================================================================
+   Experience and Skills — homepage, read off the CV
+   --------------------------------------------------------------------------
+   A date column beside the entry, collapsing to a stacked list on a phone.
+   Everything inherits the page's tokens, so this follows the homepage into
+   whatever palette it is wearing.
+   ========================================================================== */
+.pf-cv {
+  padding-block: 0 clamp(64px, 9vw, 112px);
+}
+
+.pf-cv--skills {
+  padding-bottom: clamp(72px, 10vw, 128px);
+}
+
+.pf-cv__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(28px, 4vw, 44px);
+}
+
+.pf-cv__item {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  padding-top: clamp(24px, 3vw, 34px);
+  border-top: 1px solid var(--pf-line);
+}
+
+.pf-cv__item:first-child { padding-top: 0; border-top: 0; }
+
+.pf-cv__meta { margin: 0; }
+
+.pf-cv__when {
+  font-family: var(--pf-font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pf-ink);
+  margin: 0;
+}
+
+.pf-cv__where {
+  font-family: var(--pf-font);
+  font-size: 13.5px;
+  color: var(--pf-ink-3);
+  margin: 4px 0 0;
+}
+
+.pf-cv__role {
+  font-family: var(--pf-font);
+  font-size: clamp(18px, 1.7vw, 22px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--pf-ink);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pf-cv__kind {
+  display: inline-block;
+  vertical-align: 3px;
+  margin-left: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pf-ink-2);
+  background: var(--pf-paper-2);
+  border: 1px solid var(--pf-line);
+  border-radius: 999px;
+  padding: 5px 9px;
+}
+
+.pf-cv__org {
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--pf-ink-3);
+  margin: 7px 0 0;
+}
+
+.pf-cv__points {
+  margin: 14px 0 0;
+  padding: 0 0 0 18px;
+  display: grid;
+  gap: 7px;
+  font-family: var(--pf-font);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pf-ink-2);
+  max-width: 62ch;
+}
+
+.pf-cv__points li { margin: 0; }
+.pf-cv__points li::marker { color: var(--pf-ink-3); }
+
+.pf-cv__link { margin: 14px 0 0; }
+
+.pf-cv__link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--pf-ink);
+  text-decoration: none;
+}
+
+.pf-cv__link a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* --- skills ------------------------------------------------------------- */
+.pf-skills {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(24px, 3.4vw, 40px);
+}
+
+.pf-skills__group { margin: 0; min-width: 0; }
+
+.pf-skills__group dt {
+  font-family: var(--pf-font);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pf-ink-3);
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-skills__group dd { margin: 0; }
+
+.pf-skills__group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+
+.pf-skills__group li {
+  font-family: var(--pf-font);
+  font-size: 13.5px;
+  line-height: 1;
+  color: var(--pf-ink-2);
+  background: var(--pf-paper-2);
+  border: 1px solid var(--pf-line);
+  border-radius: 999px;
+  padding: 8px 12px;
+}
+
+.pf-cv__foot {
+  margin: clamp(30px, 4vw, 44px) 0 0;
+  padding-top: clamp(20px, 2.6vw, 28px);
+  border-top: 1px solid var(--pf-line);
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pf-ink-3);
+  max-width: 78ch;
+}
+
+.pf-cv__foot a {
+  color: var(--pf-ink);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .pf-cv__item { grid-template-columns: 1fr; gap: 10px; }
+  .pf-cv__meta { display: flex; align-items: baseline; gap: 10px; }
+  .pf-cv__where { margin: 0; }
+  .pf-cv__where::before { content: "· "; }
+}
+
+/* ==========================================================================
    Homepage — the hero's world, carried through the page
    --------------------------------------------------------------------------
    Scoped to .pf-home, so the four case studies keep the neutral white shell
