@@ -1228,3 +1228,24 @@ html {
 .pf-gem--clear {
   visibility: hidden;
 }
+
+/* ==========================================================================
+   Gem cursor — homepage only
+   --------------------------------------------------------------------------
+   Scoped to `.pf-home` on purpose: the case studies have lightboxes, drag
+   gestures and zoom targets where the system cursor carries real meaning.
+
+   Both images fall back to the native cursor if they fail to load, and the
+   interactive one adds a sparkle so the hover affordance still changes.
+   ========================================================================== */
+
+.pf-home {
+  cursor: url("../img/cursor-gem.png") 4 4, auto;
+}
+
+.pf-home a,
+.pf-home button,
+.pf-home summary,
+.pf-home [role="button"] {
+  cursor: url("../img/cursor-gem-pink.png") 4 4, pointer;
+}
