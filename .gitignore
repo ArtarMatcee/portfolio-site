@@ -14,3 +14,6 @@ projects/actorstock/dist/
 
 # Local editor/preview config — contains an absolute path to one machine.
 .claude/
+
+# Raw production screenshots — the shipped .webp files are in assets/img.
+projects/assessment-platform/source-exports-production/

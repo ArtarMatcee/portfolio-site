@@ -351,6 +351,9 @@ a { color: var(--blue-500); }
 }
 .shot[data-v="v1"] .shot__tag { background: var(--ink-mid); }
 .shot[data-v="v2"] .shot__tag { background: var(--blue); }
+/* Screenshots of the live platform carry no version, so they get their own
+   darker pill — before Version 1, not one of the two redesign iterations. */
+.shot:not([data-v]) .shot__tag { background: var(--ink); }
 .shot__cap { margin: 12px 2px 0; font-size: 13.5px; color: var(--ink-mid); }
 
 /* --- numbered annotation pins --- */
