@@ -152,7 +152,7 @@
         <div class="pf-meta__item"><dt>Team</dt><dd>Instructor side; student-side redesign by Nichakan Poomipraphat</dd></div>
         <div class="pf-meta__item"><dt>Timeline</dt><dd>Sep 2024 – Jul 2025</dd></div>
         <div class="pf-meta__item"><dt>Project type</dt><dd>University capstone · paper accepted at TechDev2025</dd></div>
-        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Figma prototype, evaluated with nine instructors; not implemented</dd></div>
+        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Interactive prototype, evaluated with nine instructors; not implemented</dd></div>
     </dl>
   </div>
 </aside>
@@ -172,10 +172,6 @@
     </div>
 
     <dl class="pf-lead">
-      <div class="pf-lead__row">
-        <dt>Problem</dt>
-        <dd>An instructor&rsquo;s term runs in a loop — find last term&rsquo;s paper, build a new one, fill it with parts and questions, publish it, read the results — and the assessment module interrupted every stage of it.</dd>
-      </div>
       <div class="pf-lead__row">
         <dt>Evidence</dt>
         <dd>Semi-structured interviews with <strong>nine instructors</strong> who use the platform, covering exam creation, question management, navigation and analytics. The six problems below are the ones they reported, against the live interface they were working in.</dd>
@@ -351,11 +347,6 @@
     <div class="section__head anim" data-anim="1">
       <p class="eyebrow">Research and UX testing</p>
       <h2 class="h-lg">Nine instructors, twice — once to find the problems, once to judge the answer.</h2>
-      <p class="lede">
-        The study followed a user-centred design process: understand the context of use,
-        specify requirements, produce design solutions, evaluate them, and feed the result
-        back into the next iteration.
-      </p>
     </div>
 
     <dl class="pf-lead">
@@ -441,10 +432,8 @@
       <p class="eyebrow">Version 1 → Version 2</p>
       <h2 class="h-lg">Four changes, and the reason each one was made.</h2>
       <p class="lede">
-        Both versions live in the same Figma file and share the same design system, so the
-        differences below are deliberate design decisions rather than drift. Use the
-        Version&nbsp;1 / Version&nbsp;2 toggle, or the numbered pins, to move between them.
-        Every screen opens at full size.
+        Use the Version&nbsp;1 / Version&nbsp;2 toggle, or the numbered pins, to move between
+        them. Every screen opens at full size.
       </p>
     </div>
 
@@ -1145,8 +1134,8 @@
           </button></li>
           <li><button type="button" class="step" data-v="v2" data-n="4">
             <span class="step__top"><span class="step__n">4</span><span class="step__v">V1 → V2</span></span>
-            <h4>The tiles drop a repeat and add Mean</h4>
-            <p>Version 1's Students tile repeated a figure already on the dashboard. Version 2 spends the slot on Mean instead, beside maximum, minimum and average.</p>
+            <h4>The tiles drop a repeat — and pick up another one</h4>
+            <p>Version 1's Students tile repeated a figure already on the dashboard, so Version 2 frees the slot. It then spends it on <em>Mean</em>, beside <em>Average score</em> — and mean and average are the same statistic. Nothing in the file defines them differently, and the two tiles show 100 and 50. <strong>This one did not land:</strong> the repeat was replaced, not removed.</p>
           </button></li>
         </ol>
       </div>
@@ -1483,18 +1472,12 @@
     <div class="section__head anim" data-anim="1">
       <p class="eyebrow">Evaluation results</p>
       <h2 class="h-lg">Measured, and mixed.</h2>
-      <p class="lede">
-        All figures below are the paper's own. They compare the <strong>old version</strong>
-        — the platform as it stood — against the <strong>redesigned version</strong>. They are
-        not a Version&nbsp;1 versus Version&nbsp;2 measurement, and the sources do not report
-        one.
-      </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Evidence</dt>
-        <dd>SUS rose from <strong>55.8 to 63.3</strong> (Poor to Fair). On the UEQ four dimensions rose, one fell and one did not move: Dependability +1.1 and Perspicuity +0.6 were the largest gains, Stimulation fell from 0.3 to 0.1. Expert heuristic review averaged <strong>7.3 / 10</strong>.</dd>
+        <dd>All figures are the paper's own, comparing the old platform against the redesign. SUS rose from <strong>55.8 to 63.3</strong> (Poor to Fair). On the UEQ four dimensions rose, one fell and one did not move: Dependability +1.1 and Perspicuity +0.6 were the largest gains, Stimulation fell from 0.3 to 0.1. Expert heuristic review averaged <strong>7.3 / 10</strong>.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>What it means</dt>
@@ -1686,8 +1669,8 @@
         <dd>Error recovery scored <strong>6/10</strong>: most messages are understandable, some still lack a cause and a next action. The redesign is clearer, not finished.</dd>
       </div>
       <div class="pf-lead__row">
-        <dt>Status</dt>
-        <dd>A prototype. Nothing below is implemented in the product, and nothing here is claimed as shipped work.</dd>
+        <dt>Deliverable</dt>
+        <dd>Interactive prototype; not implemented.</dd>
       </div>
     </dl>
 
@@ -1709,6 +1692,7 @@
           <li><strong>Flexibility for different workflows.</strong> Also 6/10. Some customisation is possible, but the system does not adapt to individual instructors' preferences — and instructors in this study did not all work the same way.</li>
           <li><strong>Visibility of system status.</strong> 6/10 again. The stamps and badges added in Version 2 are a start, not a finish.</li>
           <li><strong>Engagement.</strong> Stimulation fell and novelty did not move. Clarity was won; nothing was won on how the platform feels to use.</li>
+          <li><strong>Two names for one statistic.</strong> The analytics tiles show <em>Average score</em> and <em>Mean</em> side by side, and the dashboard carries <em>Average Scores By Test</em> and <em>Mean Scores By Test</em> as two charts with identical data. Mean and average are the same measure; the file never defines a difference between them. An instructor reading the two tiles — 50 and 100 — has no way to tell which number to trust. This is a defect in the redesign, not a feature of it.</li>
         </ul>
       </div>
     </div>
@@ -1725,6 +1709,7 @@
         <li>Give the editor room for different working styles — the instructors who draft in Word are describing a workflow, not just a formatting problem.</li>
         <li>Order question types by how often they are actually used, which the paper records as a mismatch in the current platform and which neither Figma version resolves.</li>
         <li>Test the Scoring Setting, group assignment and Secure Exam Mode with instructors; they were added late and have no usability data of their own.</li>
+        <li>Resolve the mean-versus-average duplication: keep one measure of central tendency, or — if a second one is genuinely wanted — make it a different statistic, label it as such (median, or mean per question rather than per student) and define it where it is shown. The duplicated dashboard chart goes with it.</li>
         <li>Establish whether the clarity gains hold over a term of real use, rather than a single session.</li>
       </ul>
     </div>

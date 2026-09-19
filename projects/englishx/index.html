@@ -132,7 +132,7 @@
     <dl class="pf-meta__list">
         <div class="pf-meta__item"><dt>Role</dt><dd>UX/UI designer — partial redesign of an existing platform</dd></div>
         <div class="pf-meta__item"><dt>Project type</dt><dd>Redesign of parts of a live AI-assisted learning product</dd></div>
-        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Prototype, tested with users</dd></div>
+        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Interactive prototype, tested with users; not implemented</dd></div>
     </dl>
   </div>
 </aside>
@@ -150,10 +150,11 @@
       </div>
       <div class="pf-lead__row">
         <dt>The problem</dt>
-        <dd>Language practice fails at two points: a learner who leaves for a week cannot tell
-            where they were or what to do next, and speaking — the skill they are there for —
-            is the one they avoid, because a real conversation is unforgiving and gives no
-            second try. Everything below is built against those two.</dd>
+        <dd>I designed against two assumptions: that a learner returning after a week has lost
+            their place, and that speaking is the skill they most avoid, because a real
+            conversation gives no second attempt. Neither was tested before the work — they set
+            the priorities, and the user testing afterwards is what has a claim on being
+            evidence.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>My responsibility</dt>
@@ -162,9 +163,8 @@
             all four surfaces so the changes can be read in context.</dd>
       </div>
       <div class="pf-lead__row">
-        <dt>Status</dt>
-        <dd>A prototype, <strong>tested with users</strong>. Nothing on this page is measured
-            product data — the figures in the screens are sample UI content.</dd>
+        <dt>Deliverable</dt>
+        <dd>Interactive prototype, tested with users; not implemented.</dd>
       </div>
     </dl>
 
@@ -229,17 +229,12 @@
     <div class="sec-head reveal">
       <p class="eyebrow">01 — Dashboard</p>
       <h2>A learning dashboard that answers “where was I?”</h2>
-      <p class="sec-head__lede">
-        One screen carries five jobs: identify the learner and their level, show
-        momentum, show progress by skill, offer a way back into unfinished work, and keep the AI
-        assistant within reach.
-      </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>A learner who has been away for a week cannot tell where they stopped or whether they are getting better, so the way back in is to re-read everything — or not come back.</dd>
+        <dd>A learner returning after a break has to work out where they stopped and whether they are getting anywhere. I treated re-reading the whole course list as the failure case to design out.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -247,7 +242,7 @@
       </div>
       <div class="pf-lead__row">
         <dt>Constraint</dt>
-        <dd>All of it has to land in one browser screen. Anything that needs opening is a report, and a report is the thing a returning learner will not open — so the streak, the weekly plot and the skill radar are all readable without a click.</dd>
+        <dd>All of it has to land in one browser screen. I kept progress visible rather than behind a Progress page, on the assumption that a returning learner will not navigate to a report to find out how they are doing — so the streak, the weekly plot and the skill radar are readable without a click.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Priority</dt>
@@ -391,16 +386,14 @@
       <h2>Choosing an AI learning partner</h2>
       <p class="sec-head__lede">
         A new course begins in the <em>Personalized Learning Path Generation Form</em> — a modal
-        with three stages across the top: Your Information, Analysis Result, Complete. The first
-        thing the form asks for is not a level or a topic. It asks who the learner wants to
-        practise with.
+        with three stages across the top: Your Information, Analysis Result, Complete.
       </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>Generated courses are impersonal, and a learner who feels nothing towards the thing teaching them stops turning up.</dd>
+        <dd>A generated course arrives from nowhere in particular. I took attachment — to a teacher, a character, anything — as part of what brings someone back, and designed for it rather than measuring it first.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -497,18 +490,12 @@
     <div class="sec-head reveal">
       <p class="eyebrow">03 — My Courses · Self-Paced Learning</p>
       <h2>Personalised on one side, self-paced on the other</h2>
-      <p class="sec-head__lede">
-        Two screens share a shell — the same sidebar, the same greeting bar, the same
-        <em>Course content</em> grid — and differ in how work arrives. One delivers a generated
-        course with a fixed order. The other lets the learner pick a skill and generate a set on
-        the spot.
-      </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>Two ways of working — a generated course to follow, and a skill to drill on impulse — pull in opposite directions, and giving each its own interface teaches the product twice.</dd>
+        <dd>A generated course to follow and a skill to drill on impulse are two different ways of working. Giving each its own interface would mean teaching the product twice, which I wanted to avoid.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -651,16 +638,15 @@
       <p class="eyebrow">04 — SpeakUp</p>
       <h2>SpeakUp: rehearsing the conversation before it happens</h2>
       <p class="sec-head__lede">
-        The largest sub-section of the file. SpeakUp takes the learner from a measured overview,
-        through building a scenario, into a timed spoken exchange with the AI partner, and out
-        again with a score. It is the only place in the Current Design where the learner speaks.
+        The largest section of the work, and the only place in the design where the learner
+        speaks.
       </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>Speaking is the skill learners are there for and the one they avoid. A real conversation is unforgiving, gives no second attempt, and offers no way to tell whether you did better than last time.</dd>
+        <dd>Speaking is what most learners say they want and the thing they practise least. A real conversation gives no second attempt and no way to tell whether you did better than last time; I designed SpeakUp around that gap.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>

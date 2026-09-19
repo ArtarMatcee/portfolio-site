@@ -130,7 +130,7 @@
     <dl class="pf-meta__list">
         <div class="pf-meta__item"><dt>Role</dt><dd>UI/UX design and prototyping</dd></div>
         <div class="pf-meta__item"><dt>Project type</dt><dd>Redesign of the existing ActorStock website</dd></div>
-        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Designed flows and prototype — no shipped behaviour is claimed here</dd></div>
+        <div class="pf-meta__item"><dt>Delivery status</dt><dd>Interactive prototype; not implemented</dd></div>
     </dl>
   </div>
 </aside>
@@ -140,17 +140,12 @@
     <div class="section-head">
       <p class="eyebrow">Project overview</p>
       <h2>One product, <em>two sides</em> of a casting call</h2>
-      <p>
-        Casting companies need to find people by physical and skill attributes; performers need
-        somewhere to publish those attributes and be found. ActorStock puts both in one mobile
-        product. Everything on this page is taken from the design file itself.
-      </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>The product</dt>
-        <dd>ActorStock is a Thai casting marketplace: production companies look for performers, performers publish what they can do. Both sides run on one mobile product and read from the same structured talent profile.</dd>
+        <dd>A Thai casting marketplace: production companies look for performers, performers publish what they can do. Both sides run on one mobile product and read from the same structured talent profile — measurements, appearance, languages, special skills and credits.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>The problem</dt>
@@ -161,23 +156,13 @@
         <dd>UI/UX design and prototyping, as a redesign of the existing ActorStock website.</dd>
       </div>
       <div class="pf-lead__row">
-        <dt>What this page is</dt>
-        <dd><strong>Designed flows, not verified behaviour.</strong> Every screen here comes from
-            the design file, and the copy describes what the interface is designed to do —
-            sign-ups, invitation codes and job postings included. Counts of screens or attribute
-            groups describe the scope of the work; they are not usage, adoption or business
-            outcomes, and none are claimed.</dd>
+        <dt>Deliverable</dt>
+        <dd>Interactive prototype; not implemented. Every screen here is from the design file.</dd>
       </div>
     </dl>
 
 
     <div class="ov-grid">
-      <article class="ov">
-        <h3>The product</h3>
-        <p>A mobile casting marketplace built around a structured talent profile — measurements,
-           appearance, languages, special skills and credits — that both sides read from.</p>
-      </article>
-
       <article class="ov">
         <h3>Who it is for</h3>
         <p>Registration asks for a category before anything else:
@@ -200,23 +185,11 @@
 
       <article class="ov">
         <h3>Platform</h3>
-        <p>Mobile, 440&nbsp;pt wide. One Figma page — <span class="th">Mobile</span> — divided into
-           <span class="th">Mobile/Casting</span> (13 screens) and <span class="th">Mobile/Actor</span>
-           (19 screens, including a nested profile set).</p>
-      </article>
-
-      <article class="ov ov--wide">
-        <h3>My role</h3>
-        <p>UI/UX design and prototyping — a redesign of the existing ActorStock website.
-           Every screen on this page comes from that redesign.</p>
+        <p>Mobile, 440&nbsp;pt wide — thirteen screens for the casting side and nineteen for
+           the performer side, including a nested profile set.</p>
       </article>
     </div>
 
-    <p class="note">
-      The design file records screens, not process — so research findings and measured results are
-      left to the Reflection section rather than guessed at here. Twenty-three of the thirty-two screens are
-      reproduced on this page.
-    </p>
   </div>
 </section>
 
@@ -226,17 +199,12 @@
     <div class="section-head">
       <p class="eyebrow">Main user journey</p>
       <h2>From a casting brief to an <em>invited performer</em></h2>
-      <p>
-        The longest complete path in the file runs across both account types: a casting company
-        narrows the whole roster down to one person, and hands them a code that is designed to become
-        their account.
-      </p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>Two account types with opposite jobs usually means two products, two sign-ups and two things to learn.</dd>
+        <dd>Casting companies and performers want opposite things, which is an argument for two products with two sign-ups. I wanted one, because the two sides only have value to each other.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -412,7 +380,7 @@
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>A marketplace is worth nothing to the first side that arrives. A performer landing cold has no reason to believe there is work here, and no reason to pay for a plan.</dd>
+        <dd>A performer arriving cold has no reason yet to believe there is work here, or to pay for a plan. I treated the home page as the place that has to earn both.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -599,7 +567,7 @@
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Feature deep dives</p>
-      <h2>Four decisions that <em>carry the product</em></h2>
+      <h2>Six decisions that <em>carry the product</em></h2>
       <p>Each of these earns its screen space: they are what a casting company is paying for, and
          what a performer is optimising their profile against.</p>
     </div>
@@ -607,7 +575,7 @@
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>Search that works on names and photographs cannot answer the question a casting brief actually asks, and a profile that is a biography gives it nothing to match against.</dd>
+        <dd>A casting brief asks for attributes, not names. I took search built around names and photographs as the thing to replace, and a biography-style profile as giving it nothing to match on.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -1066,14 +1034,12 @@
     <div class="section-head">
       <p class="eyebrow">Design system</p>
       <h2><em>Coral, teal, navy</em> and one pill radius</h2>
-      <p>Every value below is read from the ActorStock file's own Figma variables — the names are
-         the token names as they are defined there.</p>
     </div>
 
     <dl class="pf-lead">
       <div class="pf-lead__row">
         <dt>Problem</dt>
-        <dd>Two account types, six feature areas and a bilingual interface will drift apart screen by screen unless the decisions are made once.</dd>
+        <dd>Two account types, six feature areas and a bilingual interface, with plenty of room to drift apart screen by screen.</dd>
       </div>
       <div class="pf-lead__row">
         <dt>Decision</dt>
@@ -1090,6 +1056,31 @@
       <div class="ds-block">
         <h3>Colour</h3>
         <div class="swatches" id="swatches"></div>
+
+        <!-- Measured, not assumed: the ratios below are computed from the token
+             values above. Kept here rather than in Reflection because it is a
+             property of the palette. -->
+        <dl class="pf-lead" style="margin-top:22px">
+          <div class="pf-lead__row">
+            <dt>Contrast</dt>
+            <dd>I measured the palette against WCAG AA rather than assuming it passed, and two
+                tokens do not. White on <strong>Primary/Default #FF6468</strong> — the coral that
+                carries <em>Register&nbsp;Now</em>, <em>Apply&nbsp;Now</em> and every primary
+                button — is <strong>2.89:1</strong>, against the 4.5:1 AA needs. White on
+                <strong>Secondary/Default #07C1B6</strong> is <strong>2.26:1</strong>, and
+                <strong>Text/Placeholder #94A3B8</strong> on white is <strong>2.56:1</strong>.
+                Text/Medium #707070 on white passes at 4.95:1, and white on BG/Darkest #282E45 at
+                13.4:1.</dd>
+          </div>
+          <div class="pf-lead__row">
+            <dt>Not yet fixed</dt>
+            <dd>The screens on this page still use those values — this is a known defect in the
+                design, not something corrected behind the scenes. The fix is to darken the coral
+                and the teal until white clears 4.5:1, or to keep the brand hues for fills and set
+                their labels in ink instead; black on the same coral already measures 7.27:1.
+                Placeholder text needs a darker grey regardless.</dd>
+          </div>
+        </dl>
       </div>
 
       <div class="ds-block">
