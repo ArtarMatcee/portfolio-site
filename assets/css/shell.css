@@ -797,10 +797,9 @@ html {
 /* ==========================================================================
    Hero — pearls on the photograph
    --------------------------------------------------------------------------
-   Three layers under the content: the photograph — monochrome, contrast
-   graded, with scanned-film grain baked into the pixels — a dark scrim that
-   holds it down, and a light procedural grain to carry the texture past the
-   edges of the photograph. The wordmark is a single strand of pearls strung along the
+   Three layers under the content: the photograph pushed to near-monochrome
+   and held down, a dark scrim that keeps it there, and a procedural film
+   grain. The wordmark is a single strand of pearls strung along the
    centreline of "Artar" — the <h1> underneath carries the real heading, so
    the strand is aria-hidden.
    ========================================================================== */
@@ -822,9 +821,7 @@ html {
   background-image: url("../img/hero-photo.webp");
   background-size: cover;
   background-position: 50% 66%;
-  /* the photograph is already monochrome and contrast-graded with the
-     grain baked in, so all this has to do is set the level */
-  filter: brightness(.62);
+  filter: grayscale(.88) brightness(.58) contrast(1.08);
 }
 
 /* the scrim is load-bearing: it holds the white fabric down far enough for
@@ -846,7 +843,7 @@ html {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: .14;
+  opacity: .30;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
