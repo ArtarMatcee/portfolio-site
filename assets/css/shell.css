@@ -797,10 +797,11 @@ html {
 /* ==========================================================================
    Hero — pearls on the photograph
    --------------------------------------------------------------------------
-   Three layers under the content: the photograph, a rose wash that lifts it
-   and ties it to the site's pink, and a procedural film grain. The wordmark
-   is a single strand of pearls strung along the centreline of "Artar" — the
-   <h1> underneath carries the real heading, so the strand is aria-hidden.
+   Three layers under the content: the photograph pushed to near-monochrome
+   and held down, a dark scrim that keeps it there, and a procedural film
+   grain. The wordmark is a single strand of pearls strung along the
+   centreline of "Artar" — the <h1> underneath carries the real heading, so
+   the strand is aria-hidden.
    ========================================================================== */
 .pf-intro {
   position: relative;
@@ -808,14 +809,10 @@ html {
   overflow: hidden;
   text-align: center;
   padding-block: clamp(56px, 8vw, 104px) clamp(60px, 9vw, 112px);
-  /* shows through while the photograph loads */
-  background:
-    radial-gradient(95% 75% at 50% 12%, rgba(255, 255, 255, .62) 0%, rgba(255, 255, 255, 0) 60%),
-    linear-gradient(118deg, #FFD1E4 0%, #FFE2DA 48%, #FFF0DC 100%);
+  background: #0B0A0C;          /* shows through while the photograph loads */
 }
 
-/* the photograph, held light: part-desaturated so the gold braid does not
-   fight the pearls, and lifted so the field stays bright */
+/* the photograph, taken down to the reference's grainy monochrome */
 .pf-intro::before {
   content: "";
   position: absolute;
@@ -824,19 +821,19 @@ html {
   background-image: url("../img/hero-photo.webp");
   background-size: cover;
   background-position: 50% 66%;
-  filter: grayscale(.34) brightness(1.06) contrast(.96);
+  filter: grayscale(.88) brightness(.58) contrast(1.08);
 }
 
-/* the wash is load-bearing: cream pearls over white fabric would disappear
-   without it, and it is what makes the photograph belong to this site */
+/* the scrim is load-bearing: it holds the white fabric down far enough for
+   cream pearls to read, and vignettes the edges into the page */
 .pf-intro__wash {
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(64% 48% at 50% 40%, rgba(255, 255, 255, .66) 0%, rgba(255, 255, 255, 0) 72%),
-    linear-gradient(118deg, rgba(255, 209, 228, .80) 0%, rgba(255, 226, 218, .72) 48%, rgba(255, 240, 220, .80) 100%);
+    radial-gradient(72% 58% at 50% 44%, rgba(8, 8, 9, .18) 0%, rgba(8, 8, 9, .68) 78%, rgba(8, 8, 9, .86) 100%),
+    linear-gradient(180deg, rgba(8, 8, 9, .52) 0%, rgba(8, 8, 9, .38) 42%, rgba(8, 8, 9, .72) 100%);
 }
 
 /* film grain, procedural so it costs nothing and never softens */
@@ -846,8 +843,8 @@ html {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: .34;
-  mix-blend-mode: multiply;
+  opacity: .30;
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
 
@@ -869,7 +866,7 @@ html {
   font-size: clamp(12.5px, 1.05vw, 15px);
   font-weight: 600;
   text-transform: uppercase;
-  color: #7A626C;
+  color: #B8ACA7;
   margin: 0;
 }
 
@@ -878,7 +875,7 @@ html {
   font-size: clamp(30px, 4.2vw, 52px);
   font-weight: 600;
   line-height: 1.1;
-  color: #2B2225;
+  color: #F6F2ED;
   margin: clamp(6px, 1vw, 10px) 0 0;
   text-wrap: balance;
 }
@@ -887,7 +884,7 @@ html {
   font-family: var(--pf-font);
   font-size: clamp(15px, 1.35vw, 17.5px);
   line-height: 1.62;
-  color: #55444B;
+  color: #D4CBC6;
   margin: clamp(18px, 2.6vw, 28px) auto 0;
   max-width: 58ch;
 }
@@ -906,20 +903,19 @@ html {
   padding: 14px 28px;
 }
 
-.pf-intro .pf-btn--primary {
-  background: #2B2225;
-  color: #fff;
-}
-
-.pf-intro .pf-btn--primary:hover { background: #170F12; }
+.pf-intro .pf-btn--primary { background: #F6F2ED; color: #14120F; }
+.pf-intro .pf-btn--primary:hover { background: #fff; }
 
 .pf-intro .pf-btn--ghost {
-  background: #fff;
-  color: #2B2225;
-  border-color: #fff;
+  background: rgba(255, 255, 255, .06);
+  color: #F6F2ED;
+  border-color: rgba(246, 242, 237, .42);
 }
 
-.pf-intro .pf-btn--ghost:hover { background: #F6EFEA; border-color: #F6EFEA; }
+.pf-intro .pf-btn--ghost:hover {
+  background: rgba(255, 255, 255, .14);
+  border-color: #F6F2ED;
+}
 
 .pf-work {
   padding-block: clamp(56px, 8vw, 96px) clamp(72px, 10vw, 128px);
@@ -1372,82 +1368,86 @@ html {
 /* ==========================================================================
    Homepage — the hero's world, carried through the page
    --------------------------------------------------------------------------
-   Everything here is scoped to .pf-home / .pf-home-doc, so the four case
-   studies keep the neutral white shell they were built against. The palette
-   is the hero's: warm rose ground, ink #2B2225, soft rose-grey supporting
-   text, one pill radius, and the same procedural grain over the whole page.
+   Scoped to .pf-home, so the four case studies keep the neutral white shell
+   they were built against. The palette is the hero's: near-black ground,
+   cream ink, one pill radius, the same grain over the whole page.
    ========================================================================== */
 .pf-home {
-  --pf-ink: #2B2225;
-  --pf-ink-2: #55444B;
-  --pf-ink-3: #7A626C;
-  --pf-line: #EEDDE2;
-  --pf-line-strong: #E3C9D2;
-  --pf-paper: #FFFDFC;
-  --pf-paper-2: #FDF4F0;
+  --pf-ink: #F3EFEA;
+  --pf-ink-2: #B5ACA8;
+  --pf-ink-3: #9A908D;
+  --pf-line: #272429;
+  --pf-line-strong: #3A353C;
+  --pf-paper: #161418;
+  --pf-paper-2: #201D22;
+  --pf-focus: #9CC2FF;
   position: relative;
+  color: #F3EFEA;
   background:
-    radial-gradient(120% 60% at 50% 0%, #FFF3EC 0%, rgba(255, 243, 236, 0) 55%),
-    linear-gradient(180deg, #FDF6F2 0%, #FBF1EE 55%, #FCF5F0 100%);
+    radial-gradient(120% 55% at 50% 0%, #1A181C 0%, rgba(26, 24, 28, 0) 60%),
+    linear-gradient(180deg, #0F0E10 0%, #121013 55%, #0E0D0F 100%);
 }
 
-/* the hero's grain, over the whole page rather than one band */
+/* the hero's grain over the whole page. On a dark ground it has to screen —
+   multiply on black is a no-op. */
 .pf-home::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: .22;
-  mix-blend-mode: multiply;
+  opacity: .16;
+  mix-blend-mode: screen;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
 
 .pf-home > * { position: relative; z-index: 1; }
 
 .pf-home .pf-header {
-  background: rgba(253, 246, 242, .86);
-  border-bottom-color: #F0DFE4;
+  background: rgba(15, 14, 16, .82);
+  border-bottom-color: #232026;
 }
 
-/* Selected Work reads as a quiet rule, not a divider */
-.pf-home .pf-work__head { border-bottom-color: #EFDCE1; }
+.pf-home .pf-work__head { border-bottom-color: #232026; }
 
-/* the cards lift off the rose ground instead of sitting flat on white */
+/* the cards lift off the ground; the covers keep carrying the colour */
 .pf-home .pf-card {
-  background: #FFFDFC;
-  border: 1px solid #F2E2E6;
+  background: #161418;
+  border: 1px solid #272429;
   border-radius: 20px;
   padding: 14px 14px 22px;
-  box-shadow: 0 1px 2px rgba(90, 50, 66, .04), 0 14px 34px -22px rgba(90, 50, 66, .30);
-  transition: box-shadow var(--pf-t) var(--pf-ease), transform var(--pf-t) var(--pf-ease);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .40), 0 18px 40px -24px rgba(0, 0, 0, .80);
+  transition: box-shadow var(--pf-t) var(--pf-ease),
+              border-color var(--pf-t) var(--pf-ease),
+              transform var(--pf-t) var(--pf-ease);
 }
 
 .pf-home .pf-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 2px 4px rgba(90, 50, 66, .05), 0 22px 44px -22px rgba(90, 50, 66, .38);
+  border-color: #3A353C;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .46), 0 26px 52px -24px rgba(0, 0, 0, .92);
 }
 
 .pf-home .pf-card__body { padding-inline: 8px; }
+.pf-home .pf-card__desc { color: #BDB4B0; }
 
 .pf-home .pf-card__labels li {
-  color: #6E5560;
-  background: #FDF0F3;
-  border-color: #F3DEE4;
+  color: #C9C0BC;
+  background: #201D22;
+  border-color: #302C33;
 }
 
 .pf-home .pf-footer {
   background: transparent;
-  border-top-color: #EFDCE1;
+  border-top-color: #232026;
 }
 
-/* the scattered stones warm up to match the ground */
-.pf-home .pf-gem svg { filter: drop-shadow(0 2px 4px rgba(120, 60, 82, .26)); }
+/* the stones need a dark shadow, not the pink-cast one used over white */
+.pf-home .pf-gem svg { filter: drop-shadow(0 2px 5px rgba(0, 0, 0, .55)); }
 
 @media (prefers-reduced-motion: reduce) {
   .pf-home .pf-card:hover { transform: none; }
 }
-
 
 /* ==========================================================================
    Bedazzle — scattered gems on the homepage
