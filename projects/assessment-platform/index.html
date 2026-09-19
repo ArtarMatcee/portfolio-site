@@ -360,7 +360,7 @@
       </div>
       <div class="pf-lead__row">
         <dt>Constraint</dt>
-        <dd>Nine participants from one faculty cannot support a claim of significance, so the study measures the sample rather than proving an effect, and the numbers are reported that way throughout.</dd>
+        <dd>The small, single-faculty sample limits generalizability. No significance test was reported.</dd>
       </div>
     </dl>
 
@@ -1485,7 +1485,7 @@
       </div>
       <div class="pf-lead__row">
         <dt>Constraint</dt>
-        <dd>No significance test is reported, so these figures describe the sample, not a proven effect. They compare the old platform against the redesign, not Version 1 against Version 2.</dd>
+        <dd>The small, single-faculty sample limits generalizability. No significance test was reported. The figures compare the old platform against the redesign, not Version 1 against Version 2.</dd>
       </div>
     </dl>
 
@@ -1614,8 +1614,8 @@
         <p class="small">
           <strong>Stimulation fell</strong> from 0.3 to 0.1 and <strong>Novelty was
           unchanged</strong> at &minus;0.25. The redesign made the platform clearer without
-          making it more engaging or more original in participants' eyes. The paper reports
-          no significance testing, so these figures describe the sample, not a proven effect.
+          making it more engaging or more original in participants' eyes. No significance test
+          was reported.
         </p>
       </article>
     </div>
@@ -1693,6 +1693,48 @@
       </div>
     </div>
 
+    <!-- A correction made after the evaluation. Kept separate from the V1 → V2
+         section on purpose: the evaluated design is the one the results describe,
+         and it is not edited retroactively. -->
+    <div class="panel anim" data-anim="2" style="margin-top:20px">
+      <h3>Correction — made after the evaluation</h3>
+      <p class="small" style="color:var(--ink-soft)">
+        This change is <strong>not</strong> in the version that was tested. The screens and the
+        results above are the evaluated design, unedited; this is what I changed once the
+        duplication was pointed out.
+      </p>
+      <dl class="pf-lead" style="margin-top:18px">
+        <div class="pf-lead__row">
+          <dt>The defect</dt>
+          <dd>Four analytics tiles read Maximum score, Minimum score, <strong>Average score</strong>
+              and <strong>Mean</strong>. Those last two are the same statistic, and the dashboard
+              repeated the error as two charts — <em>Average Scores By Test</em> and <em>Mean Scores
+              By Test</em> — drawing identical bars.</dd>
+        </div>
+        <div class="pf-lead__row">
+          <dt>The correction</dt>
+          <dd>The <em>Mean</em> tile becomes <strong>Median score</strong>, which answers a question
+              the average cannot: where the middle student actually landed when a handful of zeros
+              drag the mean down. Each tile carries a one-line definition, so neither is read by
+              its name alone. On the dashboard the duplicate chart goes and the remaining one
+              widens into the space.</dd>
+        </div>
+        <div class="pf-lead__row">
+          <dt>Why this, not a rename</dt>
+          <dd>Deleting the tile would have been the smaller change, but instructors in the
+              interviews wanted to know who was struggling, not just how the paper performed
+              overall — and a mean and a median that disagree is exactly that signal. The slot
+              was worth keeping; it just needed a second statistic rather than a second name for
+              the first one.</dd>
+        </div>
+        <div class="pf-lead__row">
+          <dt>Still untested</dt>
+          <dd>This correction has not been in front of an instructor. It is a design fix, not a
+              measured improvement, and it is not counted in any figure on this page.</dd>
+        </div>
+      </dl>
+    </div>
+
     <div class="panel panel--next anim" data-anim="2" style="margin-top:20px">
       <h3>Next steps — proposed, not built</h3>
       <p class="small" style="color:var(--ink-soft)">
@@ -1705,7 +1747,7 @@
         <li>Give the editor room for different working styles — the instructors who draft in Word are describing a workflow, not just a formatting problem.</li>
         <li>Order question types by how often they are actually used, which the paper records as a mismatch in the current platform and which neither Figma version resolves.</li>
         <li>Test the Scoring Setting, group assignment and Secure Exam Mode with instructors; they were added late and have no usability data of their own.</li>
-        <li>Resolve the mean-versus-average duplication: keep one measure of central tendency, or — if a second one is genuinely wanted — make it a different statistic, label it as such (median, or mean per question rather than per student) and define it where it is shown. The duplicated dashboard chart goes with it.</li>
+        <li>Put the mean-versus-average correction above in front of instructors — a median beside an average is only worth the slot if they read the two together.</li>
         <li>Establish whether the clarity gains hold over a term of real use, rather than a single session.</li>
       </ul>
     </div>
