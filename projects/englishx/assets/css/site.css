@@ -123,7 +123,7 @@ code{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.85em;
 
 .hero__shot{ margin:0; }
 .hero__note{ position:relative; margin:clamp(28px,4vw,44px) 0 0; font-size:14px; color:var(--ink-soft);
-             max-width:62ch; padding-left:16px; border-left:3px solid var(--pink-soft); }
+             max-width:62ch; }
 
 /* ------------------------------------------------------------- browser -- */
 .browser{ border-radius:var(--radius); overflow:hidden; background:#fff;
@@ -188,8 +188,8 @@ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .sub-lede{ color:var(--ink-mid); max-width:60ch; margin-bottom:28px; }
 
 .note{ font-size:14.5px; color:var(--ink-soft); background:var(--bg-grey);
-       border:1px solid var(--line); border-left:3px solid var(--pink-soft);
-       border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:14px 18px; max-width:72ch; margin-top:26px; }
+       border:1px solid var(--line);
+       border-radius:var(--radius-sm); padding:14px 18px; max-width:72ch; margin-top:26px; }
 .note--inline{ margin-top:16px; font-size:14px; }
 
 /* ---------------------------------------------------------------- flow -- */
@@ -231,8 +231,8 @@ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
                margin:0 0 10px; }
 .story__step h3{ font-size:clamp(21px,2.1vw,26px); margin-bottom:12px; color:var(--ink-deep); }
 .story__step p{ font-size:16px; color:var(--ink-mid); }
-.story__benefit{ position:relative; padding-left:16px; border-left:3px solid var(--pink-soft);
-                 font-size:15px; color:var(--ink); margin-bottom:0; }
+.story__benefit{ position:relative; font-size:15px; font-weight:500;
+                 color:var(--ink); margin-bottom:0; }
 .story__crop{ margin:22px 0 0; }
 .story__crop figcaption,.inline-crop figcaption{ font-size:13px; color:var(--ink-faint); margin-top:8px; }
 .story__inline{ display:none; margin:20px 0 0; }
@@ -319,7 +319,7 @@ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .summary h3{ font-size:18px; color:var(--ink-deep); margin-bottom:10px; }
 .summary p{ font-size:15px; color:var(--ink-mid); margin:0; }
 
-.scope{ background:#fff; border:1px solid var(--line); border-left:4px solid var(--lavender);
+.scope{ background:#fff; border:1px solid var(--line);
         border-radius:var(--radius); padding:clamp(22px,3vw,32px); margin-bottom:clamp(28px,4vw,40px); }
 .scope h3{ font-size:17px; margin-bottom:10px; color:var(--ink-deep); }
 .scope p{ font-size:15px; color:var(--ink-mid); margin:0; max-width:86ch; }

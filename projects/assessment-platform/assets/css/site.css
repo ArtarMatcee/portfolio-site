@@ -265,8 +265,8 @@ a { color: var(--blue-500); }
 .card .small { color: var(--ink-soft); }
 
 .quote {
-  border-left: 3px solid var(--blue); background: var(--blue-050);
-  padding: 18px 22px; border-radius: 0 var(--radius) var(--radius) 0; margin: 0 0 20px;
+  background: var(--blue-050); border: 1px solid #DBEAFE;
+  padding: 18px 22px; border-radius: var(--radius); margin: 0 0 20px;
 }
 .quote p { margin: 0; font-size: 16px; color: var(--ink-soft); }
 .quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 13px; color: var(--ink-mid); }
@@ -390,14 +390,13 @@ a { color: var(--blue-500); }
 .step {
   width: 100%; text-align: left; font: inherit; cursor: pointer;
   background: var(--white); border: 1px solid var(--line-light);
-  border-left: 3px solid var(--line-light);
   border-radius: var(--radius); padding: 18px 20px;
   transition: border-color var(--t) var(--ease), background var(--t) var(--ease),
               box-shadow var(--t) var(--ease);
 }
 .step[aria-current="step"] {
-  border-color: var(--line-light); border-left-color: var(--blue);
-  background: var(--white); box-shadow: var(--shadow-md);
+  border-color: var(--line); background: var(--white);
+  box-shadow: var(--shadow-md);
 }
 .step__top { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
 .step__n {
@@ -451,7 +450,7 @@ a { color: var(--blue-500); }
 /* --- explicit gap / caveat callout --- */
 .flag {
   display: flex; gap: 12px; align-items: flex-start;
-  background: #FFFBEB; border: 1px solid #FDE68A; border-left: 3px solid var(--amber);
+  background: #FFFBEB; border: 1px solid #FCD34D;
   border-radius: var(--radius); padding: 16px 18px; margin: 22px 0 0;
 }
 .flag svg { width: 18px; height: 18px; flex: none; margin-top: 2px; fill: #B45309; }
