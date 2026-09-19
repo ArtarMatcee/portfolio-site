@@ -429,9 +429,9 @@ html {
 }
 
 .pf-btn--ghost {
-  background: transparent;
+  background: rgba(255, 255, 255, .75);
   color: var(--pf-ink);
-  border-color: var(--pf-line-strong);
+  border-color: rgba(26, 23, 19, .22);
 }
 
 .pf-btn--ghost:hover {
@@ -781,37 +781,66 @@ html {
 }
 
 .pf-intro {
-  padding-block: clamp(72px, 13vw, 168px) clamp(64px, 10vw, 128px);
+  /* the reference's calm field: warm grey, so the pearl and clear pieces read */
+  background: #EBE9E5;
+  text-align: center;
+  padding-block: clamp(64px, 11vw, 132px) clamp(56px, 9vw, 112px);
 }
 
-.pf-intro__eyebrow {
-  margin-bottom: clamp(20px, 3vw, 32px);
+/* Typewriter, like the line above the reference's title. */
+.pf-intro__lede {
+  font-family: "Courier Prime", ui-monospace, "Courier New", monospace;
+  font-size: clamp(13.5px, 1.1vw, 15.5px);
+  line-height: 1.72;
+  color: #4A4742;
+  margin: 0 auto;
+  max-width: 58ch;
 }
 
+/* The embellishment that sits between the line and the title. */
+.pf-intro__motif {
+  display: block;
+  width: clamp(30px, 3.4vw, 42px);
+  margin: clamp(26px, 4vw, 46px) auto clamp(16px, 2.4vw, 28px);
+}
+
+.pf-intro__motif svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: #D6217A;
+  filter: drop-shadow(0 1px 2px rgba(80, 30, 60, .18));
+}
+
+/* The title, in the reference's script. */
 .pf-intro__name {
-  font-family: var(--pf-font);
-  font-size: clamp(40px, 7.4vw, 78px);
-  font-weight: 600;
-  line-height: 1.02;
-  color: var(--pf-ink);
+  font-family: "Parisienne", "Snell Roundhand", cursive;
+  font-size: clamp(52px, 8.6vw, 112px);
+  font-weight: 400;
+  line-height: 1.06;
+  color: #1A1713;
   margin: 0;
   text-wrap: balance;
 }
 
-.pf-intro__lede {
-  font-family: var(--pf-font);
-  font-size: clamp(18px, 1.7vw, 22px);
-  line-height: 1.62;
-  color: var(--pf-ink-2);
-  margin: clamp(24px, 3.4vw, 36px) 0 0;
-  max-width: 58ch;
+/* Old-style serif in caps under the title. Tracking stays normal: this site
+   sets letter-spacing: normal everywhere, and that rule is not worth breaking
+   for one line. */
+.pf-intro__eyebrow {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #55504A;
+  margin: clamp(10px, 1.6vw, 18px) 0 0;
 }
 
 .pf-intro__actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
-  margin-top: clamp(32px, 4.5vw, 48px);
+  margin-top: clamp(30px, 4.2vw, 52px);
 }
 
 .pf-work {
