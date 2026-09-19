@@ -1185,6 +1185,48 @@ html {
   }
 }
 
+/* ---------------------------------------------------------------- meta --
+   The compact project summary under each case study's hero: role, team,
+   timeline, project type, delivery status. A field with no confirmed source
+   is left out rather than guessed, so the strip is shorter on some pages. */
+.pf-meta {
+  background: var(--pf-paper);
+  border-top: 1px solid var(--pf-line);
+  border-bottom: 1px solid var(--pf-line);
+}
+
+.pf-meta__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: clamp(18px, 2.6vw, 34px);
+  margin: 0;
+  padding: clamp(20px, 2.6vw, 28px) 0;
+}
+
+.pf-meta__item {
+  margin: 0;
+  min-width: 0;
+}
+
+.pf-meta__item dt {
+  margin: 0 0 6px;
+  font-family: var(--pf-font);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pf-ink-3);
+}
+
+.pf-meta__item dd {
+  margin: 0;
+  font-family: var(--pf-font);
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--pf-ink);
+  text-wrap: pretty;
+}
+
 /* ==========================================================================
    Bedazzle — scattered gems on the homepage
    --------------------------------------------------------------------------
