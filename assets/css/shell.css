@@ -1370,6 +1370,87 @@ html {
 .band--dark .pf-lead__row dt { color: rgba(255, 255, 255, .66); }
 
 /* ==========================================================================
+   Homepage — the hero's world, carried through the page
+   --------------------------------------------------------------------------
+   Everything here is scoped to .pf-home / .pf-home-doc, so the four case
+   studies keep the neutral white shell they were built against. The palette
+   is the hero's: warm rose ground, ink #2B2225, soft rose-grey supporting
+   text, one pill radius, and the same procedural grain over the whole page.
+   ========================================================================== */
+.pf-home {
+  --pf-ink: #2B2225;
+  --pf-ink-2: #55444B;
+  --pf-ink-3: #7A626C;
+  --pf-line: #EEDDE2;
+  --pf-line-strong: #E3C9D2;
+  --pf-paper: #FFFDFC;
+  --pf-paper-2: #FDF4F0;
+  position: relative;
+  background:
+    radial-gradient(120% 60% at 50% 0%, #FFF3EC 0%, rgba(255, 243, 236, 0) 55%),
+    linear-gradient(180deg, #FDF6F2 0%, #FBF1EE 55%, #FCF5F0 100%);
+}
+
+/* the hero's grain, over the whole page rather than one band */
+.pf-home::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.pf-home > * { position: relative; z-index: 1; }
+
+.pf-home .pf-header {
+  background: rgba(253, 246, 242, .86);
+  border-bottom-color: #F0DFE4;
+}
+
+/* Selected Work reads as a quiet rule, not a divider */
+.pf-home .pf-work__head { border-bottom-color: #EFDCE1; }
+.pf-home .pf-work__count { color: #8A737C; }
+
+/* the cards lift off the rose ground instead of sitting flat on white */
+.pf-home .pf-card {
+  background: #FFFDFC;
+  border: 1px solid #F2E2E6;
+  border-radius: 20px;
+  padding: 14px 14px 22px;
+  box-shadow: 0 1px 2px rgba(90, 50, 66, .04), 0 14px 34px -22px rgba(90, 50, 66, .30);
+  transition: box-shadow var(--pf-t) var(--pf-ease), transform var(--pf-t) var(--pf-ease);
+}
+
+.pf-home .pf-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(90, 50, 66, .05), 0 22px 44px -22px rgba(90, 50, 66, .38);
+}
+
+.pf-home .pf-card__body { padding-inline: 8px; }
+
+.pf-home .pf-card__labels li {
+  color: #6E5560;
+  background: #FDF0F3;
+  border-color: #F3DEE4;
+}
+
+.pf-home .pf-footer {
+  background: transparent;
+  border-top-color: #EFDCE1;
+}
+
+/* the scattered stones warm up to match the ground */
+.pf-home .pf-gem svg { filter: drop-shadow(0 2px 4px rgba(120, 60, 82, .26)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-home .pf-card:hover { transform: none; }
+}
+
+
+/* ==========================================================================
    Bedazzle — scattered gems on the homepage
    --------------------------------------------------------------------------
    Faceted SVG shapes, recoloured per instance through `currentColor`, so one
